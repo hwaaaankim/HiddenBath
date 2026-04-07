@@ -1,0 +1,47 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/hiddenbath_prod?useUnicode=true&characterEncoding=utf8
+    username: hiddenbath_prod
+    password: hidden3660!@
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+      max-lifetime: 1800000
+      pool-name: HikariCP
+      read-only: false
+      connection-test-query: SELECT 1
+
+  h2:
+    console:
+      enabled: false
+
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+
+  servlet:
+    multipart:
+      max-file-size: 5000MB
+      max-request-size: -1
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: admin@hiddenbath.co.kr
+    password: hfdpehjnemsxvhre
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  upload.path: /root/apps/hiddenbath/storage/www
+  upload.env: prod
