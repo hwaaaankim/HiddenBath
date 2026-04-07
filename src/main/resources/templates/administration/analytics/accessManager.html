@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">사이트접속관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">사이트접속관리</a></li>
+										<li class="breadcrumb-item active">사이트접속로그</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-header align-items-center d-flex">
+									<h4 class="card-title mb-0 flex-grow-1">총 로그 : <span>11,157</span></h4>
+								</div>
+								<div class="card-body">
+									<p class="text-muted"># 엑셀 다운로드 버튼 클릭 시<code> 현재 검색조건에 맞는 데이터가</code> 다운로드 됩니다.</p>
+									<div class="live-preview" style="margin-top:10px;">
+										<form>
+											<div class="row">
+												<div class="col-lg-2 pr-0">
+													<select class="form-select mb-3" aria-label="Default select example">
+														<option selected>== 10개씩 보기 ==</option>
+														<option value="1">== 30개씩 보기 ==</option>
+														<option value="2">== 50개씩 보기 ==</option>
+														<option value="3">== 100개씩 보기 ==</option>
+													</select>
+												</div>
+												<div class="col-lg-2 pr-0">
+													<div>
+	                                                    <input type="date" class="form-control">
+	                                                </div>
+												</div>
+												<div class="col-lg-2 pr-0">
+													<div>
+	                                                    <input type="date" class="form-control">
+	                                                </div>
+												</div>
+												<div class="col-lg-2 pr-0">
+    												<button class="btn btn-primary" type="button">검색하기</button>
+    												<button class="btn btn-success" type="button">엑셀다운로드</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="card-body">
+									
+
+									<div class="live-preview">
+										<div class="table-responsive">
+											<table class="table table-bordered align-middle table-nowrap mb-0">
+												<thead>
+													<tr>
+														<th scope="col">번호</th>
+														<th scope="col">접속IP</th>
+														<th scope="col">접속일자</th>
+														<th scope="col">접속기기</th>
+														<th scope="col">최종접속시간</th>
+														<th scope="col">페이지이동수</th>
+														<th scope="col">비고</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/siteAccessDetail">127.0.0.1</a></td>
+														<td>2024.04.18 08:80</td>
+														<td>PC</td>
+														<td>-</td>
+														<td>8</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<nav aria-label="Page navigation example" style="margin-top:10px;">
+											<ul class="pagination justify-content-center">
+												<li class="page-item disabled">
+													<a class="page-link" href="#" tabindex="-1">First</a>
+												</li>
+												<li class="page-item disabled">
+													<a class="page-link" href="#" tabindex="-1">Previous</a>
+												</li>
+												<li class="page-item"><a class="page-link" href="#">1</a></li>
+												<li class="page-item"><a class="page-link" href="#">2</a></li>
+												<li class="page-item"><a class="page-link" href="#">3</a></li>
+												<li class="page-item">
+													<a class="page-link" href="#">Next</a>
+												</li>
+												<li class="page-item">
+													<a class="page-link" href="#">Last</a>
+												</li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+</body>
+
+</html>

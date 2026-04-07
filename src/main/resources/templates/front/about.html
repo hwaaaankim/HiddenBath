@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/clean/common :: cleanHead"></head>
+
+<body class="home home-6 title-6">
+	<th:block th:replace="~{fragments/front/clean/common :: sessionCheck(${session.user})}"></th:block>
+	<div id="page" class="hfeed page-wrapper">
+		<header id="site-header" class="site-header header-v3"
+			th:replace="~{fragments/front/clean/common :: cleanHeader(${menuList})}">
+		</header>
+
+		<div id="site-main" class="site-main">
+			<div id="main-content" class="main-content">
+				<div id="primary" class="content-area">
+					<div id="content" class="site-content" role="main">
+						<section class="section m-b-0">
+							<div class="block block-sliders layout-6 nav-vertical">
+								<div class="slick-sliders" data-autoplay="false" data-dots="false" data-nav="false"
+									data-columns4="1" data-columns3="1" data-columns2="1" data-columns1="1"
+									data-columns1440="1" data-columns="1">
+									<div class="item slick-slide">
+										<div class="item-content">
+											<div class="content-image">
+												<img width="1920" height="1080" src="/front/clean/newnewnew/about03.jpg"
+													alt="Image Slider">
+											</div>
+											<div class="item-info horizontal-center vertical-middle text-center">
+												
+												<div class="content">
+													<div style="line-height: 1.4;">
+														<a href="/" style="color:gray;">Home</a><span style="color:gray;" class="delimiter"> / </span><span style="color:white;">회사소개</span>
+													</div>
+													<div class="subtitle-slider" style="line-height: 1.4; margin-bottom:20px;">HIDDEN BATH는 풍요로운 욕실 문화를 만듭니다</div>
+													<h2 class="title-slider">모두의 <strong>취향</strong>과 <strong>개성</strong>을 반영하다</h2>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section class="section section-padding m-b-70 m-t-70">
+							<div class="section-container">
+								<!-- Block Banners -->
+								<div class="block block-banners banners-effect">
+									<div class="block-widget-wrap">
+										<div class="block-content">
+											<div class="block-widget-banner layout-16 no-space">
+												<div class="banners">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="banner-image">
+																<a href="#">
+																	<img src="/front/clean/newnewnew/about01.jpg"
+																		alt="Banner Image">
+																</a>
+															</div>
+														</div>
+														<div class="col-md-6 banner-infor background-1">
+															<div class="banner-wrapper-infor">
+																<div class="info">
+																	<div class="content">
+																		<a class="link-title" href="/productList">
+																			<h3 class="title-banner">HIDDEN + BATH
+																			</h3>
+																		</a>
+																		<div class="banner-image-description">
+																			우리의 주거 공간 중<br>
+																			다소 비밀스럽고	조심스러운 공간을<br>
+																			화려하고 아늑한 공간으로 꾸밉니다.<br><br>
+																		</div>
+																		<div class="banner-image-description">
+																			하루의 시작이자<br>
+																			하루의 마지막을 함께하는 소중한 공간 욕실,<br><br>
+																			더 나은 삶과 더 나은 공간으로<br>
+																			만드는 기업 입니다.
+																		</div>
+																		<a class="button button-outline"
+																			href="/productList">제품정보 보기</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+
+						<section class="section section-padding m-b-70">
+							<div class="section-container">
+								<!-- Block Banners -->
+								<div class="block block-banners banners-effect">
+									<div class="block-widget-wrap">
+										<div class="block-content">
+											<div class="block-widget-banner layout-16 no-space">
+												<div class="banners">
+													<div class="row">
+														<div class="col-md-6 banner-infor background-2">
+															<div class="banner-wrapper-infor">
+																<div class="info">
+																	<div class="content">
+																		<a class="link-title" href="/order">
+																			<h3 class="title-banner">HISTORIC 
+																			</h3>
+																		</a>
+																		<div class="banner-image-description">
+																			히든바스는 1996년 창립이후<br>
+																			약 30년에 가까운 시간을 언제나<br>
+																			고객 한사람 한사람의 삶속에 가까이 가길 바래왔습니다.<br><br>
+																			제품 하나를 연구개발하여 제작하기 까지<br>
+																			그 사람의 하루를 편하게 해줌은 물론<br>
+																			그 사람의 취향과 선호를 맞춤으로 담아내기 위하여
+																			<br><br>
+																			끊임없이 연구하고 노력하는 기업입니다.
+																		</div>
+																		<a class="button button-outline"
+																			href="/order">비규격주문 보기</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="banner-image">
+																<a href="shop-grid-left.html">
+																	<img src="/front/clean/newnewnew/about02.jpg"
+																		alt="Banner Image">
+																</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="site-footer" class="site-footer background"
+			th:replace="fragments/front/clean/common :: cleanFooter">
+		</footer>
+	</div>
+	<th:block th:replace="fragments/front/clean/common :: cleanScript"></th:block>
+</body>
+
+</html>

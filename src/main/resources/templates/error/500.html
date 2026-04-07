@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/front/clean/common :: cleanHead}"></head>
+
+<body class="home home-6 title-6">
+	<div id="page" class="hfeed page-wrapper">
+		<header id="site-header" class="site-header header-v3" 
+		th:replace="~{fragments/front/clean/common :: cleanHeader(${menuList})}">
+		</header>
+
+		<div id="site-main" class="site-main">
+			<div id="main-content" class="main-content">
+				<div id="primary" class="content-area">
+					<div id="content" class="site-content" role="main">
+						<section class="section m-b-0">
+							<div class="block block-sliders layout-6 nav-vertical">
+								<div class="slick-sliders" data-autoplay="false" data-dots="false" data-nav="false"
+									data-columns4="1" data-columns3="1" data-columns2="1" data-columns1="1"
+									data-columns1440="1" data-columns="1">
+									<div class="item slick-slide">
+										<div class="item-content">
+											<div class="content-image">
+												<img width="1920" height="1080" src="/front/clean/newnew/bg08.jpg"
+													alt="Image Slider">
+											</div>
+											<div class="item-info horizontal-center vertical-middle text-center">
+												
+												<div class="content">
+													<a href="/index" style="color:gray;">Home</a><span style="color:gray;" class="delimiter"> / </span><span style="color:white;">HIDDEN BATH</span>
+													<div class="subtitle-slider">서버 에러가 발생하였습니다.</div>
+													<h2 class="title-slider">모두의 <strong>취향</strong>과 <strong>개성</strong>을 반영하다</h2>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="site-footer" class="site-footer background"
+			th:replace="~{fragments/front/clean/common :: cleanFooter}">
+		</footer>
+	</div>
+	<th:block th:replace="~{fragments/front/clean/common :: cleanScript}"></th:block>
+</body>
+
+</html>

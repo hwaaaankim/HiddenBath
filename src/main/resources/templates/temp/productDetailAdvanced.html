@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/clean/common :: cleanHead"></head>
+
+<body class="home home-5">
+	<div id="page" class="hfeed page-wrapper">
+		<header id="site-header" class="site-header header-v1 relative"
+			th:replace="fragments/front/clean/common :: cleanHeader(${menuList})">
+		</header>
+
+		<div id="site-main" class="site-main">
+			<div id="main-content" class="main-content">
+				<div id="primary" class="content-area">
+					<div id="title" class="page-title" style="background:url('/front/clean/new/b07.png');">
+						<div class="section-container">
+							<div class="content-title-heading">
+								<h1 class="text-title-heading">
+									[[${product.name}]]
+								</h1>
+							</div>
+							<div class="breadcrumbs">
+								<a href="/">HOME</a><span class="delimiter"></span>
+								<a th:href="@{/productList/{id}(id=${product.bigSort.id})}">[[${product.bigSort.name}]]</a><span class="delimiter"></span>
+								<a th:href="@{/productList/{id}(id=${product.bigSort.id}, middleId=${middleId})}">[[${product.middleSort.name}]]</a><span class="delimiter"></span>[[${product.name}]]
+							</div>
+						</div>
+					</div>
+
+					<div id="content" class="site-content" role="main">
+						<div class="shop-details zoom" data-product_layout_thumb="scroll" data-zoom_scroll="true"
+							data-zoom_contain_lens="true" data-zoomtype="inner" data-lenssize="200"
+							data-lensshape="square" data-lensborder="" data-bordersize="2" data-bordercolour="#f9b61e"
+							data-popup="false">
+							<div class="product-top-info">
+								<div class="section-padding">
+									<div class="section-container p-l-r">
+										<div class="row">
+											<div class="product-images col-lg-7 col-md-12 col-12">
+												<div class="row">
+													<div class="col-md-2">
+														<div class="content-thumbnail-scroll">
+															<div class="image-thumbnail slick-carousel slick-vertical"
+																data-asnavfor=".image-additional" data-centermode="true"
+																data-focusonselect="true" data-columns4="5"
+																data-columns3="4" data-columns2="4" data-columns1="4"
+																data-columns="4" data-nav="true"
+																data-vertical="&quot;true&quot;"
+																data-verticalswiping="&quot;true&quot;">
+																<div class="img-item slick-slide" th:each="i:${product.images}">
+																	<span class="img-thumbnail-scroll">
+																		<img width="600" height="600"
+																			th:src="@{${i.productImageRoad}}"
+																			alt="">
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-10">
+														<div class="scroll-image main-image">
+															<div class="image-additional slick-carousel"
+																data-asnavfor=".image-thumbnail" data-fade="true"
+																data-columns4="1" data-columns3="1" data-columns2="1"
+																data-columns1="1" data-columns="1" data-nav="true">
+																<div class="img-item slick-slide" th:each="i:${product.images}">
+																	<img width="900" height="900"
+																		th:src="@{${i.productImageRoad}}" alt=""
+																		title="">
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="product-info col-lg-5 col-md-12 col-12 ">
+												<h1 class="title" th:text="${product.name}">제품명</h1>
+												<span class="price hashtag" th:text="${product.productCode}">
+													제품코드
+												</span>
+												<div class="description">
+													<p th:if="${product.subject != ''}">== 제품의 묘사 문구가 삽입되는 영역입니다[관리자등록] ===</p>
+													<p th:if="${product.subject == ''}">-</p>
+												</div>
+												<div class="variations">
+													<table cellspacing="0">
+														<tbody>
+															
+															<tr>
+																<td class="label">COLORs</td>
+																<td class="attributes">
+																	<ul class="colors">
+																		<li th:each="c:${product.productColors}">
+																		    <img class="" width="50" height="50"
+																		         th:src="@{${c.productColorRoad}}"
+																		         th:classappend="${c.productColorSubject == 'HW'} ? 'bordered' : ''"
+																		         alt=""
+																		         title="">
+																		</li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td class="label">TAG</td>
+																<td class="attributes">
+																	<ul class="text">
+																		<li th:each="t:${product.productTags}"><span># [[${t.productTagText}]]</span></li>
+																	</ul>
+																</td>
+															</tr>
+															<tr>
+																<td class="label">SIZE</td>
+																<td class="attributes">
+																	<ul class="text">
+																		<li th:each="s:${product.productSizes}"><span th:text="${s.productSizeText}">L</span></li>
+																	</ul>
+																</td>
+															</tr>
+	        											</tbody>
+													</table>
+												</div>
+												<div class="product-meta" style="margin-bottom:0px;">
+													<div th:each="o, iterStat : ${product.productOptions}" class="sku-wrapper">&#183; OPTION [[${iterStat.index + 1}]] : 
+														<a style="font-weight:600;" class="sku" th:text="${o.productOptionText}">옵션 답변</a>
+													</div>
+												</div>
+												<div class="product-meta" style="margin-top:0px; border-top:none;">
+													<span class="sku-wrapper">&#183; 대분류 : <a>[[${product.bigSort.name}]]</a></span>
+													<span class="posted-in">&#183; 중분류 : <a>[[${product.middleSort.name}]]</a></span>
+													<span class="tagged-as">&#183; 제품코드 : <a>[[${product.productCode}]]</a></span>
+												</div>
+												<div class="social-share">
+													<a href="javascript:alert('준비중입니다');" class="btn btn-theme">&#183; 이미지 다운로드 <i class="fa-solid fa-download"></i></a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="product-tabs" style="border-top:none;margin-bottom:100px;">
+							</div>
+							<div class="product-related">
+								<div class="section-padding">
+									<div class="section-container p-l-r">
+										<div class="block block-products slider">
+											<div class="block-title">
+												<h2 style="font-weight:600; font-size:20px;letter-spacing: -1px;">어울리는 제품</h2>
+												<p class="info-message"style="margin-top:10px;">검색하신 제품과 어울리는 비슷한 분위기의 제품들 입니다.</p>
+											</div>
+											<div class="block-content">
+												<div class="content-product-list slick-wrap">
+													<div class="slick-sliders products-list grid"
+														data-slidestoscroll="true" data-dots="false" data-nav="1"
+														data-columns4="1" data-columns3="2" data-columns2="3"
+														data-columns1="3" data-columns1440="4" data-columns="4">
+														<div class="item-product slick-slide" th:each="r:${relatedProducts}">
+															<div class="items">
+																<div class="products-entry clearfix product-wapper">
+																	<div class="products-thumb">
+																		<div class="product-thumb-hover">
+																			<a th:href="@{|/productDetail/${r.id}|}">
+																				<img width="600" height="600"
+																					th:src="${r.productRepImageRoad}"
+																					class="post-image" alt="">
+																				<img width="600" height="600"
+																					th:src="${r.productRepImageRoad}"
+																					class="hover-image back" alt="">
+																			</a>
+																		</div>
+																	</div>
+																	<div class="products-content">
+																		<div class="contents text-center">
+																			<h3 class="product-title"><a
+																					th:href="@{|/productDetail/${r.id}|}" th:text="${r.name}">제품명</a></h3>
+																			<span class="price" th:text="${r.productCode}">Description</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="site-footer" class="site-footer" th:replace="fragments/front/clean/common :: cleanFooter">
+		</footer>
+	</div>
+	<th:block th:replace="fragments/front/clean/common :: cleanScript"></th:block>
+	<script src="/front/clean/libs/slider/js/tmpl.js"></script>
+	<script src="/front/clean/libs/slider/js/jquery.dependClass-0.1.js"></script>
+	<script src="/front/clean/libs/slider/js/draggable-0.1.js"></script>
+	<script src="/front/clean/libs/slider/js/jquery.slider.js"></script>
+	<script src="/front/clean/libs/elevatezoom/js/jquery.elevatezoom.js"></script>
+</body>
+
+</html>

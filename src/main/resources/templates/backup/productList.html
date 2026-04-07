@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/clean/common :: cleanHead"></head>
+
+<body class="home home-5">
+	<div id="page" class="hfeed page-wrapper">
+		<header id="site-header" class="site-header header-v1 relative"
+			th:replace="fragments/front/clean/common :: cleanHeader">
+		</header>
+
+		<div id="site-main" class="site-main">
+			<div id="main-content" class="main-content">
+				<div id="primary" class="content-area">
+					<div id="title" class="page-title" style="background:url('/front/clean/new/b08.png');">
+						<div class="section-container">
+							<div class="content-title-heading">
+								<h1 class="text-title-heading">
+									선택된 제품 대분류
+								</h1>
+							</div>
+							<div class="breadcrumbs">
+								<a href="#">HOME</a><span class="delimiter"></span><a href="#">대분류</a><span
+									class="delimiter"></span>중분류
+							</div>
+						</div>
+					</div>
+
+					<div id="content" class="site-content" role="main">
+						<div class="section-padding">
+							<div class="section-container p-l-r">
+								<div class="block-title" style="margin-bottom:20px;">
+									<p class="info-message text-left"># 사이트 접속자가 대분류 클릭하여 접속시 <strong>해당 대분류로 분류된</strong> 제품 리스트가 출력 됩니다.</p>
+									<p class="info-message text-left"># 전체 제품 리스트 버튼 클릭을 통해 접속시 분류 전 전체 제품이 보여집니다.</p>
+									<p class="info-message text-left"># 기본적인 제품 노출 순위는 최신 등록된 제품이 가장 먼저 노출 되도록 설정됩니다.</p>
+									<p class="info-message text-left"># <strong>별도의 노출 알고리즘이</strong> 필요하신 경우 말씀 해 주시면 적용 가능합니다.</p>
+									<p class="info-message text-left"># 필터 기능은 <strong>hashtag[제품의 분위기, 관리자등록] / 제품 분류별 / 제품 색상별 분류 기능[색상 옵션이 제품에 존재하는 경우]이 </strong> 존재합니다.</p>
+									<p class="info-message text-left"># 우측 상단 중분류 검색 옆 버튼클릭을 통해 보는화면 레이아웃 변경이 가능합니다.</p>
+									<p class="info-message text-left"># 좌측 검색어 필터 외에 우측 상단의 검색 기능을 통해서도 제품명 검색 / 제품 코드검색이 가능합니다.</p>
+								</div>
+								<div class="row">
+									<div class="col-xl-3 col-lg-3 col-md-12 col-12 sidebar left-sidebar md-b-50">
+										<!-- Block Product Categories -->
+										<div class="block block-product-cats">
+											<div class="block-title">
+												<h2>대분류 CATEGORY</h2>
+											</div>
+											<div class="block-content">
+												<div class="product-cats-list">
+													<ul>
+														<li class="current">
+															<a href="#">등록된 제품 대분류<span class="count">9</span></a>
+														</li>
+														<li>
+															<a href="#">등록된 제품 대분류<span class="count">4</span></a>
+														</li>
+														<li>
+															<a href="#">등록된 제품 대분류 <span class="count">3</span></a>
+														</li>
+														<li>
+															<a href="#">등록된 제품 대분류 <span class="count">6</span></a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+
+										<div class="block block-product-filter clearfix">
+											<div class="block-title">
+												<h2>검색 FILTER 01</h2>
+											</div>
+											<div class="block-content">
+												<ul class="filter-items image">
+													<li><span><img src="/front/clean/media/brand/1.jpg"
+																alt="Brand"></span></li>
+													<li><span><img src="/front/clean/media/brand/2.jpg"
+																alt="Brand"></span></li>
+													<li><span><img src="/front/clean/media/brand/3.jpg"
+																alt="Brand"></span></li>
+													<li><span><img src="/front/clean/media/brand/4.jpg"
+																alt="Brand"></span></li>
+													<li><span><img src="/front/clean/media/brand/5.jpg"
+																alt="Brand"></span></li>
+													<li><span><img src="/front/clean/media/brand/5.jpg"
+																alt="Brand"></span></li>
+												</ul>
+											</div>
+										</div>
+										<div class="block block-product-filter clearfix">
+											<div class="block-title">
+												<h2>검색 FILTER 02</h2>
+											</div>
+											<div class="username">
+												<input type="text" style="width:100%;" class="input-text"
+													name="username" placeholder="원하는 분위기를 입력 해 주세요." />
+											</div>
+										</div>
+									</div>
+
+									<div class="col-xl-9 col-lg-9 col-md-12 col-12">
+										<div class="products-topbar clearfix">
+											<div class="products-topbar-left">
+												<div class="products-count">
+													제품 페이지 수 / 총 페이지 수
+												</div>
+											</div>
+											<div class="products-topbar-right">
+												<div class="products-sort dropdown">
+													<span class="sort-toggle dropdown-toggle" data-toggle="dropdown"
+														aria-expanded="true">중분류 검색</span>
+													<ul class="sort-list dropdown-menu" x-placement="bottom-start">
+														<li class="active"><a href="#">중분류01</a></li>
+														<li><a href="#">중분류01</a></li>
+														<li><a href="#">중분류01</a></li>
+														<li><a href="#">중분류01</a></li>
+														<li><a href="#">중분류01</a></li>
+														<li><a href="#">중분류01</a></li>
+													</ul>
+												</div>
+												<ul class="layout-toggle nav nav-tabs">
+													<li class="nav-item">
+														<a class="layout-grid nav-link" data-toggle="tab"
+															href="#layout-grid" role="tab"><span
+																class="icon-column"><span
+																	class="layer first"><span></span><span></span><span></span></span><span
+																	class="layer middle"><span></span><span></span><span></span></span><span
+																	class="layer last"><span></span><span></span><span></span></span></span></a>
+													</li>
+													<li class="nav-item">
+														<a class="layout-list nav-link active" data-toggle="tab"
+															href="#layout-list" role="tab"><span
+																class="icon-column"><span
+																	class="layer first"><span></span><span></span></span><span
+																	class="layer middle"><span></span><span></span></span><span
+																	class="layer last"><span></span><span></span></span></span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="tab-content">
+											<div class="tab-pane fade" id="layout-grid" role="tabpanel">
+												<div class="products-list grid">
+													<div class="row">
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품 등록</button>
+																		</div>
+																		<span class="product-quickview"
+																			data-title="Quick View">
+																			<a href="#"
+																				class="quickview quickview-button">빠르게
+																				보기<i class="icon-search"></i></a>
+																		</span>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title"><a href="#">제품명[제품코드]</a>
+																		</h3>
+																		<span class="price">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade show active" id="layout-list" role="tabpanel">
+												<div class="products-list list">
+													<div class="products-entry clearfix product-wapper">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-lable">
+																		<div class="hot product_category">대분류 / 중분류
+																		</div>
+																	</div>
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<span class="product-quickview"
+																		data-title="Quick View">
+																		<a href="#"
+																			class="quickview quickview-button">자세히보기<i
+																				class="icon-search"></i></a>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content">
+																	<h3 class="product-title"><a href="#">제품명</a>
+																	</h3>
+																	<span class="price hashtag"># HASHTAG # HASHTAG #
+																		HASHTAG # HASHTAG # HASHTAG</span>
+																	<div class="btn-add-to-cart" data-title="#">
+																		<a href="/productDetail"
+																			class="product-btn button">자세히 보기</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품
+																				등록하기</button>
+																		</div>
+																	</div>
+																	<div class="product-description">=== 제품 DESCRIPTION
+																		===</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="products-entry clearfix product-wapper">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-lable">
+																		<div class="hot product_category">대분류 / 중분류
+																		</div>
+																	</div>
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<span class="product-quickview"
+																		data-title="Quick View">
+																		<a href="#"
+																			class="quickview quickview-button">자세히보기<i
+																				class="icon-search"></i></a>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content">
+																	<h3 class="product-title"><a href="#">제품명</a>
+																	</h3>
+																	<span class="price hashtag"># HASHTAG # HASHTAG #
+																		HASHTAG # HASHTAG # HASHTAG</span>
+																	<div class="btn-add-to-cart" data-title="#">
+																		<a rel="nofollow" href="#"
+																			class="product-btn button">자세히 보기</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품
+																				등록하기</button>
+																		</div>
+																	</div>
+																	<div class="product-description">=== 제품 DESCRIPTION
+																		===</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="products-entry clearfix product-wapper">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-lable">
+																		<div class="hot product_category">대분류 / 중분류
+																		</div>
+																	</div>
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<span class="product-quickview"
+																		data-title="Quick View">
+																		<a href="#"
+																			class="quickview quickview-button">자세히보기<i
+																				class="icon-search"></i></a>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content">
+																	<h3 class="product-title"><a href="#">제품명</a>
+																	</h3>
+																	<span class="price hashtag"># HASHTAG # HASHTAG #
+																		HASHTAG # HASHTAG # HASHTAG</span>
+																	<div class="btn-add-to-cart" data-title="#">
+																		<a rel="nofollow" href="#"
+																			class="product-btn button">자세히 보기</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품
+																				등록하기</button>
+																		</div>
+																	</div>
+																	<div class="product-description">=== 제품 DESCRIPTION
+																		===</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="products-entry clearfix product-wapper">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-lable">
+																		<div class="hot product_category">대분류 / 중분류
+																		</div>
+																	</div>
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<span class="product-quickview"
+																		data-title="Quick View">
+																		<a href="#"
+																			class="quickview quickview-button">자세히보기<i
+																				class="icon-search"></i></a>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content">
+																	<h3 class="product-title"><a href="#">제품명</a>
+																	</h3>
+																	<span class="price hashtag"># HASHTAG # HASHTAG #
+																		HASHTAG # HASHTAG # HASHTAG</span>
+																	<div class="btn-add-to-cart" data-title="#">
+																		<a rel="nofollow" href="#"
+																			class="product-btn button">자세히 보기</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품
+																				등록하기</button>
+																		</div>
+																	</div>
+																	<div class="product-description">=== 제품 DESCRIPTION
+																		===</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="products-entry clearfix product-wapper">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-lable">
+																		<div class="hot product_category">대분류 / 중분류
+																		</div>
+																	</div>
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<span class="product-quickview"
+																		data-title="Quick View">
+																		<a href="#"
+																			class="quickview quickview-button">자세히보기<i
+																				class="icon-search"></i></a>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content">
+																	<h3 class="product-title"><a href="#">제품명</a>
+																	</h3>
+																	<span class="price hashtag"># HASHTAG # HASHTAG #
+																		HASHTAG # HASHTAG # HASHTAG</span>
+																	<div class="btn-add-to-cart" data-title="#">
+																		<a rel="nofollow" href="#"
+																			class="product-btn button">자세히 보기</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품
+																				등록하기</button>
+																		</div>
+																	</div>
+																	<div class="product-description">Product Description
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="products-entry clearfix product-wapper">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-lable">
+																		<div class="hot product_category">대분류 / 중분류
+																		</div>
+																	</div>
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<span class="product-quickview"
+																		data-title="Quick View">
+																		<a href="#"
+																			class="quickview quickview-button">자세히보기<i
+																				class="icon-search"></i></a>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content">
+																	<h3 class="product-title"><a href="#">제품명</a>
+																	</h3>
+																	<span class="price hashtag"># HASHTAG # HASHTAG #
+																		HASHTAG # HASHTAG # HASHTAG</span>
+																	<div class="btn-add-to-cart" data-title="#">
+																		<a rel="nofollow" href="#"
+																			class="product-btn button">자세히 보기</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품
+																				등록하기</button>
+																		</div>
+																	</div>
+																	<div class="product-description">Product Description
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="products-entry clearfix product-wapper">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-lable">
+																		<div class="hot product_category">대분류 / 중분류
+																		</div>
+																	</div>
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<span class="product-quickview"
+																		data-title="Quick View">
+																		<a href="#"
+																			class="quickview quickview-button">자세히보기<i
+																				class="icon-search"></i></a>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content">
+																	<h3 class="product-title"><a href="#">제품명</a>
+																	</h3>
+																	<span class="price hashtag"># HASHTAG # HASHTAG #
+																		HASHTAG # HASHTAG # HASHTAG</span>
+																	<div class="btn-add-to-cart" data-title="#">
+																		<a rel="nofollow" href="#"
+																			class="product-btn button">자세히 보기</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품
+																				등록하기</button>
+																		</div>
+																	</div>
+																	<div class="product-description">Product Description
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="products-entry clearfix product-wapper">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-lable">
+																		<div class="hot product_category">대분류 / 중분류
+																		</div>
+																	</div>
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<span class="product-quickview"
+																		data-title="Quick View">
+																		<a href="#"
+																			class="quickview quickview-button">자세히보기<i
+																				class="icon-search"></i></a>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content">
+																	<h3 class="product-title"><a href="#">제품명</a>
+																	</h3>
+																	<span class="price hashtag"># HASHTAG # HASHTAG #
+																		HASHTAG # HASHTAG # HASHTAG</span>
+																	<div class="btn-add-to-cart" data-title="#">
+																		<a rel="nofollow" href="#"
+																			class="product-btn button">자세히 보기</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품
+																				등록하기</button>
+																		</div>
+																	</div>
+																	<div class="product-description">Product Description
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="products-entry clearfix product-wapper">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-lable">
+																		<div class="hot product_category">대분류 / 중분류
+																		</div>
+																	</div>
+																	<div class="product-thumb-hover">
+																		<a href="#">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6.jpg"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				src="/front/clean/media/product/6-2.jpg"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																	<span class="product-quickview"
+																		data-title="Quick View">
+																		<a href="#"
+																			class="quickview quickview-button">자세히보기<i
+																				class="icon-search"></i></a>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content">
+																	<h3 class="product-title"><a href="#">제품명</a>
+																	</h3>
+																	<span class="price hashtag"># HASHTAG # HASHTAG #
+																		HASHTAG # HASHTAG # HASHTAG</span>
+																	<div class="btn-add-to-cart" data-title="#">
+																		<a rel="nofollow" href="#"
+																			class="product-btn button">자세히 보기</a>
+																	</div>
+																	<div class="product-button">
+																		<div class="btn-compare" data-title="Compare">
+																			<button class="product-btn">비교제품
+																				등록하기</button>
+																		</div>
+																	</div>
+																	<div class="product-description">Product Description
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<nav class="pagination">
+											<ul class="page-numbers">
+												<li><a class="prev page-numbers" href="#">PREVIOUS</a></li>
+												<li><span aria-current="page" class="page-numbers current">1</span></li>
+												<li><a class="page-numbers" href="#">2</a></li>
+												<li><a class="page-numbers" href="#">3</a></li>
+												<li><a class="next page-numbers" href="#">NEXT</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="site-footer" class="site-footer" th:replace="fragments/front/clean/common :: cleanFooter">
+		</footer>
+	</div>
+	<th:block th:replace="fragments/front/clean/common :: cleanScript"></th:block>
+</body>
+
+</html>

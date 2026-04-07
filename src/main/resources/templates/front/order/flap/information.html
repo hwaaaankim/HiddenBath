@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/order/common :: surveyHead"></head>
+
+<body>
+
+	<th:block th:replace="fragments/front/order/common :: surveyHeader"></th:block>
+	<main class="plain">
+		<div class="container margin_60_35">
+			<div class="row">
+				<div class="col-lg-8">
+					<h2>[거울] 비규격 주문 설명서</h2>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="box_feat">
+								<figure><img src="/front/order/img/about_3.svg" alt=""></figure>
+								<h3>STEP01</h3>
+								<p>신청 방법에 대한 안내</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="box_feat">
+								<figure><img src="/front/order/img/about_4.svg" alt=""></figure>
+								<h3>STEP02</h3>
+								<p>신청 방법에 대한 안내</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="box_feat">
+								<figure><img src="/front/order/img/about_3.svg" alt=""></figure>
+								<h3>STEP03</h3>
+								<p>신청 방법에 대한 안내</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="box_feat">
+								<figure><img src="/front/order/img/about_4.svg" alt=""></figure>
+								<h3>STEP04</h3>
+								<p>신청 방법에 대한 안내</p>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="about_info">
+						<i class="pe-7s-news-paper"></i>
+						<h4>절차에 대한 안내 01</h4>
+						<p>안내에 대한 <strong>자세한 정보</strong>가 입력 됩니다.</p>
+					</div>
+					<div class="about_info">
+						<i class="pe-7s-light"></i>
+						<h4>절차에 대한 안내 02</h4>
+						<p>안내에 대한 <strong>자세한 정보</strong>가 입력 됩니다.</p>
+					</div>
+				</div>
+
+				<aside class="col-lg-4">
+					<div class="more_padding_left">
+						<div class="widget" id="gallery">
+							<h4>제품 구경하기</h4>
+							<ul class="magnific-gallery">
+								<li>
+									<a href="/front/order/img/gallery/large_1.jpg" title="image title" data-effect="mfp-zoom-in">
+										<figure><img src="/front/order/img/gallery/thumb_1.jpg" alt="thumb"></figure>
+									</a>
+								</li>
+								<li>
+									<a href="/front/order/img/gallery//large_2.jpg" title="image title" data-effect="mfp-zoom-in">
+										<figure><img src="/front/order/img/gallery/thumb_2.jpg" alt="thumb"></figure>
+									</a>
+								</li>
+								<li>
+									<a href="/front/order/img/gallery/large_3.jpg" title="image title" data-effect="mfp-zoom-in">
+										<figure><img src="/front/order/img/gallery/thumb_3.jpg" alt="thumb"></figure>
+									</a>
+								</li>
+								<li>
+									<a href="/front/order/img/gallery/large_4.jpg" title="image title" data-effect="mfp-zoom-in">
+										<figure><img src="/front/order/img/gallery/thumb_2.jpg" alt="thumb"></figure>
+									</a>
+								</li>
+								<li>
+									<a href="/front/order/img/gallery/large_5.jpg" title="image title" data-effect="mfp-zoom-in">
+										<figure><img src="/front/order/img/gallery/thumb_3.jpg" alt="thumb"></figure>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="widget last" id="follow">
+							<h4>Hidden Bath의 SNS를 방문 해 보세요</h4>
+							<ul>
+								<li><a href="#"><i class="icon-facebook"></i>Facebook</a></li>
+								<li><a href="#"><i class="icon-instagram"></i>Instagram</a></li>
+							</ul>
+						</div>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</main>
+
+	<th:block th:replace="fragments/front/order/common :: surveyFooter('mirror')"></th:block>
+</body>
+
+</html>

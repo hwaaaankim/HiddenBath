@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/order/common :: surveyHead"></head>
+
+<body>
+
+	<th:block th:replace="fragments/front/order/common :: surveyHeader"></th:block>
+	<header>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-3">
+				</div>
+				<div class="col-9">
+					<div id="social">
+						<ul>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-instagram"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div id="wizard_container">
+				<form name="example-1" id="wrapped" method="POST">
+					<input id="website" name="website" type="text" value="">
+					<div id="middle-wizard">
+
+						<div class="step" data-state="branchtype" id="model">
+							<div class="question_title">
+								<h3>[플랩장] 비규격 주문 PROCESS</h3>
+								<p># 하단 보기에서 원하시는 플랩장 모델을 선택 해 주세요.</p>
+							</div>
+							<div class="row">
+								<div class="col-lg-12 step-process-wrap">
+									<a class="active">1. 모델 선택</a>
+									<a>2. 색상 선택</a>
+									<a>3. 사이즈 선택</a>
+									<a>4. LED 추가유무 선택</a>
+									<a>5. 추가옵션 선택[콘센트]</a>
+									<a>6. 입력사항 확인</a>
+									<a>7. 신청완료</a>
+								</div>
+								<div class="col-lg-4 animated zoomIn delay-normal">
+									<div class="item">
+										<input 
+											id="라운드플랩장" 
+											type="radio" 
+											name="model" 
+											value="color_round"
+											class="required">
+										<label for="라운드플랩장"><img src="/front/order/images/flap/6.png"
+												alt=""><strong>라운드플랩장</strong></label>
+									</div>
+								</div>
+								<div class="col-lg-4 animated zoomIn delay-medium">
+									<div class="item">
+										<input 
+											id="플랩장"  
+											type="radio" 
+											name="model" 
+											value="color_flap"
+											class="required">
+										<label for="플랩장"><img src="/front/order/images/flap/8.png"
+												alt=""><strong>플랩장</strong></label>
+									</div>
+								</div>
+								<div class="col-lg-4 animated zoomIn delay-fast">
+									<div class="item">
+										<input 
+											id="복합플랩장" 
+											type="radio"
+											name="model" 
+											value="color_complex"
+											class="required">
+										<label for="복합플랩장"><img src="/front/order/images/flap/7.png"
+												alt=""><strong>복합플랩장</strong></label>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="branch" id="color_round">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># 라운드 플랩장[ROUND]의 색상을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a class="active">2. 색상 선택</a>
+										<a>3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="라운드화이트[White]" 
+												type="radio" 
+												name="color"
+												value="size_round" 
+												class="required">
+											<label for="라운드화이트[White]"><img src="/front/order/images/mirror/color/HW.jpg"
+													alt=""><strong>화이트[White]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="라운드블랙[Black]" 
+												type="radio" 
+												name="color"
+												value="size_round" 
+												class="required">
+											<label for="라운드블랙[Black]"><img src="/front/order/images/mirror/color/HB.jpg"
+													alt=""><strong>블랙[Black]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="branch" id="color_flap">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># 플랩장[FLAP]의 색상을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a class="active">2. 색상 선택</a>
+										<a>3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="플랩화이트[White]" 
+												type="radio" 
+												name="color"
+												value="size_flap" 
+												class="required">
+											<label for="플랩화이트[White]"><img src="/front/order/images/mirror/color/HW.jpg"
+													alt=""><strong>화이트[White]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="플랩블랙[Black]" 
+												type="radio" 
+												name="color"
+												value="size_flap" 
+												class="required">
+											<label for="플랩블랙[Black]"><img src="/front/order/images/mirror/color/HB.jpg"
+													alt=""><strong>블랙[Black]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="플랩크림[Cream]" 
+												type="radio" 
+												name="color"
+												value="size_flap" 
+												class="required">
+											<label for="플랩크림[Cream]"><img src="/front/order/images/mirror/color/HC.jpg"
+													alt=""><strong>크림[Cream]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="플랩아이보리[Ivory]" 
+												type="radio" 
+												name="color"
+												value="size_flap" 
+												class="required">
+											<label for="플랩아이보리[Ivory]"><img src="/front/order/images/mirror/color/HW.jpg"
+													alt=""><strong>아이보리[Ivory]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="플랩그레이[Gray]" 
+												type="radio" 
+												name="color"
+												value="size_flap" 
+												class="required">
+											<label for="플랩그레이[Gray]"><img src="/front/order/images/mirror/color/IV.jpg"
+													alt=""><strong>그레이[Gray]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="플랩네츄럴[Natural]" 
+												type="radio" 
+												name="color"
+												value="size_flap" 
+												class="required">
+											<label for="플랩네츄럴[Natural]"><img src="/front/order/images/mirror/color/HN.jpg"
+													alt=""><strong>네츄럴[Natural]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="branch" id="color_complex">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># 복합플랩장[COMPLEX]의 색상을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a class="active">2. 색상 선택</a>
+										<a>3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="복합화이트[White]" 
+												type="radio" 
+												name="color"
+												value="size_complex" 
+												class="required">
+											<label for="복합화이트[White]"><img src="/front/order/images/mirror/color/HW.jpg"
+													alt=""><strong>화이트[White]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="복합블랙[Black]" 
+												type="radio" 
+												name="color"
+												value="size_complex" 
+												class="required">
+											<label for="복합블랙[Black]"><img src="/front/order/images/mirror/color/HB.jpg"
+													alt=""><strong>블랙[Black]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="복합크림[Cream]" 
+												type="radio" 
+												name="color"
+												value="size_complex" 
+												class="required">
+											<label for="복합크림[Cream]"><img src="/front/order/images/mirror/color/HC.jpg"
+													alt=""><strong>크림[Cream]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="복합아이보리[Ivory]" 
+												type="radio" 
+												name="color"
+												value="size_complex" 
+												class="required">
+											<label for="복합아이보리[Ivory]"><img src="/front/order/images/mirror/color/IV.jpg"
+													alt=""><strong>아이보리[Ivory]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="복합그레이[Gray]" 
+												type="radio" 
+												name="color"
+												value="size_complex" 
+												class="required">
+											<label for="복합그레이[Gray]"><img src="/front/order/images/mirror/color/HG.jpg"
+													alt=""><strong>그레이[Gray]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="복합네츄럴[Natural]" 
+												type="radio" 
+												name="color"
+												value="size_complex" 
+												class="required">
+											<label for="복합네츄럴[Natural]"><img src="/front/order/images/mirror/color/HN.jpg"
+													alt=""><strong>네츄럴[Natural]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="branch" id="size_round">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># 원하시는 라운드플랩장[ROUND]의 사이즈 입력 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 색상 선택</a>
+										<a class="active">3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast"
+										style="margin:0 auto; margin-top:20px;">
+										<div class="box_general">
+											<h6 class="add_bottom_15">희망하시는 플랩장의 가로/세로/깊이 사이즈를 입력 해 주세요.</h6>
+											<input 
+											type="checkbox" 
+											name="size" 
+											value="option" 
+											style="width:0px; height:0px;"
+											checked>
+											<div class="row" style="margin-bottom:20px;">
+												<div class="item col-lg-12">
+													<input 
+													id="sizeRoundWidth"
+													name="flapWidth"
+													type="text" 
+													placeholder="가로 : 166cm" 
+													class="qty form-control required">
+												</div>
+												<div class="item col-lg-12">
+													<input 
+													id="sizeRoundHeight"
+													name="flapHeight"
+													type="text" 
+													placeholder="세로 : 166cm" 
+													class="qty form-control required">
+												</div>
+												<div class="item col-lg-12">
+													<input 
+													id="sizeRoundDepth"
+													name="flapDepth"
+													type="text" 
+													placeholder="깊이 : 166cm" 
+													class="qty form-control required">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="branch" id="size_flap">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># 원하시는 플랩장[ROUND]의 사이즈 입력 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 색상 선택</a>
+										<a class="active">3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast"
+										style="margin:0 auto; margin-top:20px;">
+										<div class="box_general">
+											<h6 class="add_bottom_15">희망하시는 플랩장의 가로/세로/깊이 사이즈를 입력 해 주세요.</h6>
+											<input 
+											type="checkbox" 
+											name="size" 
+											value="led" 
+											style="width:0px; height:0px;"
+											checked>
+											<div class="row" style="margin-bottom:20px;">
+												<div class="item col-lg-12">
+													<input 
+													name="flapWidth"
+													id="sizeFlapWidth"
+													type="text" 
+													placeholder="가로 : 166cm" 
+													class="qty form-control required">
+												</div>
+												<div class="item col-lg-12">
+													<input 
+													id="sizeFlapHeight"
+													name="flapHeight"
+													type="text" 
+													placeholder="세로 : 166cm" 
+													class="qty form-control required">
+												</div>
+												<div class="item col-lg-12">
+													<input 
+													id="sizeFlapDepth"
+													type="text" 
+													name="flapDepth"
+													placeholder="깊이 : 166cm" 
+													class="qty form-control required">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="branch" id="size_complex">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># 원하시는 복합플랩장[COMPLEX]의 사이즈 입력 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 색상 선택</a>
+										<a class="active">3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast"
+										style="margin:0 auto; margin-top:20px;">
+										<div class="box_general">
+											<h6 class="add_bottom_15">희망하시는 플랩장의 가로/세로/깊이 사이즈를 입력 해 주세요.</h6>
+											<input 
+											type="checkbox" 
+											name="size" 
+											value="direction" 
+											style="width:0px; height:0px;"
+											checked>
+											<div class="row" style="margin-bottom:20px;">
+												<div class="item col-lg-12">
+													<input 
+													name="flapWidth"
+													id="sizeComplexWidth"
+													type="text" 
+													placeholder="가로 : 166cm" 
+													class="qty form-control required">
+												</div>
+												<div class="item col-lg-12">
+													<input 
+													name="flapHeight"
+													id="sizeComplexHeight"
+													type="text" 
+													placeholder="세로 : 166cm" 
+													class="qty form-control required">
+												</div>
+												<div class="item col-lg-12">
+													<input 
+													id="sizeComplexDepth"
+													type="text" 
+													name="flapDepth"
+													placeholder="깊이 : 166cm" 
+													class="qty form-control required">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="branch" id="direction">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># [복합플랩장]의 도어 방향을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 색상 선택</a>
+										<a>3. 사이즈 선택</a>
+										<a class="active">3.1 도어 방향 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+											id="좌플랩[Left]" 
+											type="radio" 
+											name="direction"
+											value="led" 
+											class="required">
+											<label for="좌플랩[Left]"><img src="/front/order/images/flap/l.png"
+													alt=""><strong>좌플랩[Left]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+											id="우플랩[Right]" 
+											name="direction" 
+											type="radio"
+											value="led" 
+											class="required">
+											<label for="우플랩[Right]"><img src="/front/order/images/flap/r.png"
+													alt=""><strong>우플랩[Right]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="branch" id="led">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># LED 추가 여부를 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 색상 선택</a>
+										<a>3. 사이즈 선택</a>
+										<a class="active">4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+											id="LED추가함[YES]" 
+											type="radio" 
+											name="led"
+											value="led_color" 
+											class="required">
+											<label for="LED추가함[YES]"><img src="/front/order/images/led/1.png"
+													alt=""><strong>추가함[YES]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+											id="LED추가하지않음[NO]" 
+											name="led" 
+											type="radio"
+											value="option" 
+											class="required">
+											<label for="LED추가하지않음[NO]"><img src="/front/order/images/led/2.png"
+													alt=""><strong>추가 안함[NO]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="branch" id="led_color">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># LED 색상을 선택을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 색상 선택</a>
+										<a>3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a class="active">4-1. LED 색상을 선택.</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+											id="백색" 
+											type="radio" 
+											name="led_color"
+											value="option" 
+											class="required">
+											<label for="백색"><img src="/front/order/images/led/white.png"
+													alt=""><strong>백색</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+											id="주황색" 
+											type="radio" 
+											name="led_color"
+											value="option" 
+											class="required">
+											<label for="주황색"><img src="/front/order/images/led/orange.png"
+													alt=""><strong>주황색</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+											id="주백색" 
+											name="led_color" 
+											type="radio"
+											value="option" 
+											class="required">
+											<label for="주백색"><img src="/front/order/images/led/whiteorange.png"
+													alt=""><strong>주백색</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="branch" id="option">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># 추가옵션[콘센트]을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 색상 선택</a>
+										<a>3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a class="active">5. 추가옵션 선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+											id="콘센트설치함[Add]" 
+											type="radio" 
+											name="option"
+											value="option_position" 
+											class="required">
+											<label for="콘센트설치함[Add]"><img src="/front/order/images/socket/1.png"
+													alt=""><strong>콘센트설치함[Add]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+											id="콘센트설치않함[No]" 
+											name="option" 
+											type="radio"
+											value="check" 
+											class="required">
+											<label for="콘센트설치않함[No]"><img src="/front/order/images/socket/2.png"
+													alt=""><strong>콘센트설치않함[No]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						
+							
+						<div class="branch" id="option_position">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># 추가옵션[콘센트]의 위치를 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 색상 선택</a>
+										<a>3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a class="active">5.1 추가옵션 위치선택[콘센트]</a>
+										<a>6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+											id="좌측[Left]" 
+											type="radio" 
+											name="option_position"
+											value="check" 
+											class="required">
+											<label for="좌측[Left]"><img src="/front/order/images/socket/l.png"
+													alt=""><strong>좌측[Left]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+											id="우측[Right]" 
+											name="option_position" 
+											type="radio"
+											value="check" 
+											class="required">
+											<label for="우측[Right]"><img src="/front/order/images/socket/r.png"
+													alt=""><strong>우측[Right]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="branch" id="check">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[플랩장] 비규격 주문 PROCESS</h3>
+									<p># 선택하신 옵션을 확인 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 색상 선택</a>
+										<a>3. 사이즈 선택</a>
+										<a>4. LED 추가유무 선택</a>
+										<a>5. 추가옵션 선택[콘센트]</a>
+										<a class="active">6. 입력사항 확인</a>
+										<a>7. 신청완료</a>
+									</div>
+									<div class="row">
+										<input 
+											type="checkbox" 
+											name="check" 
+											value="end" 
+											style="width:0px; height:0px;"
+											checked>
+										<div class="col-lg-6 animated zoomIn delay-fast"style="margin:0 auto;margin-top:20px;">
+											
+											<div class="box_general">
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapModel"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapColor"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapWidth"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapHeight"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapDepth"
+													class="form-control"
+													>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 animated zoomIn delay-fast"style="margin:0 auto;margin-top:20px;">
+											<div class="box_general">
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapDirection"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapLed"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapLedColor"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapOption"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="flapOptionPosition"
+													class="form-control"
+													>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="submit step" id="end">
+							<div class="question_title">
+								<h3>[플랩장] 비규격 주문 PROCESS</h3>
+								<p># 신청이 완료 되었습니다. 개인정보를 입력 해 주세요.</p>
+							</div>
+							<div class="row justify-content-center">
+								<div class="col-lg-12 step-process-wrap">
+									<a>1. 모델 선택</a>
+									<a>2. 색상 선택</a>
+									<a>3. 사이즈 선택</a>
+									<a>4. LED 추가유무 선택</a>
+									<a>5. 추가옵션 선택[콘센트]</a>
+									<a>6. 입력사항 확인</a>
+									<a class="active">7. 신청완료</a>
+								</div>
+								<div class="col-lg-6 animated zoomIn delay-fast"style="margin:0 auto;margin-top:20px;">
+									<div class="box_general">
+										<div class="form-group">
+											<input type="text" name="name" id="name" class="required form-control"
+												placeholder="고객님의 성함을 입력 해 주세요.">
+										</div>
+										<div class="form-group">
+											<input type="text" name="email" id="email" class="required form-control"
+												placeholder="이메일 주소를 입력 해 주세요.">
+										</div>
+										<div class="form-group">
+											<input type="text" name="phone" id="phone" class="form-control"
+												placeholder="연락처를 입력 해 주세요.">
+										</div>
+										<div class="form-group add_bottom_30">
+											<div class="styled-select">
+												<textarea class="form-control" style="height:100px; margin-bottom:0;"
+													placeholder="추가로 남기실 메시지를 입력 해 주세요."
+													id="addedMessage"
+													name="addedMessage"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="bottom-wizard">
+						<button type="button" name="backward" class="backward">뒤로가기 </button>
+						<button type="button" name="forward" class="forward">다음으로 </button>
+						<button type="button" name="process" id="submitBtn" class="submit">제출하기 </button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<th:block th:replace="fragments/front/order/common :: surveyFooter('flap')"></th:block>
+	<script src="/front/order/js/flapOrder.js"></script>
+</body>
+
+</html>

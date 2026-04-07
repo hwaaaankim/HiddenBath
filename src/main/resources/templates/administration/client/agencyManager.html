@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+	<div id="layout-wrapper">
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">대리점관리</h4>
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">고객관리</a></li>
+										<li class="breadcrumb-item active">대리점관리</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 검색/필터 -->
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="live-preview" style="margin-top:10px;">
+										<form onsubmit="return false;">
+											<div class="row align-items-end g-2">
+												<div class="col-lg-2">
+													<label class="form-label">페이지 크기</label>
+													<select class="form-select" id="sizeSelect">
+														<option value="10">== 10개씩 보기 ==</option>
+														<option value="30">== 30개씩 보기 ==</option>
+														<option value="50">== 50개씩 보기 ==</option>
+														<option value="100">== 100개씩 보기 ==</option>
+													</select>
+												</div>
+												<div class="col-lg-2">
+													<label class="form-label">검색주제</label>
+													<select class="form-select" id="typeSelect">
+														<option value="name">대리점명 검색</option>
+														<option value="contact">연락처 검색</option>
+													</select>
+												</div>
+												<div class="col-lg-4">
+													<label class="form-label">검색어</label>
+													<input type="text" class="form-control" id="keywordInput"
+														placeholder="검색어를 입력 해 주세요.">
+												</div>
+												<div class="col-lg-4">
+													<button class="btn btn-primary" type="button"
+														id="btnSearch">검색하기</button>
+													<a class="btn btn-warning" href="/admin/agencyInsertForm">대리점등록</a>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+
+								<!-- 리스트(카드) -->
+								<div class="card-body">
+									<div class="live-preview">
+										<div id="cardList" class="row g-3">
+											<!-- JS 렌더 -->
+										</div>
+
+										<nav aria-label="Page navigation example" style="margin-top:10px;">
+											<ul class="pagination justify-content-center" id="pagination">
+												<!-- JS 렌더 -->
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> <!-- row -->
+
+				</div>
+			</div>
+
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+	
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
+	<!-- 카카오 키 주입 (좌표 재계산 버튼 사용 시) -->
+	<script th:inline="javascript">
+		const KAKAO_JS_KEY = /*[[${kakaoJavascriptKey}]]*/ "";
+	</script>
+	<script th:src="@{/administration/assets/js/agencyManager.js}"></script>
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+
+</body>
+
+</html>

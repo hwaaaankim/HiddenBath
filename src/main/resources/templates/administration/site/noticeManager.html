@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">사이트관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">사이트관리</a></li>
+										<li class="breadcrumb-item active">공지사항관리</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-header align-items-center d-flex">
+									<h4 class="card-title mb-0 flex-grow-1">총 등록된 공지사항 : <span>11 개</span></h4>
+								</div>
+								<div class="card-body">
+									<div class="live-preview">
+										<form>
+											<div class="row">
+												<div class="col-lg-2 pr-0">
+													<select class="form-select mb-3" aria-label="Default select example">
+														<option selected>== 10개씩 보기 ==</option>
+														<option value="1">== 30개씩 보기 ==</option>
+														<option value="2">== 50개씩 보기 ==</option>
+														<option value="3">== 100개씩 보기 ==</option>
+													</select>
+												</div>
+												<div class="col-lg-2 pr-0">
+													<select class="form-select mb-3" aria-label="Default select example">
+														<option selected>== 중요공지여부선택 ==</option>
+														<option value="1">모두 보기</option>
+														<option value="2">중요 공지</option>
+														<option value="3">일반 공지</option>
+													</select>
+												</div>
+												<div class="col-lg-2 pr-0">
+													<input type="text" class="form-control" id="placeholderInput" placeholder="검색어를 입력 해 주세요.">
+												</div>
+												<div class="col-lg-2 pr-0">
+    												<button class="btn btn-primary" type="button">검색하기</button>
+    												<button class="btn btn-success"
+    												 onclick="javascript:location.href = '/admin/noticeInsertForm'" type="button">공지사항등록</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="card-body">
+									
+
+									<div class="live-preview">
+										<div class="table-responsive">
+											<table class="table table-bordered align-middle table-nowrap mb-0">
+												<thead>
+													<tr>
+														<th scope="col">번호</th>
+														<th scope="col">등록일</th>
+														<th scope="col">공지사항제목</th>
+														<th scope="col">조회수</th>
+														<th scope="col">중요공지여부</th>
+														<th scope="col">비고</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/noticeDetail">2024.01.01</a></td>
+														<td>공지사항제목</td>
+														<td>171회 조회</td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">중요공지</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<nav aria-label="Page navigation example" style="margin-top:10px;">
+											<ul class="pagination justify-content-center">
+												<li class="page-item disabled">
+													<a class="page-link" href="#" tabindex="-1">First</a>
+												</li>
+												<li class="page-item disabled">
+													<a class="page-link" href="#" tabindex="-1">Previous</a>
+												</li>
+												<li class="page-item"><a class="page-link" href="#">1</a></li>
+												<li class="page-item"><a class="page-link" href="#">2</a></li>
+												<li class="page-item"><a class="page-link" href="#">3</a></li>
+												<li class="page-item">
+													<a class="page-link" href="#">Next</a>
+												</li>
+												<li class="page-item">
+													<a class="page-link" href="#">Last</a>
+												</li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+</body>
+
+</html>

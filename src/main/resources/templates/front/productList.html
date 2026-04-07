@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/clean/common :: cleanHead"></head>
+
+<body class="home home-5">
+	<div id="page" class="hfeed page-wrapper">
+		<header id="site-header" class="site-header header-v1 relative"
+			th:replace="fragments/front/clean/common :: cleanHeader(${menuList})">
+		</header>
+
+		<div id="site-main" class="site-main">
+			<div id="main-content" class="main-content">
+				<div id="primary" class="content-area">
+					<div id="title" class="page-title" style="background:url('/front/clean/new/b08.png');">
+						<div class="section-container">
+							<div class="content-title-heading">
+								<h1 class="text-title-heading" th:if="${bigSortName != null}">
+									[[${bigSortName}]]
+								</h1>
+								<h1 class="text-title-heading" th:if="${bigSortName == null}">
+									전체제품
+								</h1>
+							</div>
+							<div class="breadcrumbs">
+								<a href="/">HOME</a>
+								<th:block th:if="${bigSortName != null}"><span class="delimiter"></span><a th:href="@{|/productList/${bigSortId}|}" th:text="${bigSortName}">대분류</a></th:block>
+								<th:block th:if="${middleSortName != null}"><span class="delimiter"></span>[[${middleSortName}]]</th:block>
+							</div>
+						</div>
+					</div>
+
+					<div id="content" class="site-content" role="main">
+						<div class="section-padding">
+							<div class="section-container p-l-r">
+								<div class="row">
+									<div class="col-xl-3 col-lg-3 col-md-12 col-12 sidebar left-sidebar md-b-50">
+										<!-- Block Product Categories -->
+										<a 
+										class="button button-outline productList-reset" 
+										href="/productList/7">검색조건 초기화</a>
+										<div class="block block-product-cats">
+											<div class="block-title">
+												<h2>분류별검색</h2>
+											</div>
+											<div class="block-content">
+												<div class="products-topbar clearfix">
+													<select class="category-select" id="bigSort">
+														<option 
+														th:each="b:${bigSorts}" 
+														th:value="${b.id}"
+														th:text="${b.name}" 
+														th:selected="${b.id} == ${bigSortId}"
+														></option>
+													</select>
+												</div>
+											</div>
+											<div class="block-content">
+												<div class="products-topbar clearfix">
+													<select class="category-select" id="middleSort">
+														<option 
+														th:each="m:${middleSorts}"
+														th:value="${m.id}"
+														th:text="${m.name}"
+														th:selected="${m.id} == ${middleSortId}"></option>
+													</select>
+												</div>
+											</div>
+										</div>
+
+										<div class="block block-product-filter clearfix">
+											<div class="block-title">
+												<h2>색상별검색</h2>
+											</div>
+											<div class="block-content">
+												<ul class="filter-items image">
+													<li th:each="c:${colors}">
+														<span>
+															<img
+															th:classappend="${c.id} == ${colorId} ? 'highlight'"
+															class="productColorBtn"
+															th:id="${c.id}"
+															th:src="@{${c.productColorRoad}}" alt="Colors">
+														</span>
+													</li>
+												</ul>
+											</div>
+										</div>
+										
+										<div class="block block-product-cats mb-5">
+											<div class="block-title">
+												<h2>태그별검색</h2>
+											</div>
+											<div class="block-content">
+												<div class="products-topbar clearfix">
+													<select class="category-select" id="tag">
+														<option value="0">=== 제품분위기 선택 ===</option>
+														<option 
+														th:each="t:${tags}" 
+														th:value="${t.id}" 
+														th:text="${t.productTagText}"
+														th:selected="${t.id} == ${tagId}"></option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-xl-9 col-lg-9 col-md-12 col-12">
+										<div class="products-topbar clearfix">
+											<div class="products-topbar-right">
+												<ul class="layout-toggle nav nav-tabs">
+													<li class="nav-item">
+														<a class="layout-grid nav-link" data-toggle="tab"
+															href="#layout-grid" role="tab"><span
+																class="icon-column"><span
+																	class="layer first"><span></span><span></span><span></span></span><span
+																	class="layer middle"><span></span><span></span><span></span></span><span
+																	class="layer last"><span></span><span></span><span></span></span></span></a>
+													</li>
+													<li class="nav-item">
+														<a class="layout-list nav-link active" data-toggle="tab"
+															href="#layout-list" role="tab"><span
+																class="icon-column"><span
+																	class="layer first"><span></span><span></span></span><span
+																	class="layer middle"><span></span><span></span></span><span
+																	class="layer last"><span></span><span></span></span></span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="tab-content">
+											<div class="tab-pane fade" id="layout-grid" role="tabpanel">
+												<div class="products-list grid">
+													<div class="row">
+														<div style="text-align:center;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12" th:if="${products.totalElements == 0}">
+															<h4 style="margin-bottom:0px;">해당 분류에 등록된 제품이 존재하지 않습니다.</h4>
+															<p>다른 분류 조건으로 새로 검색을 진행 해 주시기 바랍니다.</p>
+														</div>
+														<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6" th:each="p:${products}">
+															<div class="products-entry clearfix product-wapper">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a
+																		 th:href="@{|/productDetail/${p.id}|}">
+																			<img width="600" height="600"
+																				th:src="@{${p.productRepImageRoad}}"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				th:src="@{${p.productRepImageRoad}}"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																</div>
+																<div class="products-content">
+																	<div class="contents text-center">
+																		<h3 class="product-title">
+																			<a th:href="@{|/productDetail/${p.id}|}" th:text="${p.name}">
+																				
+																			</a>
+																		</h3>
+																		<span class="price" th:text="${p.productCode}">제품분류</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade show active" id="layout-list" role="tabpanel">
+												<div class="products-list list">
+													<div style="text-align:center;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12" th:if="${products.totalElements == 0}">
+														<h4 style="margin-bottom:0px;">해당 분류에 등록된 제품이 존재하지 않습니다.</h4>
+														<p>다른 분류 조건으로 새로 검색을 진행 해 주시기 바랍니다.</p>
+													</div>
+													<div class="products-entry clearfix product-wapper" th:each="p:${products}">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="products-thumb">
+																	<div class="product-thumb-hover">
+																		<a
+																		 th:href="@{|/productDetail/${p.id}|}">
+																			<img width="600" height="600"
+																				th:src="@{${p.productRepImageRoad}}"
+																				class="post-image" alt="">
+																			<img width="600" height="600"
+																				th:src="@{${p.productRepImageRoad}}"
+																				class="hover-image back" alt="">
+																		</a>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<div class="products-content product-list-content">
+																	<h3 class="product-title">
+																		<a  th:href="@{|/productDetail/${p.id}|}">[[${p.name}]]</a>
+																		<span class="sku-wrapper"> 대분류 : <a th:text="${p.bigSort.name}"></a></span>
+																		<span class="posted-in"> 중분류 : <a th:text="${p.middleSort.name}"></a></span>
+																	</h3>
+																	<div class="product-list-meta">
+																	</div>
+																	<div class="product-list-meta">
+																		<div class="list-option">&#183; 제품코드 : <a class="sku" th:text="${p.productCode}">옵션 답변
+																				01</a></div>
+																		<div class="list-option">&#183; 비규격 주문 가능여부 : 
+																			<a th:if="${p.order == true}" >비규격 주문 가능</a>
+																			<a th:if="${p.order == false}" >비규격 주문 불가능</a>
+																		</div>
+																		<div class="list-option">&#183; 손잡이 추가 가능여부 : 
+																			<a th:if="${p.handle == true}" >손잡이 추가 가능</a>
+																			<a th:if="${p.handle == false}" >손잡이 추가 불가능</a>
+																		</div>
+																		<div class="list-option">&#183; 사이즈 종류 : 
+																			<a class="size" th:each="s:${p.productSizes}">[[${s.productSizeText}]] </a>
+																		</div>
+																		<div class="list-option">&#183; 색상 종류 : 
+																			<a class="color" th:each="c:${p.productColors}">[[${c.productColorSubject}]]</a>
+																		</div>		
+																	</div>
+																	<div class="btn-add-to-cart">
+																		<a th:href="@{|/productDetail/${p.id}|}"
+																			class="product-btn button">자세히 보기</a>	
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<nav class="pagination">
+											<ul class="pagination justify-content-center">
+												<li class="page-item" 
+												    th:classappend="${1 == products.pageable.pageNumber+1} ? 'disabled'">
+												    <a class="page-link" href="#"
+												       th:classappend="${1 == products.pageable.pageNumber+1} ? 'current'"
+												       th:href="@{/productList/{id}(id=${id}, page=0, size=${param.size}, middleId=${middleId}, tagId=${tagId}, colorId=${colorId})}"
+												       tabindex="-1" aria-disabled="true">&lt;&lt;</a>
+												</li>
+												<li class="page-item"
+												    th:classappend="${1 == products.pageable.pageNumber+1} ? 'disabled'">
+												    <a class="page-link" href="#"
+												       th:classappend="${1 == products.pageable.pageNumber+1} ? 'current'"
+												       th:href="@{/productList/{id}(id=${id}, page=${products.pageable.pageNumber - 1}, size=${param.size}, middleId=${middleId}, tagId=${tagId}, colorId=${colorId})}"
+												       tabindex="-1" aria-disabled="true">&lt;</a>
+												</li>
+												<li class="page-item"
+												    th:classappend="${i == products.pageable.pageNumber+1} ? 'disabled'"
+												    th:each="i : ${#numbers.sequence(startPage, endPage)}">
+												    <a class="page-link" href="#"
+												       th:classappend="${i == products.pageable.pageNumber+1} ? 'current'"
+												       th:text="${i}"
+												       th:href="@{/productList/{id}(id=${id}, page=${i-1}, size=${param.size}, middleId=${middleId}, tagId=${tagId}, colorId=${colorId})}">1</a>
+												</li>
+												<li class="page-item"
+												    th:classappend="${products.totalPages == products.pageable.pageNumber + 1} ? 'disabled'">
+												    <a class="page-link" href="#"
+												       th:classappend="${products.totalPages == products.pageable.pageNumber + 1} ? 'current'"
+												       th:href="@{/productList/{id}(id=${id}, page=${products.pageable.pageNumber + 1}, size=${param.size}, middleId=${middleId}, tagId=${tagId}, colorId=${colorId})}">&gt;</a>
+												</li>
+												<li class="page-item"
+												    th:classappend="${products.totalPages == products.pageable.pageNumber + 1} ? 'disabled'">
+												    <a class="page-link" href="#"
+												       th:classappend="${products.totalPages == products.pageable.pageNumber + 1} ? 'current'"
+												       th:href="@{/productList/{id}(id=${id}, page=${products.totalPages-1}, size=${param.size}, middleId=${middleId}, tagId=${tagId}, colorId=${colorId})}">&gt;&gt;</a>
+												</li>
+
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="site-footer" class="site-footer" th:replace="fragments/front/clean/common :: cleanFooter">
+		</footer>
+	</div>
+	<th:block th:replace="fragments/front/clean/common :: cleanScript"></th:block>
+	<script>
+		$(function(){
+			$('#bigSort').on('change', function() {
+				$.ajax({
+					cache: false,
+					type: 'POST',
+					url: '/searchMiddleSort',
+					data: {
+						bigId: $(this).val()
+					}, success: function(result) {
+						$('#middleSort').find('option').remove();
+						$('#middleSort').append("<option value=''> === 중분류 선택 === </option>");
+						for (var i = 0; i < result.length; i++) {
+							var option = $("<option value=" + result[i].id + ">" + result[i].name + "</option>");
+							$('#middleSort').append(option);
+						}
+					}
+		
+				});
+			});
+			$('#middleSort').on('change', function(){
+				if($(this).val() != 0){
+					if($('.productColorBtn.highlight').attr('id') === undefined
+					|| $('.productColorBtn.highlight').attr('id') === null
+					|| $('.productColorBtn.highlight').attr('id') === ''){
+						changeList($('#bigSort').val(), $(this).val(), 0, $('#tag').val());
+					}else{
+						changeList($('#bigSort').val(), $(this).val(), $('.productColorBtn.highlight').attr('id'), $('#tag').val());
+					}
+				}
+			});
+			$('.productColorBtn').on('click', function(){
+				changeList($('#bigSort').val(), $('#middleSort').val(), $(this).attr('id'), $('#tag').val());
+			});
+			$('#tag').on('change', function(){
+				if($(this).val() != 0){
+					if($('.productColorBtn.highlight').attr('id') === undefined
+					|| $('.productColorBtn.highlight').attr('id') === null
+					|| $('.productColorBtn.highlight').attr('id') === ''){
+						changeList($('#bigSort').val(), $('#middleSort').val(), 0, $(this).val());
+					}else{
+						changeList($('#bigSort').val(), $('#middleSort').val(), $('.productColorBtn.highlight').attr('id'), $(this).val());
+					}
+				}
+			});
+		});
+		
+		function changeList(
+			bigId, middleId, colorId, tagId
+		){
+			const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/productList/' + bigId;
+
+            // middleId 입력 필드 생성 및 추가
+            const middleIdInput = document.createElement('input');
+            middleIdInput.type = 'text';
+            middleIdInput.name = 'middleId';
+            middleIdInput.value = middleId; 
+            form.appendChild(middleIdInput);
+            
+            const tagIdInput = document.createElement('input');
+            tagIdInput.type = 'text';
+            tagIdInput.name = 'tagId';
+            tagIdInput.value = tagId; 
+            form.appendChild(tagIdInput);
+            
+            const colorIdInput = document.createElement('input');
+            colorIdInput.type = 'text';
+            colorIdInput.name = 'colorId';
+            colorIdInput.value = colorId; 
+            form.appendChild(colorIdInput);
+            
+            document.body.appendChild(form);
+   			form.submit();
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/clean/common :: cleanHead"></head>
+
+<body class="home home-5">
+	<div id="page" class="hfeed page-wrapper">
+		<header id="site-header" class="site-header header-v1 relative"
+			th:replace="fragments/front/clean/common :: cleanHeader(${menuList})">
+		</header>
+
+	<div id="wrapper">
+		<img style="margin-top:-120px;" id="productImage"
+			width="800" height="800"
+			src="/front/clean/rotation/images/25/11.png" alt=""
+			title="">
+	</div>
+	</div>
+
+	<script>
+		const wrapper = document.querySelector("#wrapper");
+		const carImage = document.querySelector("#productImage");
+		let save = 11;
+		let dragged = 11;
+		let sum = 1;
+		const sensitivity = 50;
+		let clickedSrc = "";
+		let changeSrc = "";
+
+		carImage.addEventListener("mousedown", function (e) {
+			const x = e.clientX;
+			clickedSrc = carImage.src;
+			wrapper.addEventListener("mousemove", rotate);
+
+			function rotate(e) {
+				dragged = parseInt((e.clientX - x) / sensitivity);
+				sum = save + dragged;
+				if (e.clientX - x >= 0) {
+					if (sum >= 21) {
+						sum = 21;
+					} else {
+						sum++;
+					}
+				} else {
+					if (sum <= 1) {
+						sum = 1;
+					} else {
+						sum--;
+					}
+					console.log(sum);
+				}
+
+				changeSrc = "/front/clean/rotation/images/25/" + sum + ".png";
+				carImage.src = changeSrc;
+				wrapper.style.cusor = "grabbing";
+			}
+
+			window.addEventListener("mouseup", function () {
+				wrapper.removeEventListener("mousemove", rotate);
+
+				wrapper.style.cusor = "default";
+				save = sum;
+				dragged = 11;
+			});
+		});
+
+		carImage.addEventListener("touchstart", function (e) {
+			const x = e.touches[0].clientX;
+			clickedSrc = carImage.src;
+			wrapper.addEventListener("touchmove", rotate);
+
+			function rotate(e) {
+				dragged = parseInt((e.touches[0].clientX - x) / sensitivity);
+				sum = save + dragged;
+
+				if (e.clientX - x >= 0) {
+					if (sum >= 21) {
+						sum = 21;
+					} else {
+						sum++;
+					}
+				} else {
+					if (sum <= 1) {
+						sum = 1;
+					} else {
+						sum--;
+					}
+					console.log(sum);
+				}
+
+				// changeSrc = clickedSrc.replace(/A_360_[0-9]+/, "A_360_" + sum);
+				changeSrc = "/front/clean/rotation/images/25/" + sum + ".png";
+				carImage.src = changeSrc;
+				wrapper.style.cusor = "grabbing";
+			}
+
+			window.addEventListener("touchend", function () {
+				wrapper.removeEventListener("touchmove", rotate);
+
+				wrapper.style.cusor = "default";
+				save = sum;
+				dragged = 11;
+			});
+		});
+
+	</script>
+</body>
+
+</html>

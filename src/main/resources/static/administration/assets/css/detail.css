@@ -1,0 +1,225 @@
+.pr-0 {
+	padding-right: 0px !important;
+}
+
+.pl-0 {
+	padding-left: 0px !important;
+}
+
+.pl-5 {
+	padding-left: 5px !important;
+}
+
+.ml-5 {
+	margin-left: 5px !important;
+}
+
+p.text-muted {
+	margin-bottom: 0px !important;
+}
+
+.form-label {
+	font-weight: 600;
+}
+
+.nav-item>a.order-nav.nav-link {
+	color: black !important;
+	font-weight: 600;
+	border-radius: 5px;
+	padding: 5px 10px 5px 10px !important;
+	font-size: 13px !important;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	background-color: white !important;
+
+}
+
+.card {
+	padding: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.input-group-text {
+	font-weight: 600;
+}
+
+/* 업로드/수정 미리보기: 정사각형 + '잘리지 않게' 전체 표시 */
+.gm-preview-box {
+	width: 100%;
+	border: 1px dashed #ced4da;
+	border-radius: 0.5rem;
+	position: relative;
+	background: #f8f9fa;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.gm-preview-box.square {
+	aspect-ratio: 1 / 1;
+}
+
+.gm-preview-box img {
+	width: 100%;
+	height: 100%;
+	/* 핵심 변경: 전체 보이도록 contain */
+	object-fit: contain;
+	display: none;
+	/* 배경과 여백 대비를 위해 추가 (선택) */
+	background: #fff;
+}
+
+.gm-preview-clear {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	z-index: 5;
+	border: none;
+	border-radius: 50%;
+	width: 28px;
+	height: 28px;
+	font-weight: bold;
+	line-height: 28px;
+	text-align: center;
+	background: rgba(0, 0, 0, .55);
+	color: #fff;
+	cursor: pointer;
+	display: none;
+}
+
+/* 카드(리스트) 본 표시: 기존처럼 '잘라서' 꽉 채우기 유지 */
+.gm-card-img-wrap {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	border-radius: .5rem;
+	background: #f1f3f5;
+}
+
+.gm-card-img-wrap img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gm-enlarge-btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	background: rgba(0, 0, 0, .6);
+	color: #fff;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 42px;
+}
+
+.gm-card-col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: .75rem;
+}
+
+.gm-file {
+	font-size: .9rem;
+}
+
+.gm-w-100 {
+	width: 100%;
+}
+
+/* 업로드/수정 미리보기: 정사각 + 전체 보이도록 contain */
+.cm-preview-box {
+	width: 100%;
+	border: 1px dashed #ced4da;
+	border-radius: 0.5rem;
+	position: relative;
+	background: #f8f9fa;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.cm-preview-box.square {
+	aspect-ratio: 1 / 1;
+}
+
+.cm-preview-box img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: none;
+	background: #fff;
+}
+
+.cm-preview-clear {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	z-index: 5;
+	border: none;
+	border-radius: 50%;
+	width: 28px;
+	height: 28px;
+	font-weight: bold;
+	line-height: 28px;
+	text-align: center;
+	background: rgba(0, 0, 0, .55);
+	color: #fff;
+	cursor: pointer;
+	display: none;
+}
+
+/* 카드 리스트: 본 표시(좌/우)는 cover로 꽉 채우기 */
+.cm-card-img-wrap {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	border-radius: .5rem;
+	background: #f1f3f5;
+}
+
+.cm-card-img-wrap img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.cm-enlarge-btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	background: rgba(0, 0, 0, .6);
+	color: #fff;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 42px;
+}
+
+.cm-card-col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: .75rem;
+}
+
+.cm-file {
+	font-size: .9rem;
+}
+
+.cm-w-100 {
+	width: 100%;
+}

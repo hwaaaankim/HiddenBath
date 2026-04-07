@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">사이트관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">사이트관리</a></li>
+										<li class="breadcrumb-item active">공지사항 등록</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<form id="createproduct-form" autocomplete="off" class="needs-validation" novalidate>
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="card">
+									<div class="card-body">
+										<div class="mb-3">
+											<label class="form-label" for="product-title-input">공지사항 제목</label>
+											<input type="text" class="form-control" id="product-title-input" value=""
+												placeholder="제품 이름을 입력 해 주세요." required>
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title mb-0">공지사항 첨부파일</h5>
+									</div>
+									<div class="card-body">
+										<div class="mb-4">
+											<p class="text-muted">첨부파일을 등록 해 주세요.</p>
+											<div>
+                                                <input class="form-control" type="file" id="formFile">
+                                            </div>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title mb-0">공지사항 썸네일</h5>
+									</div>
+									<div class="card-body">
+										<div class="mb-4">
+											<p class="text-muted">썸네일을 등록 해 주세요.</p>
+											<div>
+                                                <input class="form-control" type="file" id="formFile">
+                                            </div>
+										</div>
+									</div>
+								</div>
+									
+								<div class="card">
+									<div class="card-header">
+										<div class="input-group">
+                                            <span class="input-group-text">공지사항 컨텐츠 작성</span>
+                                            <textarea class="form-control" aria-label="With textarea" rows="10"></textarea>
+                                        </div>
+									</div>
+								</div>
+								<div class="text-end mb-3">
+									<button type="submit" class="btn btn-success w-sm">공지사항등록</button>
+								</div>
+							</div>
+
+							<div class="col-lg-4">
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title mb-0">중요도선택</h5>
+									</div>
+									<div class="card-body">
+										<div class="mb-3">
+											<label for="choices-publish-status-input" class="form-label">중요도</label>
+
+											<select class="form-select" id="choices-publish-status-input" data-choices
+												data-choices-search-false>
+												<option value="Published">일반공지</option>
+												<option value="Published">중요공지</option>
+											</select>
+										</div>
+
+										<div>
+											<label for="choices-publish-visibility-input"
+												class="form-label">분류선택</label>
+											<select class="form-select" id="choices-publish-visibility-input"
+												data-choices data-choices-search-false>
+												<option value="Public" selected>공지사항분류</option>
+												<option value="Hidden">공지사항분류</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+</body>
+
+</html>

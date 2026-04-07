@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+	<div id="layout-wrapper">
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">대리점 등록</h4>
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript:void(0);">고객관리</a></li>
+										<li class="breadcrumb-item active">대리점 등록</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 등록 폼 -->
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-body">
+
+									<div class="row g-3">
+										<!-- 아이콘 업로드 + 미리보기 -->
+										<div class="col-md-3">
+											<label class="form-label">로고 아이콘</label>
+											<div class="border rounded p-3 text-center">
+												<img id="agency-icon-preview" src="/front/clean/media/favicon.png"
+													alt="미리보기" class="img-fluid mb-2"
+													style="max-height:160px; object-fit:contain;">
+												<input class="form-control" type="file" id="iconFile" accept="image/*">
+											</div>
+											<div class="form-text">권장: 정사각형 PNG/JPG</div>
+										</div>
+
+										<div class="col-md-9">
+											<div class="row g-3">
+												<div class="col-md-6">
+													<label class="form-label">대리점명 <span
+															class="text-danger">*</span></label>
+													<input type="text" class="form-control" id="name" placeholder="대리점명"
+														required>
+												</div>
+												<div class="col-md-6">
+													<label class="form-label">담당직원</label>
+													<input type="text" class="form-control" id="staffName"
+														placeholder="담당 직원명">
+												</div>
+
+												<div class="col-md-6">
+													<label class="form-label">우편번호</label>
+													<div class="input-group">
+														<input type="text" class="form-control" id="postcode"
+															placeholder="우편번호" readonly>
+														<button class="btn btn-outline-secondary" type="button"
+															id="btnFindAddress">주소검색</button>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<label class="form-label">도로명 주소</label>
+													<input type="text" class="form-control" id="roadAddress"
+														placeholder="도로명 주소" readonly>
+												</div>
+
+												<div class="col-md-6">
+													<label class="form-label">지번 주소</label>
+													<input type="text" class="form-control" id="jibunAddress"
+														placeholder="지번 주소" readonly>
+												</div>
+												<div class="col-md-6">
+													<label class="form-label">상세 주소</label>
+													<!-- 요청: 주소 관련 항목 모두 readonly 처리 -->
+													<input type="text" class="form-control" id="addressDetail"
+														placeholder="상세 주소">
+												</div>
+
+												<div class="col-md-4">
+													<label class="form-label">시/도</label>
+													<input type="text" class="form-control" id="sido"
+														placeholder="서울특별시" readonly>
+												</div>
+												<div class="col-md-4">
+													<label class="form-label">시/군/구</label>
+													<input type="text" class="form-control" id="sigungu"
+														placeholder="강남구" readonly>
+												</div>
+												<div class="col-md-4">
+													<label class="form-label">법정동/리</label>
+													<input type="text" class="form-control" id="bname" placeholder="역삼동"
+														readonly>
+												</div>
+
+												<div class="col-md-6">
+													<label class="form-label">위도 (자동)</label>
+													<input type="text" class="form-control" id="latitude" readonly>
+												</div>
+												<div class="col-md-6">
+													<label class="form-label">경도 (자동)</label>
+													<input type="text" class="form-control" id="longitude" readonly>
+												</div>
+												<div class="col-md-6">
+													<label class="form-label">대표번호</label>
+													<input type="text" class="form-control" id="tel"
+														placeholder="02-123-4567">
+												</div>
+												<div class="col-md-6">
+													<label class="form-label">핸드폰번호</label>
+													<input type="text" class="form-control" id="mobile"
+														placeholder="010-1234-5678">
+												</div>
+												<div class="col-md-6">
+													<label class="form-label">팩스번호</label>
+													<input type="text" class="form-control" id="fax"
+														placeholder="02-1234-5678">
+												</div>
+												<div class="col-md-12">
+													<label class="form-label">카카오톡 링크</label>
+													<input type="text" class="form-control" id="kakaoTalkLink"
+														placeholder="https://pf.kakao.com/_xxxx">
+												</div>
+
+
+												<div class="col-12 d-flex gap-2">
+													<!-- 좌표조회 버튼은 보조용으로 유지, 자동지오코딩이 기본 동작 -->
+													<button type="button" class="btn btn-secondary"
+														id="btnGeocode">좌표조회(도로명)</button>
+													<button type="button" class="btn btn-primary"
+														id="btnSubmit">등록하기</button>
+													<a class="btn btn-outline-dark" href="/admin/agencyManager">목록으로</a>
+												</div>
+											</div>
+										</div>
+									</div> <!-- row -->
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<!-- 카카오 키 주입 -->
+	<script th:inline="javascript">
+		const KAKAO_JS_KEY = /*[[${kakaoJavascriptKey}]]*/ "";
+		console.log(KAKAO_JS_KEY);
+	</script>
+
+	<!-- Daum Postcode -->
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
+
+	<!-- 페이지 전용 JS (경로 확인) -->
+	<script th:src="@{/administration/assets/js/agencyInsertForm.js}"></script>
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+</body>
+
+</html>

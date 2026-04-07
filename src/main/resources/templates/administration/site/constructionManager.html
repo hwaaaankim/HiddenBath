@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<div id="layout-wrapper">
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">사이트관리</h4>
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript:void(0);">사이트관리</a></li>
+										<li class="breadcrumb-item active">시공사례관리</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 업로드 폼 (col-5 / col-5 / col-2) -->
+					<form action="/admin/constructionInsert" method="post" enctype="multipart/form-data" class="mb-4">
+						<div class="row align-items-start g-3">
+							<div class="col-lg-5">
+								<label class="form-label">썸네일 이미지 (1장)</label>
+								<input id="cm-insert-thumb" class="form-control cm-file" type="file" name="thumb"
+									accept="image/*" required>
+								<div class="cm-preview-box square mt-2" id="cm-insert-thumb-preview">
+									<img alt="thumb preview">
+									<button type="button" class="cm-preview-clear" title="초기화">×</button>
+									<span class="text-muted">미리보기</span>
+								</div>
+							</div>
+							<div class="col-lg-5">
+								<label class="form-label">원본 이미지 (1장)</label>
+								<input id="cm-insert-origin" class="form-control cm-file" type="file"
+									name="construction" accept="image/*" required>
+								<div class="cm-preview-box square mt-2" id="cm-insert-origin-preview">
+									<img alt="origin preview">
+									<button type="button" class="cm-preview-clear" title="초기화">×</button>
+									<span class="text-muted">미리보기</span>
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<label class="form-label">등록</label>
+								<button id="cm-insert-btn" type="submit" class="btn btn-success w-100"
+									disabled>업로드</button>
+							</div>
+						</div>
+					</form>
+
+					<!-- 카드형 리스트 (4개/행) -->
+					<div class="row g-3">
+						<div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6" th:each="c : ${constructions}">
+							<div class="card h-100">
+								<div class="card-body">
+									<div class="cm-card-col mb-3">
+										<!-- 좌: 원본, 우: 썸네일 -->
+										<div class="cm-card-img-wrap">
+											<img th:src="${c.road}" alt="original">
+											<button type="button" class="cm-enlarge-btn"
+												th:attr="data-fullsrc=${c.road}" title="원본 확대">+</button>
+										</div>
+										<div class="cm-card-img-wrap">
+											<img th:src="${c.thumbRoad}" alt="thumb">
+											<button type="button" class="cm-enlarge-btn"
+												th:attr="data-fullsrc=${c.thumbRoad}" title="썸네일 확대">+</button>
+										</div>
+									</div>
+
+									<!-- 업데이트 폼 -->
+									<form th:action="@{'/admin/constructionUpdate/' + ${c.id}}" method="post"
+										enctype="multipart/form-data" class="cm-update-form">
+										<div class="row g-2">
+											<div class="col-12">
+												<label class="form-label">썸네일 교체</label>
+												<input class="form-control cm-file cm-thumb-input" type="file"
+													name="thumb" accept="image/*" th:attr="data-id=${c.id}">
+												<div class="cm-preview-box square mt-2"
+													th:attr="id=${'cm-thumb-preview-' + c.id}">
+													<img alt="new thumb">
+													<button type="button" class="cm-preview-clear"
+														title="초기화">×</button>
+													<span class="text-muted">변경 시 미리보기</span>
+												</div>
+											</div>
+											<div class="col-12">
+												<label class="form-label">원본 교체</label>
+												<input class="form-control cm-file cm-origin-input" type="file"
+													name="construction" accept="image/*" th:attr="data-id=${c.id}">
+												<div class="cm-preview-box square mt-2"
+													th:attr="id=${'cm-origin-preview-' + c.id}">
+													<img alt="new origin">
+													<button type="button" class="cm-preview-clear"
+														title="초기화">×</button>
+													<span class="text-muted">변경 시 미리보기</span>
+												</div>
+											</div>
+											<div class="col-12 d-grid gap-2">
+												<button th:attr="id=${'cm-update-btn-' + c.id}" type="submit"
+													class="btn btn-primary" disabled>수정</button>
+											</div>
+										</div>
+									</form>
+
+									<!-- 삭제 폼 (업데이트 폼 바깥, 형제 요소로 분리: form 중첩 방지) -->
+									<form th:action="@{'/admin/constructionDelete/' + ${c.id}}" method="post"
+										class="cm-delete-form" onsubmit="return false;">
+										<div class="col-12 d-grid gap-2 mt-2">
+											<button type="submit" class="btn btn-outline-danger cm-delete-btn"
+												th:attr="data-id=${c.id}">삭제</button>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+
+	<!-- 확대 모달 -->
+	<div class="modal fade" id="cmImageModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-body p-0">
+					<img id="cm-modal-img" alt="preview" style="width:100%;height:auto;display:block;">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/administration/assets/js/constructionManager.js"></script>
+</body>
+
+</html>

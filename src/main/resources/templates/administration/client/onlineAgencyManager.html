@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+	<div id="layout-wrapper">
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<!-- 타이틀 -->
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">온라인 대리점 관리</h4>
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript:void(0);">고객관리</a></li>
+										<li class="breadcrumb-item active">온라인대리점관리</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 등록 폼 -->
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">대리점 등록</h5>
+								</div>
+								<div class="card-body">
+									<form id="agencyCreateForm" onsubmit="return false;">
+										<div class="row g-3 align-items-end">
+											<div class="col-lg-3">
+												<label class="form-label">대리점명 <span
+														class="text-danger">*</span></label>
+												<input type="text" class="form-control" id="create-name" maxlength="100"
+													required>
+											</div>
+											<div class="col-lg-3">
+												<label class="form-label">연락처</label>
+												<input type="text" class="form-control" id="create-contact"
+													placeholder="예: 02-123-4567">
+											</div>
+											<div class="col-lg-3">
+												<label class="form-label">팩스번호</label>
+												<input type="text" class="form-control" id="create-fax"
+													placeholder="예: 02-123-4568">
+											</div>
+											<div class="col-lg-3">
+												<label class="form-label">홈페이지 주소</label>
+												<input type="text" class="form-control" id="create-homepage"
+													placeholder="예: https://example.com">
+											</div>
+											<div class="col-lg-6">
+												<label class="form-label">로고 이미지 (1장)</label>
+												<div class="d-flex align-items-center gap-3">
+													<input type="file" class="form-control" id="create-logo"
+														accept="image/*">
+													<button type="button" class="btn btn-outline-secondary"
+														id="create-logo-clear">X</button>
+												</div>
+												<div class="mt-2">
+													<div class="border d-inline-flex align-items-center justify-content-center"
+														style="width:200px;height:60px;overflow:hidden;position:relative;">
+														<img id="create-logo-preview" alt="미리보기"
+															style="max-width:200px;max-height:60px;display:none;">
+														<span id="create-logo-empty"
+															class="text-muted">미리보기(200×60)</span>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 text-end">
+												<button class="btn btn-primary" id="btnCreate">등록</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<!-- 굵은 Divider -->
+							<hr style="height:6px;border:0;background:#e9ecef;margin:12px 0 20px 0;">
+
+							<!-- 검색/필터 + 리스트 -->
+							<div class="card">
+								<div class="card-body">
+									<div class="live-preview" style="margin-top:10px;">
+										<form onsubmit="return false;">
+											<div class="row align-items-end g-2">
+												<div class="col-lg-2">
+													<label class="form-label">페이지 크기</label>
+													<select class="form-select" id="sizeSelect">
+														<option value="16" selected>== 16개씩 보기 ==</option>
+														<option value="32">== 32개씩 보기 ==</option>
+														<option value="48">== 48개씩 보기 ==</option>
+														<option value="64">== 64개씩 보기 ==</option>
+													</select>
+												</div>
+												<div class="col-lg-2">
+													<label class="form-label">검색주제</label>
+													<select class="form-select" id="typeSelect">
+														<option value="name">대리점명 검색</option>
+														<option value="contact">연락처 검색</option>
+													</select>
+												</div>
+												<div class="col-lg-4">
+													<label class="form-label">검색어</label>
+													<input type="text" class="form-control" id="keywordInput"
+														placeholder="검색어를 입력 해 주세요.">
+												</div>
+												<div class="col-lg-4">
+													<button class="btn btn-primary" type="button"
+														id="btnSearch">검색하기</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+
+								<div class="card-body">
+									<div class="live-preview">
+										<div id="cardList" class="row g-3">
+											<!-- 카드 리스트 렌더링 영역 -->
+										</div>
+
+										<nav aria-label="Page navigation example" style="margin-top:10px;">
+											<ul class="pagination justify-content-center" id="pagination">
+												<!-- 페이지네이션 렌더링 영역 -->
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div> <!-- /row -->
+				</div>
+			</div>
+
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<!-- 전용 JS -->
+	<script th:src="@{/administration/assets/js/onlineAgencyManager.js}"></script>
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+</body>
+
+</html>

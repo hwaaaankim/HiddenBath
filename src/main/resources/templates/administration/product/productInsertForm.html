@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">제품관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">제품관리</a></li>
+										<li class="breadcrumb-item active">제품 등록</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<form autocomplete="off" class="needs-validation" method="post" action="/admin/productInsert"
+						enctype="multipart/form-data" id="productInsertForm">
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="card">
+									<div class="card-body">
+										<div class="mb-3">
+											<label class="form-label" for="product-title-input">제품명</label>
+											<input type="text" class="form-control" id="product-title-input"
+												name="productName" placeholder="제품 이름을 입력 해 주세요." required>
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="product-code-input">제품코드</label>
+											<input type="text" class="form-control" id="product-code-input"
+												name="productCode" placeholder="제품 코드를 입력 해 주세요." required>
+											<div id="product-code-check-msg" class="mt-1" style="font-size:0.95em;">
+											</div>
+										</div>
+										<div class="mb-3">
+											<label class="form-label" for="product-title-input">제품타이틀</label>
+											<input type="text" class="form-control" name="productTitle"
+												id="product-title-input" placeholder="제품타이틀을 입력 해 주세요.">
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title mb-0">제품이미지등록</h5>
+									</div>
+									<div class="card-body">
+										<div class="mb-4">
+											<h5 class="fs-15 mb-1">제품 대표이미지</h5>
+											<p class="text-muted">제품의 대표이미지를 선택 해 주세요.</p>
+
+											<div>
+												<input class="form-control" id="product-image-input" name="productImage"
+													required type="file" accept="image/png, image/gif, image/jpeg, image/webp">
+												<div id="product-image-preview" class="mt-2 d-flex flex-wrap gap-2">
+												</div>
+											</div>
+										</div>
+										<div class="mb-4">
+											<h5 class="fs-15 mb-1">제품 슬라이드 이미지</h5>
+											<p class="text-muted">제품의 슬라이드 이미지를 선택 해 주세요.</p>
+
+											<div>
+												<input class="form-control" type="file" required multiple
+													name="slideImages" id="slide-image-input"
+													accept="image/png, image/gif, image/jpeg, image/webp">
+												<div id="slide-image-preview" class="mt-2 d-flex flex-wrap gap-2"></div>
+											</div>
+										</div>
+										<div class="mb-4">
+											<h5 class="fs-15 mb-1">도면 파일</h5>
+											<p class="text-muted">도면 이미지를 등록하거나 PDF를 업로드할 수 있습니다.</p>
+											<div>
+												<input class="form-control" type="file" name="files"
+													id="drawing-file-input"
+													accept="image/png, image/gif, image/jpeg, application/pdf, image/webp">
+												<div id="drawing-file-preview" class="mt-2 d-flex flex-column gap-2">
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<ul class="nav nav-tabs-custom card-header-tabs border-bottom-0" role="tablist">
+											<li class="nav-item">
+												<a class="nav-link active" data-bs-toggle="tab" href="#addproduct-size"
+													role="tab">
+													제품 사이즈등록
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-bs-toggle="tab" href="#addproduct-metadata"
+													role="tab">
+													제품 색상등록
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-bs-toggle="tab" href="#addproduct-option"
+													role="tab">
+													제품 옵션등록
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-bs-toggle="tab" href="#addproduct-tag"
+													role="tab">
+													제품 태그등록
+												</a>
+											</li>
+										</ul>
+									</div>
+
+									<div class="card-body">
+										<div class="tab-content">
+											<div class="tab-pane active" id="addproduct-size" role="tabpanel">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="mt-4 mt-lg-0">
+															<h5 class="fs-14 mb-1">사이즈</h5>
+															<p class="text-muted">제품에 적용될 사이즈들을 선택 해 주세요.</p>
+															<select multiple="multiple" name="sizes"
+																id="multiselect-header">
+																<option th:each="s:${sizes}" th:value="${s.id}"
+																	th:text="${s.productSizeText}"></option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane" id="addproduct-metadata" role="tabpanel">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="mt-4 mt-lg-0">
+															<h5 class="fs-14 mb-1">색상선택</h5>
+															<p class="text-muted">제품에 적용될 색상들을 선택 해 주세요.</p>
+															<select multiple="multiple" name="colors"
+																id="multiselect-header02">
+																<option th:each="c:${colors}" th:value="${c.id}"
+																	th:text="${c.productColorSubject}"></option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="addproduct-option" role="tabpanel">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="mt-4 mt-lg-0">
+															<h5 class="fs-14 mb-1">옵션선택</h5>
+															<p class="text-muted">제품에 적용될 옵션들을 선택 해 주세요.</p>
+															<select multiple="multiple" name="options "
+																id="multiselect-header03">
+																<option th:each="o:${options}" th:value="${o.id}"
+																	th:text="${o.productOptionText}"></option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="addproduct-tag" role="tabpanel">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="mt-4 mt-lg-0">
+															<h5 class="fs-14 mb-1">태그선택</h5>
+															<p class="text-muted">제품에 적용될 태그들을 선택 해 주세요.</p>
+															<select multiple="multiple" name="tags"
+																id="multiselect-header04">
+																<option th:each="t:${tags}" th:value="${t.id}"
+																	th:text="${t.productTagText}"></option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="text-end mb-3">
+									<button type="submit" class="btn btn-success w-sm">제품등록</button>
+								</div>
+							</div>
+
+							<div class="col-lg-4">
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title mb-0">제품분류</h5>
+									</div>
+									<div class="card-body">
+										<div class="mb-3">
+											<label class="form-label">대분류</label>
+
+											<select required id="bigSort" class="form-select" name="bigSort">
+												<option value="">=== 대분류선택 ===</option>
+												<option th:each="b:${bigsorts}" th:value="${b.id}" th:text="${b.name}">
+													사이즈</option>
+											</select>
+										</div>
+
+										<div>
+											<labelclass="form-label">중분류</label>
+												<select required id="middleSort" name="middleSort" class="form-select">
+													<option value="">대분류를 먼저 선택 해 주세요.</option>
+												</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title mb-0">제품 선택사항</h5>
+									</div>
+									<div class="card-body">
+
+										<div class="mb-3">
+											<label class="form-label">비규격주문 가능여부</label>
+											<select required name="order" class="form-select">
+												<option value="">=== 비규격 주문 가능여부 선택 ===</option>
+												<option value=true>비규격 주문 가능</option>
+												<option value=false>비규격 주문 불가능</option>
+											</select>
+										</div>
+										<div>
+											<label class="form-label">손잡이 가능여부</label>
+											<select required name="handle" class="form-select">
+												<option value="">=== 손잡이 가능여부 선택 ===</option>
+												<option value=true>손잡이 가능</option>
+												<option value=false>손잡이 불가능</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title mb-0">제품설명</h5>
+									</div>
+									<div class="card-body">
+										<p class="text-muted mb-2">제품 설명 문구를 입력 해 주세요.</p>
+										<textarea class="form-control" name="subject" placeholder="제품의 설명 문구를 입력 해 주세요."
+											rows="5"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+
+	<script src="/administration/assets/libs/dropzone/dropzone-min.js"></script>
+	<script src="/administration/assets/libs/multi.js/multi.min.js"></script>
+	<script src="/administration/assets/js/productInsert.js"></script>
+</body>
+
+</html>

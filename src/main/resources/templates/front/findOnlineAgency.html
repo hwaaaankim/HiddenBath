@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/clean/common :: cleanHead"></head>
+
+<body class="home home-3 title-3">
+	<div id="page" class="hfeed page-wrapper">
+		<header id="site-header" class="site-header header-v3"
+			th:replace="fragments/front/clean/common :: cleanHeader(${menuList})">
+		</header>
+
+		<div id="site-main" class="site-main mb-5">
+			<div id="main-content" class="main-content">
+				<div id="primary" class="content-area">
+					<div id="title" class="page-title" style="background:url('/front/clean/new/b03.png');">
+						<div class="section-container">
+							<div class="content-title-heading">
+								<h1 class="text-title-heading">
+									CUSTOMER CENTERs
+								</h1>
+							</div>
+							<div class="breadcrumbs">
+								<a href="/">HOME</a><span class="delimiter"></span>온라인 대리점 찾기
+							</div>
+						</div>
+					</div>
+
+					<div id="content" class="site-content" role="main">
+						<div class="section-padding">
+							<!-- ===== Filter Bar ===== -->
+							<div class="onlineAgency-find-filterbar">
+								<div class="onlineAgency-find-filter-row1">
+									<select class="form-select onlineAgency-find-size" id="sizeSelect">
+										<option value="16" selected>== 16개씩 보기 ==</option>
+										<option value="32">== 32개씩 보기 ==</option>
+										<option value="48">== 48개씩 보기 ==</option>
+										<option value="64">== 64개씩 보기 ==</option>
+									</select>
+
+									<select class="form-select onlineAgency-find-type" id="typeSelect">
+										<option value="name">이름검색</option>
+										<option value="contact">연락처검색</option>
+									</select>
+								</div>
+
+								<div class="onlineAgency-find-filter-row2">
+									<input type="text" class="form-control onlineAgency-find-keyword" id="keywordInput"
+										placeholder="검색어를 입력해 주세요.">
+									<button type="button" class="btn btn-dark" id="btnSearch">검색</button>
+								</div>
+							</div>
+
+							<!-- Divider -->
+							<hr class="onlineAgency-find-divider" />
+
+							<!-- ===== Card Grid ===== -->
+							<div class="row" style="justify-content: center;">
+								<div class="col-lg-10 col-md-10 col-sm-12 col-sm-12">
+									<div class="row" id="cardList">
+										<!-- col-lg-3 / col-md-4 / col-sm-12 / col-xs-12 -->
+									</div>
+								</div>
+							</div>
+							<!-- ===== Pagination (디자인 고정 마크업, 요소는 JS가 채움) ===== -->
+							<nav class="pagination" aria-label="Page navigation">
+								<ul class="pagination justify-content-center" id="pagination"></ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="site-footer" class="site-footer background"
+			th:replace="fragments/front/clean/common :: cleanFooter">
+		</footer>
+	</div>
+
+	<th:block th:replace="fragments/front/clean/common :: cleanScript"></th:block>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="/front/clean/assets/js/findOnlineAgency.js"></script>
+</body>
+
+</html>

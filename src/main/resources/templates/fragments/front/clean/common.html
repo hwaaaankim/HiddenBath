@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="cleanHead">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HIDDEN BATH</title>
+
+	<link rel="shortcut icon" type="/front/clean/image/x-icon" href="/front/clean/media/favicon.png">
+	<link rel="stylesheet" href="/front/clean/libs/bootstrap/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/feather-font/css/iconfont.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/icomoon-font/css/icomoon.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/font-awesome/css/font-awesome.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/wpbingofont/css/wpbingofont.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/elegant-icons/css/elegant.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/slick/css/slick.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/slick/css/slick-theme.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/mmenu/css/mmenu.min.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/slider/css/jslider.css">
+	<link rel="stylesheet" href="/front/clean/libs/select2/css/select2.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" />
+
+	<link rel="stylesheet" href="/front/clean/assets/css/app.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/assets/css/responsive.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/assets/css/detail.css">
+	<link rel="stylesheet" href="/front/clean/assets/css/3d.css">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700&display=swap"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=EB+Garamond:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+
+<body class="home">
+	<header id="site-header" class="site-header header-v1" th:fragment="cleanHeader(menuList)">
+		<div class="header-mobile">
+			<div class="section-padding">
+				<div class="section-container">
+					<div class="row">
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 header-left">
+							<div class="navbar-header">
+								<button type="button" id="show-megamenu" class="navbar-toggle"></button>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 header-center">
+							<div class="site-logo">
+								<a href="/index">
+									<img width="400" height="79" src="/front/clean/assets/img/logo-black.png" alt="#" />
+								</a>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 header-right">
+							<div class="ruper-topcart dropdown">
+								<div class="dropdown mini-cart top-cart">
+									<div class="remove-cart-shadow"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-mobile-fixed">
+				<div class="shop-page">
+					<a href="/index"><i class="wpb-icon-shop"></i></a>
+				</div>
+
+				<div class="my-account">
+					<div class="login-header">
+						<a href="/about"><i class="wpb-icon-user"></i></a>
+					</div>
+				</div>
+
+				<!-- Search -->
+				<div class="search-box">
+					<a class="search-toggle"><i class="wpb-icon-magnifying-glass"></i></a>
+				</div>
+
+				<!-- Wishlist -->
+				<div class="wishlist-box">
+					<a href="/productList/7"><i class="icon-large-paper-bag"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="header-desktop">
+			<div class="header-wrapper">
+				<div class="section-padding">
+					<div class="section-container p-l-r">
+						<div class="row">
+							<div class="col-xl-3 col-lg-2 col-md-12 col-sm-12 col-12 header-left">
+								<div class="site-logo">
+									<a href="/index">
+										<img height="79" src="/front/clean/assets/img/logo.png" alt="#" />
+									</a>
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 text-center header-center">
+								<div class="site-navigation">
+									<nav id="main-navigation">
+										<ul id="menu-main-menu" class="menu">
+											<li class="level-0 menu-item menu-item-has-children ">
+												<a href="#"><span class="menu-item-text">HIDDEN</span></a>
+												<div class="sub-menu">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="menu-section">
+																<h2 class="sub-menu-title">HIDDEN BATH</h2>
+																<ul class="menu-list">
+																	<li>
+																		<a href="/about"><span
+																				class="menu-item-text">회사소개</span></a>
+																	</li>
+																	<li>
+																		<a href="/history"><span
+																				class="menu-item-text">연혁</span></a>
+																	</li>
+																	<li>
+																		<a href="/address"><span
+																				class="menu-item-text">오시는길</span></a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li class="level-0 menu-item menu-item-has-children ">
+												<a href="/productList/7"><span
+														class="menu-item-text">PRODUCTs</span></a>
+												<div class="sub-menu">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="menu-section">
+																<h2 class="sub-menu-title">PRODUCT</h2>
+																<ul class="menu-list">
+																	<li>
+																		<a href="/productList/7">
+																			<span class="menu-item-text">전체제품</span>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/productList/1">
+																			<span class="menu-item-text">상부장</span>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/productList/6">
+																			<span class="menu-item-text">플랩장</span>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/productList/2">
+																			<span class="menu-item-text">하부장</span>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/productList/4">
+																			<span class="menu-item-text">거울</span>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/productList/3">
+																			<span class="menu-item-text">슬라이드장</span>
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/productList/5">
+																			<span class="menu-item-text">욕실용품</span>
+																		</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li class="level-0 menu-item menu-item-has-children mega-menu align-center">
+												<a href="#"><span class="menu-item-text">GALLERY</span></a>
+												<div class="sub-menu">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="menu-section">
+																<h2 class="sub-menu-title">GALLERY</h2>
+																<div class="block block-posts recent-posts p-t-5">
+																	<ul class="posts-list">
+																		<li class="post-item">
+																			<a href="/example" class="post-image">
+																				<img src="/front/clean/new/con01.png">
+																			</a>
+																			<div class="post-content">
+																				<h2 class="post-title">
+																					<a href="/exampleGallery">
+																						[시공 갤러리]
+																					</a>
+																				</h2>
+																				<div class="post-time">
+																					<span class="post-date">실제 시공 사례를 만나
+																						보세요.</span>
+																				</div>
+																			</div>
+																		</li>
+																		<li class="post-item">
+																			<a href="/imageGallery" class="post-image">
+																				<img src="/front/clean/new/con02.png">
+																			</a>
+																			<div class="post-content">
+																				<h2 class="post-title">
+																					<a href="/imageGallery">
+																						[히든바스 갤러리]
+																					</a>
+																				</h2>
+																				<div class="post-time">
+																					<span class="post-date">히든바스의 제품
+																						갤러리.</span>
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li class="level-0 menu-item menu-item-has-children ">
+												<a href="#"><span class="menu-item-text">CUSTOMER</span></a>
+												<div class="sub-menu">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="menu-section">
+																<h2 class="sub-menu-title">고객센터</h2>
+																<ul class="menu-list">
+																	<li>
+																		<a href="/notice"><span
+																				class="menu-item-text">공지사항</span></a>
+																	</li>
+																	<li>
+																		<a href="/catalog"><span
+																				class="menu-item-text">카달로그</span></a>
+																	</li>
+																	<li>
+																		<a href="/findAgency"><span
+																				class="menu-item-text">대리점찾기</span></a>
+
+																	</li>
+																	<li>
+																		<a href="/findOnlineAgency"><span
+																				class="menu-item-text">온라인대리점찾기</span></a>
+
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+
+							<div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 header-right">
+								<!-- PC 전용 검색 영역 -->
+								<div class="index-search-area-wrap">
+									<form class="index-search-area-form" method="post" action="/searchKeword">
+										<div class="index-search-area-inputbox">
+											<input type="text" name="keyword" class="index-search-area-input"
+												placeholder="검색어를 입력 해 주세요." autocomplete="off" required />
+											<button type="submit" class="index-search-area-submit" aria-label="검색">
+												<i class="icon-search"></i>
+											</button>
+										</div>
+									</form>
+
+									<!-- 최근검색어 드롭다운(PC 전용) -->
+									<div class="index-search-area-recent" aria-hidden="true">
+										<div class="index-search-area-recent-header">
+											<div class="index-search-area-recent-title">최근검색어</div>
+											<button type="button" class="index-search-area-recent-close">최근검색어
+												닫기</button>
+										</div>
+
+										<div class="index-search-area-recent-body">
+											<!-- JS로 렌더링 -->
+										</div>
+
+										<div class="index-search-area-recent-footer">
+											<button type="button" class="index-search-area-recent-clear">전체 삭제</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+
+	<footer id="site-footer" class="site-footer background" th:fragment="cleanFooter">
+		<div class="footer">
+			<div class="section-padding">
+				<div class="section-container">
+					<div class="block-widget-wrap">
+						<div class="row">
+							<div class="col-lg-3 col-md-6">
+								<div class="block block-menu m-b-20">
+									<h2 class="block-title">INFORMATIONs</h2>
+									<div class="block-content">
+										<ul>
+											<li>
+												<a href="#">TEL : 031) 8011-3660</a>
+											</li>
+											<li>
+												<a href="#">FAX : 031) 8011-3661</a>
+											</li>
+											<li>
+												<a href="#">E-MAIL : hiddenbath@naver.com</a>
+											</li>
+											<li>
+												<a href="#">상담시간 : 08:00am ~ 17:00pm</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="block block-social">
+									<ul class="social-link">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="block block-menu">
+									<h2 class="block-title">주소</h2>
+									<div class="block-content">
+										<p>경기도 이천시 백사면 청백리로,</p>
+										<p>641-11번지 히든바스</p>
+										<p>(백사면 상용리 387-11)</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="block block-menu">
+									<h2 class="block-title">Services</h2>
+									<div class="block-content">
+										<ul>
+											<li>
+												<a href="/">HOME</a>
+											</li>
+											<li>
+												<a href="/notice">공지사항</a>
+											</li>
+											<li>
+												<a href="/imageGallery">히든바스 갤러리</a>
+											</li>
+											<li>
+												<a href="/catalog">카달로그</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="block block-menu">
+									<h2 class="block-title">Services</h2>
+									<div class="block-content">
+										<ul>
+											<li>
+												<a href="/about">HIDDEN BATH</a>
+											</li>
+											<li>
+												<a href="/productList/7">제품 리스트</a>
+											</li>
+											<li>
+												<a href="/exampleGallery">인테리어 시공 갤러리</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="section-padding">
+				<div class="section-container">
+					<div class="block-widget-wrap">
+						<p class="copyright text-center">Copyright © 2024. All Right Reserved</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<th:block th:fragment="cleanScript">
+		<div class="back-top button-show">
+			<i class="arrow_carrot-up"></i>
+		</div>
+
+		<div class="search-overlay">
+			<div class="close-search"></div>
+			<div class="wrapper-search">
+				<button class="search-close-btn">X</button>
+				<form method="post" class="search-from" action="/searchKeword">
+					<div class="search-box">
+						<button id="searchsubmit" class="btn" type="submit">
+							<i class="icon-search"></i>
+						</button>
+						<input type="text" value="" name="keyword" required class="input-search"
+							placeholder="검색어를 입력 해 주세요.">
+						<div class="search-top">
+							<div class="close-search">CLOSE</div>
+						</div>
+						<div class="content-menu_search">
+							<label>조회영역</label>
+							<ul id="menu_search" class="menu">
+								<li><a href="#"># 제품코드</a></li>
+								<li><a href="#"># 제품명칭</a></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-preloader">
+			<div class="loader">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src="/front/clean/libs/popper/js/popper.min.js"></script>
+		<script src="/front/clean/libs/jquery/js/jquery.min.js"></script>
+		<script src="/front/clean/libs/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/front/clean/libs/slick/js/slick.min.js"></script>
+		<script src="/front/clean/libs/countdown/js/jquery.countdown.min.js"></script>
+		<script src="/front/clean/libs/mmenu/js/jquery.mmenu.all.min.js"></script>
+		<script src="/front/clean/libs/slider/js/tmpl.js"></script>
+		<script src="/front/clean/libs/slider/js/jquery.dependClass-0.1.js"></script>
+		<script src="/front/clean/libs/slider/js/draggable-0.1.js"></script>
+		<script src="/front/clean/libs/slider/js/jquery.slider.js"></script>
+		<script src="/front/clean/assets/js/app.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"></script>
+		<script>
+			(function ($) {
+				$(function () {
+					const $buttons = $('.floatingButton');
+					const $menus = $('.floatingMenu');
+
+					// 공통: 열기
+					function openMenu($btn) {
+						const target = $btn.data('menu');
+						const $menu = $(target);
+
+						// 이미 열려있으면 닫기
+						if ($btn.hasClass('open')) {
+							closeAll();
+							return;
+						}
+
+						// 다른 것들 모두 닫기(상호 배타)
+						closeAll();
+
+						// 현재 버튼/메뉴 열기
+						$btn.addClass('open').attr('aria-expanded', 'true');
+						$menu.attr('aria-hidden', 'false').stop(true, true).slideDown(200);
+					}
+
+					// 공통: 모두 닫기
+					function closeAll() {
+						$buttons.removeClass('open').attr('aria-expanded', 'false');
+						$menus.attr('aria-hidden', 'true').stop(true, true).slideUp(200);
+					}
+
+					// 버튼 클릭 토글 (상호 배타 규칙 적용)
+					$(document).on('click', '.floatingButton', function (e) {
+						e.preventDefault();
+						openMenu($(this));
+					});
+
+					// 메뉴 항목 클릭 시 자동 닫기 (원하시면 주석 처리 가능)
+					$(document).on('click', '.floatingMenu a[role="menuitem"]', function () {
+						closeAll();
+					});
+
+					// 바깥 영역 클릭 → 모두 닫기
+					$(document).on('click', function (e) {
+						const $target = $(e.target);
+						const insideFloating =
+							$target.closest('.floatingButtonWrap').length > 0 ||
+							$target.closest('.floatingMenu').length > 0 ||
+							$target.closest('.floatingButton').length > 0;
+
+						if (!insideFloating) {
+							closeAll();
+						}
+					});
+
+					// ESC 닫기
+					$(document).on('keydown', function (e) {
+						if (e.key === 'Escape') {
+							closeAll();
+						}
+					});
+				});
+			})(jQuery);
+
+			document.querySelector('.search-close-btn').addEventListener('click', function () {
+				const searchOverlay = document.querySelector('.search-overlay');
+				searchOverlay.classList.remove('search-visible');
+			});
+
+		</script>
+		<script>
+			(function ($) {
+				$(function () {
+
+					/* =========================
+					   PC 전용: 헤더 인풋 검색 + 최근검색어
+					   ========================= */
+
+					// PC 헤더 검색 DOM
+					const $wrap = $('.index-search-area-wrap');
+					const $form = $wrap.find('.index-search-area-form');
+					const $input = $wrap.find('.index-search-area-input');
+					const $recent = $wrap.find('.index-search-area-recent');
+					const $recentBody = $wrap.find('.index-search-area-recent-body');
+					const $btnClose = $wrap.find('.index-search-area-recent-close');
+					const $btnClear = $wrap.find('.index-search-area-recent-clear');
+
+					// PC 헤더가 없는 페이지(예: 다른 레이아웃)에서는 조용히 종료
+					if ($wrap.length === 0 || $form.length === 0 || $input.length === 0 || $recent.length === 0) {
+						return;
+					}
+
+					// overlay는 body에 1개만
+					let $overlay = $('.index-search-area-overlay');
+					if ($overlay.length === 0) {
+						$overlay = $('<div class="index-search-area-overlay" aria-hidden="true"></div>');
+						$('body').append($overlay);
+					}
+
+					const STORAGE_KEY = 'index-search-area-recent';
+					const MAX_RECENT = 10;
+
+					function pad2(n) {
+						return String(n).padStart(2, '0');
+					}
+
+					function formatDate(ts) {
+						const d = new Date(ts);
+						const yyyy = d.getFullYear();
+						const MM = pad2(d.getMonth() + 1);
+						const dd = pad2(d.getDate());
+						const hh = pad2(d.getHours());
+						const mm = pad2(d.getMinutes());
+						return `${yyyy}-${MM}-${dd} ${hh}:${mm}`;
+					}
+
+					function loadRecent() {
+						try {
+							const raw = localStorage.getItem(STORAGE_KEY);
+							if (!raw) return [];
+							const arr = JSON.parse(raw);
+							if (!Array.isArray(arr)) return [];
+							// 안전 필터
+							return arr
+								.filter(x => x && typeof x.k === 'string' && x.k.trim().length > 0 && typeof x.t === 'number')
+								.slice(0, MAX_RECENT);
+						} catch (e) {
+							return [];
+						}
+					}
+
+					function saveRecent(list) {
+						try {
+							localStorage.setItem(STORAGE_KEY, JSON.stringify(list.slice(0, MAX_RECENT)));
+						} catch (e) {
+							// localStorage 불가 환경이면 무시
+						}
+					}
+
+					function upsertKeyword(keyword) {
+						const k = (keyword || '').trim();
+						if (!k) return;
+
+						let list = loadRecent();
+						// 중복 제거(대소문자 무시하고 싶으면 toLowerCase 비교로 바꾸시면 됩니다)
+						list = list.filter(x => x.k !== k);
+						list.unshift({k, t: Date.now()});
+						list = list.slice(0, MAX_RECENT);
+						saveRecent(list);
+					}
+
+					function removeAt(index) {
+						const list = loadRecent();
+						if (index < 0 || index >= list.length) return;
+						list.splice(index, 1);
+						saveRecent(list);
+					}
+
+					function clearAll() {
+						saveRecent([]);
+					}
+
+					function renderRecent() {
+						const list = loadRecent();
+
+						if (list.length === 0) {
+							$recentBody.html('<div class="index-search-area-recent-empty">최근검색어가 없습니다.</div>');
+							return;
+						}
+
+						const html = list.map((item, idx) => {
+							const safeK = $('<div/>').text(item.k).html(); // escape
+							const dateStr = formatDate(item.t);
+
+							return `
+						<div class="index-search-area-recent-item" data-index="${idx}" data-keyword="${safeK}">
+							<div class="index-search-area-recent-left" title="${safeK}">${safeK}</div>
+							<div class="index-search-area-recent-right">
+								<div class="index-search-area-recent-date">${dateStr}</div>
+								<button type="button" class="index-search-area-recent-del" data-del-index="${idx}" aria-label="삭제">X</button>
+							</div>
+						</div>
+					`;
+						}).join('');
+
+						$recentBody.html(html);
+					}
+
+					function openRecent() {
+						renderRecent();
+						$recent.addClass('index-search-area-recent--open').attr('aria-hidden', 'false');
+						$overlay.addClass('index-search-area-overlay--show').attr('aria-hidden', 'false');
+					}
+
+					function closeRecent() {
+						$recent.removeClass('index-search-area-recent--open').attr('aria-hidden', 'true');
+						$overlay.removeClass('index-search-area-overlay--show').attr('aria-hidden', 'true');
+					}
+
+					function isOpen() {
+						return $recent.hasClass('index-search-area-recent--open');
+					}
+
+					// ✅ 인풋을 "클릭"했을 때만 최근검색어 오픈
+					$input.on('click', function (e) {
+						e.stopPropagation();
+						openRecent();
+					});
+					// wrap 영역 바깥 클릭 또는 overlay 클릭 시 닫기
+					$overlay.on('click', function () {
+						closeRecent();
+					});
+
+					$(document).on('mousedown', function (e) {
+						if (!isOpen()) return;
+
+						const $t = $(e.target);
+						const inside =
+							$t.closest('.index-search-area-wrap').length > 0 ||
+							$t.closest('.index-search-area-recent').length > 0;
+
+						if (!inside) {
+							closeRecent();
+						}
+					});
+
+					// ESC로 닫기
+					$(document).on('keydown', function (e) {
+						if (e.key === 'Escape' && isOpen()) {
+							closeRecent();
+						}
+					});
+
+					// "최근검색어 닫기" 버튼
+					$btnClose.on('click', function () {
+						closeRecent();
+					});
+
+					// "전체 삭제"
+					$btnClear.on('click', function () {
+						clearAll();
+						renderRecent();
+					});
+
+					// 아이템 클릭 => 인풋에 채우고 즉시 검색 실행
+					$recentBody.on('click', '.index-search-area-recent-item', function (e) {
+						// 삭제 버튼 클릭은 여기서 막고 별도 처리
+						if ($(e.target).closest('.index-search-area-recent-del').length > 0) return;
+
+						const idx = parseInt($(this).data('index'), 10);
+						const list = loadRecent();
+						if (Number.isNaN(idx) || !list[idx]) return;
+
+						const keyword = list[idx].k;
+						$input.val(keyword);
+
+						// 최신으로 올리기(검색 실행 전)
+						upsertKeyword(keyword);
+
+						// 닫고 제출
+						closeRecent();
+						$form.trigger('submit');
+					});
+
+					// 삭제 X 버튼
+					$recentBody.on('click', '.index-search-area-recent-del', function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+
+						const idx = parseInt($(this).data('del-index'), 10);
+						if (Number.isNaN(idx)) return;
+
+						removeAt(idx);
+						renderRecent();
+					});
+
+					// ✅ 검색 submit 시 localStorage 저장 후 그대로 서버로 POST 전송
+					$form.on('submit', function () {
+						const keyword = ($input.val() || '').trim();
+						if (!keyword) {
+							$input.focus();
+							return false;
+						}
+
+						upsertKeyword(keyword);
+						closeRecent();
+
+						// true 반환 => 기본 submit 진행 (컨트롤러 기존 그대로 사용)
+						return true;
+					});
+
+				});
+			})(jQuery);
+		</script>
+
+	</th:block>
+
+	<th:block th:fragment="floatingButton">
+		<div class="floatingArea">
+
+			<!-- (1) 기어 버튼: 기존 버튼 (bottom: 80px) -->
+			<div class="floatingButtonWrap floatingButtonWrap--gear" aria-live="polite">
+				<div class="floatingButtonInner">
+					<a href="#" class="floatingButton button-show" data-menu="#menu-gear" aria-expanded="false"
+						aria-controls="menu-gear" aria-label="설정 열기/닫기">
+						<i class="fa-solid fa-gear" aria-hidden="true"></i>
+					</a>
+					<ul class="floatingMenu" id="menu-gear" role="menu" aria-hidden="true">
+						<li role="none">
+							<a role="menuitem" href="/catalog">카달로그</a>
+						</li>
+						<li role="none">
+							<a role="menuitem" href="/notice">공지사항</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- (2) 대리점 버튼: 새로 추가 (bottom: 130px) -->
+			<div class="floatingButtonWrap floatingButtonWrap--agent" aria-live="polite">
+				<div class="floatingButtonInner">
+					<a href="#" class="floatingButton button-show" data-menu="#menu-agent" aria-expanded="false"
+						aria-controls="menu-agent" aria-label="대리점 메뉴 열기/닫기">
+						<!-- 대리점 아이콘: 매장/대리점 느낌의 'store' 아이콘 사용 -->
+						<i class="fa-solid fa-store" aria-hidden="true"></i>
+					</a>
+					<ul class="floatingMenu" id="menu-agent" role="menu" aria-hidden="true">
+						<li role="none">
+							<a role="menuitem" href="/findOnlineAgency">온라인대리점</a>
+						</li>
+						<li role="none">
+							<a role="menuitem" href="/findAgency">일반대리점</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</th:block>
+
+	<th:block th:fragment="sessionCheck(sessionValue)">
+		<input type="hidden" id="sessionCheck" th:value="${sessionValue}">
+	</th:block>
+</body>
+
+</html>

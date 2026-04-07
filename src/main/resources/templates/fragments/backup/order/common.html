@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html 
+lang="ko"
+xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="surveyHead">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="비규격주문">
+	<meta name="author" content="Ansonika">
+	<title>비규격주문</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="/front/order/img/favicon.ico" >
+	<link rel="apple-touch-icon" type="image/x-icon" href="/front/order/img/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/front/order/img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/front/order/img/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/front/order/img/apple-touch-icon-144x144-precomposed.png">
+
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+
+	<link href="/front/order/css/bootstrap.css" rel="stylesheet">
+	<link href="/front/order/css/style.css" rel="stylesheet">
+	<link href="/front/order/css/menu.css" rel="stylesheet">
+	<link href="/front/order/css/vendors.min.css" rel="stylesheet">
+	<link href="/front/order/css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
+	<link href="/front/order/css/skins/square/grey.css" rel="stylesheet">
+
+	<link href="/front/order/css/custom.css" rel="stylesheet">
+	<script src="/front/order/js/modernizr.js"></script>
+
+</head>
+
+<body>
+	<th:block th:fragment="surveyHeader">
+		<div id="preloader">
+			<div data-loader="circle-side"></div>
+		</div>
+	
+		<div id="loader_form">
+			<div data-loader="circle-side-2"></div>
+		</div>
+	</th:block>
+	
+	<th:block th:fragment="surveyFooter(code)">
+		<footer>
+			<div class="container clearfix">
+				<ul>
+					<li><a href="/" class="animated_link">[HOME] 홈으로돌아가기</a></li>
+					<li><a th:classappend="${code eq 'mirror' ? 'active' : ''}" href="/order" class="animated_link">[거울] 비규격주문</a></li>
+					<li><a th:classappend="${code eq 'flap' ? 'active' : ''}" href="/order/flap" class="animated_link">[플랩장] 비규격주문</a></li>
+					<li><a th:classappend="${code eq 'top' ? 'active' : ''}" href="/order/top" class="animated_link">[상부장] 비규격주문</a></li>
+					<li><a th:classappend="${code eq 'slide' ? 'active' : ''}" href="/order/slide" class="animated_link">[슬라이드장] 비규격주문</a></li>
+					<li><a th:classappend="${code eq 'low' ? 'active' : ''}" href="/order/low" class="animated_link">[하부장] 비규격주문</a></li>
+				</ul>
+				<p>© 2024 STEPs</p>
+			</div>
+		</footer>
+	
+		<div class="cd-overlay-nav">
+			<span></span>
+		</div>
+	
+		<div class="cd-overlay-content">
+			<span></span>
+		</div>
+	
+		<script src="/front/order/js/jquery-3.7.1.min.js"></script>
+		<script src="/front/order/js/common_scripts.min.js"></script>
+		<script src="/front/order/js/menu.js"></script>
+		<script src="/front/order/js/main.js"></script>
+	</th:block>
+</body>
+
+</html>

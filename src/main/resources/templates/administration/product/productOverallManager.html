@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">제품관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">제품관리</a></li>
+										<li class="breadcrumb-item active">제품정보 신속관리</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-10">
+							<div class="card">
+								<div class="card-header align-items-center d-flex">
+									<h4 class="card-title mb-0 flex-grow-1">검색 필터</h4>
+								</div>
+
+								<div class="card-body">
+									<p class="text-muted">
+										#
+										<code>검색 조건</code>
+										을 선택하여 원하는 검색을 진행할 수 있습니다.<br> # 한 페이지에 보고 싶은
+										<code>검색 결과의 수</code>
+										를 조정할 수 있습니다.<br> #
+										<code>제품명 / 분류명</code>
+										을 통해 검색이 가능합니다.<br> #
+										<code>체크박스를 체크한 상태</code>
+										로 검색 시 해당 단어가 포함된 모든 결과가 표시됩니다.
+									</p>
+									<div class="live-preview">
+										<form action="#">
+											<div class="row gy-2 gx-3 mb-3 align-items-center">
+												<div class="col-sm-auto">
+													<label class="visually-hidden">페이지사이즈</label> <select
+														class="form-select" th:name="size" id="pageSize">
+														<option>10개씩 보기</option>
+														<option>30개씩 보기</option>
+														<option>50개씩 보기</option>
+														<option>100개씩 보기</option>
+													</select>
+												</div>
+												<div class="col-sm-auto">
+													<label class="visually-hidden">대분류</label> 
+													<select 
+														class="form-select" id="smallPanelBigSortSelect"
+														name="bigId">
+														<option selected value="">== 대분류 선택 ==</option>
+													</select>
+												</div>
+												<div class="col-sm-auto">
+													<label class="visually-hidden">중분류</label> <select
+														class="form-select" id="smallPanelMiddleSortSelect"
+														name="middleId">
+														<option selected value="">== 중분류 선택 ==</option>
+													</select>
+												</div>
+												<div class="col-sm-auto">
+													<button type="submit" class="btn btn-primary">검색
+														하기</button>
+												</div>
+												<div class="col-sm-auto">
+													<div>
+														<a href="#"
+															class="btn btn-danger"> 검색 초기화</a>
+													</div>
+												</div>
+												<div class="col-sm-auto">
+													<div>
+														<a href="#" class="btn btn-success"><i
+															class="ri-add-line align-bottom me-1"></i> 제품등록</a>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-10">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title mb-0">제품 신속관리</h4>
+								</div>
+								<div class="card-body">
+									<div class="p-3 mt-n3 mx-n3 bg-warning-subtle rounded-top">
+										<div class="d-flex align-items-center">
+											<div class="flex-grow-1">
+												<p class="text-muted mb-1">제품이름 : [_____}</p>
+											</div>
+											<div class="flex-shrink-0">
+												<div class="d-flex gap-1 align-items-center my-n2">
+													<div class="dropdown">
+														<button
+															class="btn btn-link text-muted p-1 mt-n1 py-0 text-decoration-none fs-15"
+															data-bs-toggle="dropdown" aria-haspopup="true"
+															aria-expanded="true">
+															<i data-feather="more-horizontal" class="icon-sm"></i>
+														</button>
+
+														<div class="dropdown-menu dropdown-menu-end">
+															<a class="dropdown-item"><i
+																class="ri-pencil-fill align-bottom me-2 text-muted"></i>
+																수정</a>
+															<div class="dropdown-divider"></div>
+															<button class="dropdown-item">
+																<i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
+																삭제
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="py-3">
+										<div class="row gy-3 mb-3">
+											<div class="col-12">
+												<div>
+													<p class="text-muted mb-1">분류</p>
+													<div class="badge bg-success-subtle text-success fs-12">대분류</div>
+													>>
+													<div class="badge bg-success-subtle text-warning fs-12">중분류</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="row">
+													<div class="col-6">
+														<p class="text-muted mb-1">제품 TITLE</p>
+														<textarea class="form-control-plaintext" readonly>제품 TITLE TEXT</textarea>
+													</div>
+													<div class="col-6">
+														<p class="text-muted mb-1">제품 SUB TITLE</p>
+														<textarea class="form-control-plaintext" readonly style="height: 100%;">제품 SUB TITLE TEXT</textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-12">
+											<div class="row">
+												<div class="col-4">
+													<div class="d-flex mt-3 item-box">
+														<p class="text-muted mb-0 me-2">슬라이드 이미지 :</p>
+														<div class="avatar-group item-box">
+															<div class="gallery-container" id="slideImageContainer">
+																<a class="image-popup" > <img
+																	style="max-height:130px;max-width:100px;"
+																	class="img-thumbnail gallery-img img-fluid mx-auto"
+																	src="/front/clean/media/favicon.png" alt="">
+																</a>
+																<a class="image-popup" > <img
+																	style="max-height:130px;max-width:100px;"
+																	class="img-thumbnail gallery-img img-fluid mx-auto"
+																	src="/front/clean/media/favicon.png" alt="">
+																</a>
+																<a class="image-popup" > <img
+																	style="max-height:130px;max-width:100px;"
+																	class="img-thumbnail gallery-img img-fluid mx-auto"
+																	src="/front/clean/media/favicon.png" alt="">
+																</a>
+															</div>
+															<button type="button" class="btn btn-primary change-btn"
+																data-bs-toggle="modal"
+																th:onclick="changeSingleModal('1', 'overviewImageModal')"
+																data-bs-target="#overviewImageModal">변경</button>
+														</div>
+													</div>
+												</div>
+												<div class="col-4">
+													<div class="d-flex mt-3 item-box">
+														<p class="text-muted mb-0 me-2">대표 이미지 :</p>
+														<div class="avatar-group item-box">
+															<div class="gallery-container">
+																<a class="image-popup" > <img
+																	style="max-height:130px;max-width:100px;"
+																	class="img-thumbnail gallery-img img-fluid mx-auto"
+																	src="/front/clean/media/favicon.png" alt="">
+																</a>
+															</div>
+															<button type="button" class="btn btn-primary change-btn"
+																data-bs-toggle="modal"
+																th:onclick="changeSingleModal('1', 'spec')"
+																data-bs-target="#overviewImageModal">변경</button>
+														</div>
+													</div>
+												</div>
+												<div class="col-4">
+													<div class="d-flex mt-3 item-box">
+														<p class="text-muted mb-0 me-2">PRODUCT FILEs :</p>
+														<div class="avatar-group item-box">
+															<div class="gallery-container">
+																<a style="display: block;" class="image-popup">files.png</a>
+															</div>
+															<button type="button" 
+															class="btn btn-primary change-btn" 
+															style="margin-left:10px;"
+															data-bs-toggle="modal" 
+															th:onclick="changeSingleModal('1', 'files')"
+															data-bs-target="#filesModal">변경</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<nav aria-label="Page navigation example" style="margin-top:10px;">
+						<ul class="pagination justify-content-center">
+							<li class="page-item disabled">
+								<a class="page-link" href="#" tabindex="-1">First</a>
+							</li>
+							<li class="page-item disabled">
+								<a class="page-link" href="#" tabindex="-1">Previous</a>
+							</li>
+							<li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item">
+								<a class="page-link" href="#">Next</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">Last</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+	<div class="modal fade" id="overviewImageModal" tabindex="-1"
+		aria-labelledby="exampleModalgridLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">슬라이드 업로드</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row g-3">
+						<div class="col-lg-12">
+							<div class="card-body">
+                                <p class="text-muted">
+									# <code>이미지[.png/.jpg/.jpeg]확장자의</code> 업로드 만을 지원 합니다.<br> 
+									# 1회 업로드 허용 용량은<code> 10MB</code>입니다. <br>  
+								</p>
+                                <form class="dropzone fou" method="post" action="/admin/productCenter/productFileInsert" enctype="multipart/form-data">
+									<div class="row mb-2">	
+										<div class="col-sm-auto">
+											<div>
+												<button type="submit" class="btn btn-warning">파일 업로드</button>
+											</div>
+										</div>
+									</div>
+                                    <div class="fallback filebox">
+                                        <input type="hidden" name="productIdInput" id="productIdInput">
+										<input type="hidden" name="productCodeInput" id="productCodeInput">
+                                    </div>
+                                    <div class="dz-message needsclick">
+                                        <div class="mb-3">
+                                            <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
+                                        </div>
+
+                                        <h4>드래그 또는 클릭하여 업로드할 파일을 선택 해 주시기 바랍니다.</h4>
+                                    </div>
+                                </form>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="specImageModal" tabindex="-1"
+		aria-labelledby="exampleModalgridLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">대표이미지 업로드</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row g-3">
+						<div class="col-lg-12">
+							<div class="card-body">
+                                <p class="text-muted">
+									# <code>이미지[.png/.jpg/.jpeg]확장자의</code> 업로드 만을 지원 합니다.<br> 
+									# 1회 업로드 허용 용량은<code> 10MB</code>입니다. <br> 
+								</p>
+                                <form class="dropzone fou" method="post" action="#" enctype="multipart/form-data">
+									<div class="row mb-2">	
+										<div class="col-sm-auto">
+											<div>
+												<button type="submit" class="btn btn-warning">파일 업로드</button>
+											</div>
+										</div>
+									</div>
+                                    <div class="fallback filebox">
+                                        <input type="hidden" name="productIdInput" id="productIdInput">
+										<input type="hidden" name="productCodeInput" id="productCodeInput">
+                                    </div>
+                                    <div class="dz-message needsclick">
+                                        <div class="mb-3">
+                                            <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
+                                        </div>
+
+                                        <h4>드래그 또는 클릭하여 업로드할 파일을 선택 해 주시기 바랍니다.</h4>
+                                    </div>
+                                </form>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="filesModal" tabindex="-1"
+		aria-labelledby="exampleModalgridLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">제품 FIlEs
+						업로드</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row g-3">
+						<div class="col-lg-12">
+							<div class="card-body">
+                                <p class="text-muted">
+									# 1회 업로드 허용 용량은<code> 10MB</code>입니다. <br> 
+								</p>
+                                <form class="dropzone fou" method="post" action="#">
+									<div class="row mb-2">	
+										<div class="col-sm-auto">
+											<div>
+												<button type="submit" class="btn btn-warning">파일 업로드</button>
+											</div>
+										</div>
+									</div>
+                                    <div class="fallback filebox">
+									    <input type="hidden" name="productIdInput" id="productIdInput">
+										<input type="hidden" name="productCodeInput" id="productCodeInput">
+                                    </div>
+                                    <div class="dz-message needsclick">
+                                        <div class="mb-3">
+                                            <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
+                                        </div>
+                                        <h4>클릭하여 업로드할 파일을 선택 해 주시기 바랍니다.</h4>
+                                    </div>
+                                </form>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+	<script th:inline="javascript">
+   		var bigId = /*[[${bigId}]]*/ 'default';
+   		var middleId = /*[[${middleId}]]*/ 'default';
+    </script>
+	<script src="/administration/assets/js/programProductManager.js"></script>
+    <script>
+		$('input[name=file]').on('change',function(e){
+			$(this).parent().children(':first-child').val(e.target.files[0].name);
+		});
+	</script>
+</body>
+
+</html>

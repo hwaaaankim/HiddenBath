@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<div id="layout-wrapper">
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">사이트관리</h4>
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript:void(0);">사이트관리</a></li>
+										<li class="breadcrumb-item active">갤러리 관리</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 업로드 폼 (col-5 / col-5 / col-2) -->
+					<form action="/admin/galleryInsert" method="post" enctype="multipart/form-data" class="mb-4">
+						<div class="row align-items-start g-3">
+							<div class="col-lg-5">
+								<label class="form-label">썸네일 이미지 (1장)</label>
+								<input id="gm-insert-thumb" class="form-control gm-file" type="file" name="thumb"
+									accept="image/*" required>
+								<div class="gm-preview-box square mt-2" id="gm-insert-thumb-preview">
+									<img alt="thumb preview">
+									<button type="button" class="gm-preview-clear" title="초기화">×</button>
+									<span class="text-muted">미리보기</span>
+								</div>
+							</div>
+							<div class="col-lg-5">
+								<label class="form-label">원본 이미지 (1장)</label>
+								<input id="gm-insert-origin" class="form-control gm-file" type="file" name="gallery"
+									accept="image/*" required>
+								<div class="gm-preview-box square mt-2" id="gm-insert-origin-preview">
+									<img alt="origin preview">
+									<button type="button" class="gm-preview-clear" title="초기화">×</button>
+									<span class="text-muted">미리보기</span>
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<label class="form-label">등록</label>
+								<button id="gm-insert-btn" type="submit" class="btn btn-success w-100"
+									disabled>업로드</button>
+							</div>
+						</div>
+					</form>
+
+					<!-- 카드형 리스트 (4개/행) -->
+					<div class="row g-3">
+						<div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6" th:each="g : ${galleries}">
+							<div class="card h-100">
+								<div class="card-body">
+									<div class="gm-card-col mb-3">
+										<div class="gm-card-img-wrap">
+											<img th:src="${g.road}" alt="original">
+											<button type="button" class="gm-enlarge-btn"
+												th:attr="data-fullsrc=${g.road}" title="원본 확대">+</button>
+										</div>
+										<div class="gm-card-img-wrap">
+											<img th:src="${g.thumbRoad}" alt="thumb">
+											<button type="button" class="gm-enlarge-btn"
+												th:attr="data-fullsrc=${g.thumbRoad}" title="썸네일 확대">+</button>
+										</div>
+									</div>
+
+									<!-- 업데이트 폼 -->
+									<form th:action="@{'/admin/galleryUpdate/' + ${g.id}}" method="post"
+										enctype="multipart/form-data" class="gm-update-form">
+										<div class="row g-2">
+											<div class="col-12">
+												<label class="form-label">썸네일 교체</label>
+												<input class="form-control gm-file gm-thumb-input" type="file"
+													name="thumb" accept="image/*" th:attr="data-id=${g.id}">
+												<div class="gm-preview-box square mt-2"
+													th:attr="id=${'gm-thumb-preview-' + g.id}">
+													<img alt="new thumb">
+													<button type="button" class="gm-preview-clear"
+														title="초기화">×</button>
+													<span class="text-muted">변경 시 미리보기</span>
+												</div>
+											</div>
+											<div class="col-12">
+												<label class="form-label">원본 교체</label>
+												<input class="form-control gm-file gm-origin-input" type="file"
+													name="gallery" accept="image/*" th:attr="data-id=${g.id}">
+												<div class="gm-preview-box square mt-2"
+													th:attr="id=${'gm-origin-preview-' + g.id}">
+													<img alt="new origin">
+													<button type="button" class="gm-preview-clear"
+														title="초기화">×</button>
+													<span class="text-muted">변경 시 미리보기</span>
+												</div>
+											</div>
+											<div class="col-12 d-grid gap-2">
+												<button th:attr="id=${'gm-update-btn-' + g.id}" type="submit"
+													class="btn btn-primary" disabled>수정</button>
+
+												<!-- 삭제 버튼 & 폼 추가 -->
+
+											</div>
+										</div>
+									</form>
+									<form th:action="@{'/admin/galleryDelete/' + ${g.id}}" method="post"
+										class="gm-delete-form" onsubmit="return false;">
+										<button type="submit" class="btn btn-outline-danger gm-delete-btn gm-w-100 mt-1"
+											th:attr="data-id=${g.id}">삭제</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+
+	<!-- 확대 모달 -->
+	<div class="modal fade" id="gmImageModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-body p-0">
+					<img id="gm-modal-img" alt="preview" style="width:100%;height:auto;display:block;">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/administration/assets/js/galleryManager.js"></script>
+</body>
+
+</html>

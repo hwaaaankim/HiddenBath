@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">제품관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">제품관리</a></li>
+										<li class="breadcrumb-item active">제품관리</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="live-preview">
+										<form method="get" action="/admin/productManager" id="product-search-form">
+											<div class="row">
+												<div class="col-lg-2 pr-0">
+													<select name="size" class="form-select mb-3"
+														onchange="document.getElementById('product-search-form').submit()">
+														<option value="10" th:selected="${size==10}">10개씩 보기</option>
+														<option value="30" th:selected="${size==30}">30개씩 보기</option>
+														<option value="50" th:selected="${size==50}">50개씩 보기</option>
+														<option value="100" th:selected="${size==100}">100개씩 보기</option>
+													</select>
+												</div>
+												<div class="col-lg-2 pr-0">
+													<select name="bigId" id="search-big" class="form-select mb-3">
+														<option value="">== 대분류 선택 ==</option>
+														<option th:each="b : ${bigList}" th:value="${b.id}"
+															th:selected="${bigId==b.id}" th:text="${b.name}"></option>
+													</select>
+												</div>
+												<div class="col-lg-2 pr-0">
+													<select name="middleId" id="search-middle" class="form-select mb-3">
+														<option value="">== 중분류 선택 ==</option>
+														<option th:each="m : ${middleList}" th:value="${m.id}"
+															th:selected="${middleId==m.id}" th:text="${m.name}">
+														</option>
+													</select>
+												</div>
+												<div class="col-lg-2 pr-0">
+													<input type="text" class="form-control" name="keyword"
+														placeholder="검색어 입력" th:value="${keyword}">
+												</div>
+												<div class="col-lg-2 pr-0">
+													<button class="btn btn-primary" type="submit">검색하기</button>
+													<button class="btn btn-success" type="button"
+														onclick="location.href='/admin/productInsertForm'">제품등록</button>
+												</div>
+											</div>
+										</form>
+
+									</div>
+								</div>
+								<div class="card-body">
+
+
+									<div class="live-preview">
+										<div class="table-responsive">
+											<table class="table table-bordered align-middle table-nowrap mb-0">
+												<thead>
+													<tr>
+														<th scope="col">ID</th>
+														<th scope="col">제품명</th>
+														<th scope="col">제품코드</th>
+														<th scope="col">제품대분류</th>
+														<th scope="col">제품중분류</th>
+														<th scope="col">비고</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr th:each="p : ${productPage.content}">
+														<td th:text="${p.id}">1</td>
+														<td><a th:href="@{/admin/productDetail/{id}(id=${p.id})}"
+																th:text="${p.name}">제품명</a></td>
+														<td th:text="${p.productCode}">CODE</td>
+														<td th:text="${p.bigSort.name}">대분류</td>
+														<td th:text="${p.middleSort.name}">중분류</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a th:href="@{/admin/productDetail/{id}(id=${p.id})}"
+																	class="link-primary">
+																	<i class="ri-settings-4-line"></i>
+																</a>
+																<a href="javascript:void(0);" class="link-danger"
+																	th:attr="data-id=${p.id}"
+																	onclick="deleteProduct(this)">
+																	<i class="ri-delete-bin-5-line"></i>
+																</a>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<!-- 계산용 변수 선언 -->
+										<th:block th:with="
+	startPage=${T(java.lang.Math).max(0, productPage.number - 2)},
+	endPage=${T(java.lang.Math).min(productPage.totalPages - 1, productPage.number + 2)}">
+
+											<nav aria-label="Page navigation example" style="margin-top:10px;"
+												th:if="${productPage.totalPages > 1}">
+												<ul class="pagination justify-content-center">
+													<li class="page-item"
+														th:classappend="${productPage.first} ? 'disabled'">
+														<a class="page-link"
+															th:href="@{/admin/productManager(size=${size}, page=0, bigId=${bigId}, middleId=${middleId}, keyword=${keyword})}">First</a>
+													</li>
+
+													<li class="page-item"
+														th:classappend="${productPage.hasPrevious()} ? '' : 'disabled'">
+														<a class="page-link"
+															th:href="@{/admin/productManager(size=${size}, page=${productPage.number - 1}, bigId=${bigId}, middleId=${middleId}, keyword=${keyword})}">Previous</a>
+													</li>
+
+													<li th:each="i : ${#numbers.sequence(startPage, endPage)}"
+														class="page-item"
+														th:classappend="${i == productPage.number} ? 'active'">
+														<a class="page-link"
+															th:href="@{/admin/productManager(size=${size}, page=${i}, bigId=${bigId}, middleId=${middleId}, keyword=${keyword})}"
+															th:text="${i + 1}">1</a>
+													</li>
+
+													<li class="page-item"
+														th:classappend="${productPage.hasNext()} ? '' : 'disabled'">
+														<a class="page-link"
+															th:href="@{/admin/productManager(size=${size}, page=${productPage.number + 1}, bigId=${bigId}, middleId=${middleId}, keyword=${keyword})}">Next</a>
+													</li>
+
+													<li class="page-item"
+														th:classappend="${productPage.last} ? 'disabled'">
+														<a class="page-link"
+															th:href="@{/admin/productManager(size=${size}, page=${productPage.totalPages - 1}, bigId=${bigId}, middleId=${middleId}, keyword=${keyword})}">Last</a>
+													</li>
+												</ul>
+											</nav>
+										</th:block>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+	<script src="/administration/assets/js/productManager.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/clean/common :: cleanHead"></head>
+
+<body class="home home-6 title-6">
+	<div id="page" class="hfeed page-wrapper">
+		<header id="site-header" class="site-header header-v3"
+			th:replace="fragments/front/clean/common :: cleanHeader(${menuList})">
+		</header>
+
+		<div id="site-main" class="site-main">
+			<div id="main-content" class="main-content">
+				<div id="primary" class="content-area">
+					<div id="title" class="page-title" style="background:url('/front/clean/new/b01.png');">
+						<div class="section-container">
+							<div class="content-title-heading">
+								<h1 class="text-title-heading">
+									검색결과
+								</h1>
+							</div>
+							<div class="breadcrumbs">
+								<a href="/">HOME</a><span class="delimiter"></span>검색결과
+							</div>
+						</div>
+					</div>
+					<div id="content" class="site-content" role="main">
+						<div class="section-padding">
+							<div class="section-container p-l-r">
+								<div class="shop-checkout">
+									<div name="checkout" method="post" class="checkout" action="" autocomplete="off">
+										<div class="row">
+											<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+												<div class="customer-details">
+													<div class="billing-fields">
+														<div class="billing-fields-wrapper">
+															<p class="form-row form-row-first validate-required">
+																<label>키워드가 제품명에 포함된 검색결과 <span class="required"
+																		title="required"
+																		style="color:gray; font-size:12px;vertical-align: super;;">*
+																		[[${name.size}]]건 조회</span></label>
+																<span class="input-wrapper"><input type="text"
+																		style="height:5px;" class="input-text"
+																		disabled></span>
+															</p>
+															<div class="post-details no-sidebar">
+																<div th:each="n:${name}"
+																	class="comments-area search-result-wrap js-search-card"
+																	th:attr="data-href=@{|/productDetail/${n.id}|}">
+
+																	<div class="comments-list">
+																		<div class="comment-item d-flex">
+																			<!-- 2) 썸네일: productRepImageRoad 적용 -->
+																			<img class="search-thumb"
+																				th:src="${#strings.isEmpty(n.productRepImageRoad) ? '/front/clean/sample/100-100.png' : n.productRepImageRoad}"
+																				alt="상품 썸네일">
+
+																			<div class="comment-content-wrap">
+																				<div class="comment-author">
+																					[[${n.name}]]/[[${n.productCode}]]
+																				</div>
+																				<div class="comment-time">
+																					[[${n.bigSort.name}]]/[[${n.middleSort.name}]]
+																				</div>
+
+																				<!-- 모바일에서만 보이게 만들 예정 -->
+																				<a th:href="@{|/productDetail/${n.id}|}"
+																					class="comment-reply-link js-search-link">
+																					상세페이지
+																				</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+															</div>
+															<p class="form-row form-row-first validate-required">
+																<label>키워드가 제품코드에 포함된 검색결과
+																	<span class="required" title="required"
+																		style="color:gray; font-size:12px;vertical-align: super;;">*
+																		[[${code.size}]]건 조회</span></label>
+																<span class="input-wrapper"><input type="text"
+																		style="height:5px;" class="input-text"
+																		disabled></span>
+															</p>
+															<div class="post-details no-sidebar">
+																<div th:each="c:${code}"
+																	class="comments-area search-result-wrap js-search-card"
+																	th:attr="data-href=@{|/productDetail/${c.id}|}">
+
+																	<div class="comments-list">
+																		<div class="comment-item d-flex">
+																			<img class="search-thumb"
+																				th:src="${#strings.isEmpty(c.productRepImageRoad) ? '/front/clean/sample/100-100.png' : c.productRepImageRoad}"
+																				alt="상품 썸네일">
+
+																			<div class="comment-content-wrap">
+																				<div class="comment-author">
+																					[[${c.name}]]/[[${c.productCode}]]
+																				</div>
+																				<div class="comment-time">
+																					[[${c.bigSort.name}]]/[[${c.middleSort.name}]]
+																				</div>
+
+																				<a th:href="@{|/productDetail/${c.id}|}"
+																					class="comment-reply-link js-search-link">
+																					상세페이지
+																				</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="site-footer" class="site-footer background"
+			th:replace="fragments/front/clean/common :: cleanFooter">
+		</footer>
+	</div>
+	<th:block th:replace="fragments/front/clean/common :: cleanScript"></th:block>
+	<script>
+		document.addEventListener('click', function (e) {
+			// PC(992px 이상)에서만 카드 클릭 이동
+			if (!window.matchMedia('(min-width: 992px)').matches) return;
+
+			// a, button 등 클릭은 기본 동작 유지
+			if (e.target.closest('a, button, input, textarea, select, label')) return;
+
+			const card = e.target.closest('.js-search-card');
+			if (!card) return;
+
+			const href = card.getAttribute('data-href');
+			if (href) window.location.href = href;
+		});
+	</script>
+
+</body>
+
+</html>

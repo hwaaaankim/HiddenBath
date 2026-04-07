@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="cleanHead">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HIDDEN BATH</title>
+
+	<link rel="shortcut icon" type="/front/clean/image/x-icon" href="/front/clean/media/favicon.png">
+
+	<link rel="stylesheet" href="/front/clean/libs/bootstrap/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/feather-font/css/iconfont.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/icomoon-font/css/icomoon.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/font-awesome/css/font-awesome.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/wpbingofont/css/wpbingofont.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/elegant-icons/css/elegant.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/slick/css/slick.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/slick/css/slick-theme.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/mmenu/css/mmenu.min.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/libs/slider/css/jslider.css">
+	<script src="https://kit.fontawesome.com/e5334cc6a1.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/front/clean/assets/css/app.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/assets/css/responsive.css" type="text/css">
+	<link rel="stylesheet" href="/front/clean/assets/css/detail.css">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700&display=swap"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=EB+Garamond:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&display=swap"
+		rel="stylesheet">
+</head>
+
+<body class="home">
+	<header id="site-header" class="site-header header-v1" th:fragment="cleanHeader">
+		<div class="header-mobile">
+			<div class="section-padding">
+				<div class="section-container">
+					<div class="row">
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 header-left">
+							<div class="navbar-header">
+								<button type="button" id="show-megamenu" class="navbar-toggle"></button>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 header-center">
+							<div class="site-logo">
+								<a href="/">
+									<img width="400" height="79" src="/front/clean/new/logo-black.png" alt="#" />
+								</a>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 header-right">
+							<div class="ruper-topcart dropdown">
+								<div class="dropdown mini-cart top-cart">
+									<div class="remove-cart-shadow"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-mobile-fixed">
+				<div class="shop-page">
+					<a href="#"><i class="wpb-icon-shop"></i></a>
+				</div>
+
+				<div class="my-account">
+					<div class="login-header">
+						<a href="#"><i class="wpb-icon-user"></i></a>
+					</div>
+				</div>
+
+				<!-- Search -->
+				<div class="search-box">
+					<div class="#"><i class="wpb-icon-magnifying-glass"></i></div>
+				</div>
+
+				<!-- Wishlist -->
+				<div class="wishlist-box">
+					<a href="#"><i class="icon-large-paper-bag"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="header-desktop">
+			<div class="header-wrapper">
+				<div class="section-padding">
+					<div class="section-container p-l-r">
+						<div class="row">
+							<div class="col-xl-3 col-lg-2 col-md-12 col-sm-12 col-12 header-left">
+								<div class="site-logo">
+									<a href="/">
+										<img height="79" src="/front/clean/new/logo.png" alt="#" />
+									</a>
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 text-center header-center">
+								<div class="site-navigation">
+									<nav id="main-navigation">
+										<ul id="menu-main-menu" class="menu">
+											<li class="level-0 menu-item menu-item-has-children ">
+												<a href="#"><span class="menu-item-text">HIDDEN</span></a>
+												<div class="sub-menu">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="menu-section">
+																<h2 class="sub-menu-title">HIDDEN BATH</h2>
+																<ul class="menu-list">
+																	<li>
+																		<a href="/about"><span
+																				class="menu-item-text">회사소개</span></a>
+																	</li>
+																	<li>
+																		<a href="/history"><span
+																				class="menu-item-text">연혁</span></a>
+																	</li>
+																	<li>
+																		<a href="/address"><span
+																				class="menu-item-text">오시는길</span></a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li class="level-0 menu-item menu-item-has-children ">
+												<a href="#"><span class="menu-item-text">PRODUCTs</span></a>
+												<div class="sub-menu">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="menu-section">
+																<h2 class="sub-menu-title">PRODUCT</h2>
+																<ul class="menu-list">
+																	<li>
+																		<a href="/productList"><span
+																				class="menu-item-text">거울</span></a>
+																	</li>
+																	<li>
+																		<a href="/productList"><span
+																				class="menu-item-text">슬라이드장</span></a>
+																	</li>
+																	<li>
+																		<a href="/productList"><span
+																				class="menu-item-text">상부장</span></a>
+																	</li>
+																	<li>
+																		<a href="/productList"><span
+																				class="menu-item-text">하부장</span></a>
+																	</li>
+																	<li>
+																		<a href="/productList"><span
+																				class="menu-item-text">세트</span></a>
+																	</li>
+																	<li>
+																		<a href="/productList"><span
+																				class="menu-item-text">기타
+																				제품</span></a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li class="level-0 menu-item menu-item-has-children mega-menu align-center">
+												<a href="#"><span class="menu-item-text">GALLERY</span></a>
+												<div class="sub-menu">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="menu-section">
+																<h2 class="sub-menu-title">시공 갤러리</h2>
+																<div class="block block-posts recent-posts p-t-5">
+																	<ul class="posts-list">
+																		<li class="post-item">
+																			<a href="/construction" class="post-image">
+																				<img src="/front/clean/new/con01.png">
+																			</a>
+																			<div class="post-content">
+																				<h2 class="post-title">
+																					<a href="/construction">
+																						[제품 카테고리] 시공 사진
+																					</a>
+																				</h2>
+																				<div class="post-time">
+																					<span class="post-date">상부장 /
+																						하부장</span>
+																					<span class="post-comment">시공사례
+																						: 14</span>
+																				</div>
+																			</div>
+																		</li>
+																		<li class="post-item">
+																			<a href="/construction" class="post-image">
+																				<img src="/front/clean/new/con02.png">
+																			</a>
+																			<div class="post-content">
+																				<h2 class="post-title">
+																					<a href="/construction">
+																						[제품 카테고리] 시공 사진
+																					</a>
+																				</h2>
+																				<div class="post-time">
+																					<span class="post-date">상부장 /
+																						하부장</span>
+																					<span class="post-comment">시공사례
+																						: 14</span>
+																				</div>
+																			</div>
+																		</li>
+																		<li class="post-item">
+																			<a href="/construction" class="post-image">
+																				<img src="/front/clean/new/con03.png">
+																			</a>
+																			<div class="post-content">
+																				<h2 class="post-title">
+																					<a href="/construction">
+																						[제품 카테고리] 시공 사진
+																					</a>
+																				</h2>
+																				<div class="post-time">
+																					<span class="post-date">상부장 /
+																						하부장</span>
+																					<span class="post-comment">시공사례
+																						: 14</span>
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li class="level-0 menu-item menu-item-has-children ">
+												<a href="#"><span class="menu-item-text">CUSTOMER</span></a>
+												<div class="sub-menu">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="menu-section">
+																<h2 class="sub-menu-title">고객센터</h2>
+																<ul class="menu-list">
+																	<li>
+																		<a href="/notice"><span
+																				class="menu-item-text">공지사항</span></a>
+																	</li>
+																	<li>
+																		<a href="/faq"><span
+																				class="menu-item-text">자주묻는질문</span></a>
+																	</li>
+																	<li>
+																		<a href="/contact"><span
+																				class="menu-item-text">고객문의</span></a>
+																	</li>
+																	<li>
+																		<a href="/catalog"><span
+																				class="menu-item-text">카달로그</span></a>
+																	</li>
+																	<li>
+																		<a href="/order"><span
+																				class="menu-item-text">비규격주문</span></a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+
+							<div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 header-right">
+									<div class="main-button-wrap row">
+										<a class="button-slider button-white col-md-4" href="/catalog">카달로그</a>
+										<a class="button-slider button-white col-md-4" href="/order">비규격주문</a>
+										<a class="button-slider button-white col-md-4" href="/search">사이트검색</a>
+									</div>
+									<!-- Login 
+									<div class="login-header">
+										<a class="black" href="/catalog">카달로그</a>
+									</div>
+									<div class="login-header">
+										<a class="black" href="/order">비규격주문</a>
+									</div>
+									<div class="login-header">
+										<a class="black" href="/search">검색</a>
+									</div>-->
+									<!--<div class="search-box">
+										<div class="search-toggle"><i class="icon-search"></i></div>
+									</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+
+	<footer id="site-footer" class="site-footer background" th:fragment="cleanFooter">
+		<div class="footer">
+			<div class="section-padding">
+				<div class="section-container">
+					<div class="block-widget-wrap">
+						<div class="row">
+							<div class="col-lg-3 col-md-6">
+								<div class="block block-menu m-b-20">
+									<h2 class="block-title">INFORMATIONs</h2>
+									<div class="block-content">
+										<ul>
+											<li>
+												<a href="#">대표번호 : 031) 635-7558</a>
+											</li>
+											<li>
+												<a href="#">FAX : 031) 635-7559</a>
+											</li>
+											<li>
+												<a href="#">E-MAIL : admin@hiddenbath.co.kr</a>
+											</li>
+											<li>
+												<a href="#">상담시간 : 08:00am ~ 17:00pm</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="block block-social">
+									<ul class="social-link">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="block block-menu">
+									<h2 class="block-title">주소</h2>
+									<div class="block-content">
+										<p>경기도 이천시 백사면 청백리로,</p>
+										<p>393번길 395</p>
+										<p>(백사면 현방리 220-6)</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="block block-menu">
+									<h2 class="block-title">Services</h2>
+									<div class="block-content">
+										<ul>
+											<li>
+												<a href="/about">HIDDEN BATH</a>
+											</li>
+											<li>
+												<a href="/productList">제품 리스트</a>
+											</li>
+											<li>
+												<a href="/order">제품 비규격주문</a>
+											</li>
+											<li>
+												<a href="/construction">인테리어 시공 갤러리</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="block block-newsletter">
+									<h2 class="block-title">NEWSLETTER</h2>
+									<div class="block-content">
+										<div class="newsletter-text">이메일 주소를 남겨주시면 Hidden Bath의 새로운 제품 소식을 전달해드립니다.
+										</div>
+										<form action="" method="post" class="newsletter-form">
+											<input type="email" class="bg-white" name="your-email" value="" size="40"
+												placeholder="Email address">
+											<span class="btn-submit">
+												<input type="submit" value="Subscribe">
+											</span>
+										</form>
+									</div>
+								</div>
+								<div class="block block-image">
+									<img width="309" height="32" src="/front/clean/media/payments.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="section-padding">
+				<div class="section-container">
+					<div class="block-widget-wrap">
+						<p class="copyright text-center">Copyright © 2024. All Right Reserved</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<th:block th:fragment="cleanScript">
+		<div class="back-top button-show">
+			<i class="arrow_carrot-up"></i>
+		</div>
+
+		<div class="search-overlay">
+			<div class="close-search"></div>
+			<div class="wrapper-search">
+				<form role="search" method="get" class="search-from ajax-search" action="">
+					<div class="search-box">
+						<button id="searchsubmit" class="btn" type="submit">
+							<i class="icon-search"></i>
+						</button>
+						<input id="myInput" type="text" autocomplete="off" value="" name="s" class="input-search s"
+							placeholder="검색어를 입력 해 주세요.">
+						<div class="search-top">
+							<div class="close-search">CLOSE</div>
+						</div>
+						<div class="content-menu_search">
+							<label>관심 키워드</label>
+							<ul id="menu_search" class="menu">
+								<li><a href="#"># 제품코드</a></li>
+								<li><a href="#"># 제품코드</a></li>
+								<li><a href="#"># 제품코드</a></li>
+								<li><a href="#"># 제품코드</a></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="compare-popup">
+			<div class="compare-popup-inner">
+				<div class="compare-table">
+					<div class="compare-table-inner">
+						<a href="#" id="compare-table-close" class="compare-table-close">
+							<span class="compare-table-close-icon"></span>
+						</a>
+						<div class="compare-table-items">
+							<table id="product-table" class="product-table">
+								<thead>
+									<tr>
+										<th>
+											<a href="#" class="compare-table-settings">SETTINGs</a>
+										</th>
+										<th>
+											<a href="/productDetail">제품명</a> <span class="remove">remove</span>
+										</th>
+										<th>
+											<a href="/productDetail">제품명</a> <span class="remove">remove</span>
+										</th>
+										<th>
+											<a href="/productDetail">제품명</a> <span class="remove">remove</span>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="tr-image">
+										<td class="td-label">대표이미지</td>
+										<td>
+											<a href="/productDetail">
+												<img width="600" height="600" src="/front/clean/media/product/3.jpg"
+													alt="">
+											</a>
+										</td>
+										<td>
+											<a href="/productDetail">
+												<img width="600" height="600" src="/front/clean/media/product/1.jpg"
+													alt="">
+											</a>
+										</td>
+										<td>
+											<a href="/productDetail">
+												<img width="600" height="600" src="/front/clean/media/product/2.jpg"
+													alt="">
+											</a>
+										</td>
+									</tr>
+									<tr class="tr-sku">
+										<td class="td-label">제품코드</td>
+										<td># VN00189</td>
+										<td># VN00186</td>
+										<td># VN00187</td>
+									</tr>
+									<tr class="tr-rating">
+										<td class="td-label">제품 관심도</td>
+										<td>
+											<div class="star-rating">
+												<span style="width:80%"></span>
+											</div>
+										</td>
+										<td>
+											<div class="star-rating">
+												<span style="width:100%"></span>
+											</div>
+										</td>
+										<td>
+											<div class="star-rating">
+												<span style="width:60%"></span>
+											</div>
+										</td>
+									</tr>
+									<tr class="tr-price">
+										<td class="td-label">제품 가격</td>
+										<td><span class="amount">1,500,000 ~ 1,800,000원</span></td>
+										<td><del><span class="amount">1,500,000 ~ 1,800,000원</span></del> <ins><span
+													class="amount">1,200,000 ~ 1,300,000원</span></ins></td>
+										<td><span class="amount">1,500,000 ~ 1,800,000원</span></td>
+									</tr>
+									<tr class="tr-add-to-cart">
+										<td class="td-label">문의하기</td>
+										<td>
+											<div data-title="Add to cart">
+												<a href="#" class="button">제품 문의하기</a>
+											</div>
+										</td>
+										<td>
+											<div data-title="Add to cart">
+												<a href="#" class="button">제품 문의하기</a>
+											</div>
+										</td>
+										<td>
+											<div data-title="Add to cart">
+												<a href="#" class="button">제품 문의하기</a>
+											</div>
+										</td>
+									</tr>
+									<tr class="tr-description">
+										<td class="td-label">제품 설명</td>
+										<td>======== 제품 DESCRIPTIONs =========</td>
+										<td>======== 제품 DESCRIPTIONs =========</td>
+										<td>======== 제품 DESCRIPTIONs =========</td>
+									</tr>
+									<tr class="tr-content">
+										<td class="td-label">제품 스펙</td>
+										<td>======== 제품 스펙 : 스펙 =========</td>
+										<td>======== 제품 스펙 : 스펙=========</td>
+										<td>======== 제품 스펙 : 스펙=========</td>
+									</tr>
+									<tr class="tr-dimensions">
+										<td class="td-label">제품 규격</td>
+										<td>WIDTH : 1,000 mm / LEGNTH : 1,000 mm / HEIGHT : 1,000 mm</td>
+										<td>WIDTH : 1,000 mm / LEGNTH : 1,000 mm / HEIGHT : 1,000 mm</td>
+										<td>WIDTH : 1,000 mm / LEGNTH : 1,000 mm / HEIGHT : 1,000 mm</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="quickview-popup">
+			<div id="quickview-container">
+				<div class="quickview-container">
+					<a href="#" class="quickview-close"></a>
+					<div class="quickview-notices-wrapper"></div>
+					<div class="product single-product product-type-simple">
+						<div class="product-detail">
+							<div class="row">
+								<div class="img-quickview">
+									<div class="product-images-slider">
+										<div id="quickview-slick-carousel">
+											<div class="images">
+												<div class="scroll-image">
+													<div class="slick-wrap">
+														<div class="slick-sliders image-additional" data-dots="true"
+															data-columns4="1" data-columns3="1" data-columns2="1"
+															data-columns1="1" data-columns="1" data-nav="true">
+															<div class="img-thumbnail slick-slide">
+																<a href="/front/clean/media/product/3.jpg"
+																	class="image-scroll" title="">
+																	<img width="900" height="900"
+																		src="/front/clean/media/product/3.jpg" alt="">
+																</a>
+															</div>
+															<div class="img-thumbnail slick-slide">
+																<a href="/front/clean/media/product/3-2.jpg"
+																	class="image-scroll" title="">
+																	<img width="900" height="900"
+																		src="/front/clean/media/product/3-2.jpg" alt="">
+																</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="quickview-single-info">
+									<div class="product-content-detail entry-summary">
+										<h1 class="product-title entry-title">제품명</h1>
+										<p>제품 대분류 / 대분 중분류 / 제품 브랜드</p>
+										<div class="price-single">
+											<div class="price">
+												<del><span>1,200,000원</span></del>
+												<span>1,000,000원</span>
+											</div>
+										</div>
+										<div class="product-rating">
+											<div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
+												<span style="width:80%">제품 관심도</span>
+											</div>
+											<a href="#" class="review-link">[<span class="count">기간별 제품 조회수 등 수치 알고리즘
+													적용]</a>
+										</div>
+										<div class="description">
+											<p>=== 제품 DESCRIPTION ===</p>
+											<p>=== 제품 DESCRIPTION ===</p>
+											<p>=== 제품 DESCRIPTION ===</p>
+											<p>=== 제품 DESCRIPTION ===</p>
+										</div>
+										<form class="cart" method="post" enctype="multipart/form-data">
+											<button class="button quick-buy">제품 문의하기</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-preloader">
+			<div class="loader">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src="/front/clean/libs/popper/js/popper.min.js"></script>
+		<script src="/front/clean/libs/jquery/js/jquery.min.js"></script>
+		<script src="/front/clean/libs/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/front/clean/libs/slick/js/slick.min.js"></script>
+		<script src="/front/clean/libs/countdown/js/jquery.countdown.min.js"></script>
+		<script src="/front/clean/libs/mmenu/js/jquery.mmenu.all.min.js"></script>
+		<script src="/front/clean/libs/slider/js/tmpl.js"></script>
+		<script src="/front/clean/libs/slider/js/jquery.dependClass-0.1.js"></script>
+		<script src="/front/clean/libs/slider/js/draggable-0.1.js"></script>
+		<script src="/front/clean/libs/slider/js/jquery.slider.js"></script>
+		<script src="/front/clean/assets/js/app.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"></script>
+		<script>
+			$(document).ready(function () {
+				$('.floatingButton').on('click',
+					function (e) {
+						e.preventDefault();
+						$(this).toggleClass('open');
+						if ($(this).children('.fa').hasClass('fa-plus')) {
+							$(this).children('.fa').removeClass('fa-plus');
+							$(this).children('.fa').addClass('fa-close');
+						}
+						else if ($(this).children('.fa').hasClass('fa-close')) {
+							$(this).children('.fa').removeClass('fa-close');
+							$(this).children('.fa').addClass('fa-plus');
+						}
+						$('.floatingMenu').stop().slideToggle();
+					}
+				);
+				$(this).on('click', function (e) {
+
+					var container = $(".floatingButton");
+					// if the target of the click isn't the container nor a descendant of the container
+					if (!container.is(e.target) && $('.floatingButtonWrap').has(e.target).length === 0) {
+						if (container.hasClass('open')) {
+							container.removeClass('open');
+						}
+						if (container.children('.fa').hasClass('fa-close')) {
+							container.children('.fa').removeClass('fa-close');
+							container.children('.fa').addClass('fa-plus');
+						}
+						$('.floatingMenu').hide();
+					}
+
+					// if the target of the click isn't the container and a descendant of the menu
+					if (!container.is(e.target) && ($('.floatingMenu').has(e.target).length > 0)) {
+						$('.floatingButton').removeClass('open');
+						$('.floatingMenu').stop().slideToggle();
+					}
+				});
+			});
+		</script>
+	</th:block>
+
+	<th:block th:fragment="floatingButton">
+		<div class="floatingButtonWrap">
+			<div class="floatingButtonInner">
+				<a href="#" class="floatingButton">
+					<i class="fa-solid fa-gear"></i>
+				</a>
+				<ul class="floatingMenu">
+					<li>
+						<a href="#">카달로그</a>
+					</li>
+					<li>
+						<a href="#">비규격주문</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</th:block>
+
+	<th:block th:fragment="sessionCheck(sessionValue)">
+		<input type="hidden" id="sessionCheck" th:value="${sessionValue}">
+	</th:block>
+</body>
+
+</html>

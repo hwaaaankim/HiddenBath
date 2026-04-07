@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">고객관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">고객관리</a></li>
+										<li class="breadcrumb-item active">일반문의 상세페이지</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="card">
+								<div class="card-header align-items-center d-flex">
+									<h4 class="card-title mb-0 flex-grow-1">일반문의 상세페이지</h4>
+								</div>
+								<div class="card-body">
+									<div class="live-preview">
+										<div class="row gy-4">
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="basiInput" class="form-label">고객 이름</label>
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="labelInput" class="form-label">고객 연락처</label>
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="basiInput" class="form-label">고객 이메일</label>
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="labelInput" class="form-label">고객 문의주제</label>
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="basiInput" class="form-label">제품 코드</label>
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="labelInput" class="form-label">제품 분류</label>
+                                                    <input type="text" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="exampleInputdate" class="form-label">문의 시간</label>
+                                                    <input type="date" value="2024-01-01" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="exampleInputdate" class="form-label">최종 수정시간</label>
+                                                    <input type="date" value="2024-01-01" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-12 col-md-12">
+                                                <div>
+                                                    <label for="exampleFormControlTextarea5" class="form-label">고객 메시지</label>
+                                                    <textarea class="form-control" rows="5"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-danger mt-2" type="button">삭제하기</button>
+                                        <button class="btn btn-success mt-2" type="button">확인</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="card">
+								<div class="card-header align-items-center d-flex">
+									<h4 class="card-title mb-0 flex-grow-1">메시지전달</h4>
+								</div>
+								<div class="card-body">
+									<div class="live-preview">
+										<div class="row gy-4">
+                                            <div class="col-xxl-12 col-md-12">
+                                                <div>
+                                                    <label for="basiInput" class="form-label">연락처</label>
+                                                    <input type="text" class="form-control" value="010-1234-1234" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-12 col-md-12">
+                                                <div>
+                                                    <label for="exampleFormControlTextarea5" class="form-label">메시지</label>
+                                                    <textarea class="form-control" rows="5"></textarea>
+                                                </div>
+	                                            <button class="btn btn-success mt-2" type="button">메시지전송</button>
+                                            </div>
+                                            
+                                            <div class="col-xxl-12 col-md-12">
+                                                <div>
+                                                    <label for="basiInput" class="form-label">고객 이메일</label>
+                                                    <input type="text" class="form-control" value="email@email.com" readonly>
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                             <div class="col-xxl-12 col-md-12">
+                                                <div>
+                                                    <label for="exampleFormControlTextarea5" class="form-label">메시지</label>
+                                                    <textarea class="form-control" rows="5"></textarea>
+                                                </div>
+	                                            <button class="btn btn-success mt-2" type="button">이메일전송</button>
+                                            </div>
+                                        </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+</body>
+
+</html>

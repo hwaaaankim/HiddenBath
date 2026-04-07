@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/order/common :: surveyHead"></head>
+
+<body>
+
+	<th:block th:replace="fragments/front/order/common :: surveyHeader"></th:block>
+	<header>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-3">
+				</div>
+				<div class="col-9">
+					<div id="social">
+						<ul>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-instagram"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div id="wizard_container">
+				<form name="example-1" id="wrapped" method="POST">
+					<input id="website" name="website" type="text" value="">
+					<div id="middle-wizard">
+
+						<div class="step" data-state="branchtype" id="model">
+							<div class="question_title">
+								<h3>[거울] 비규격 주문 PROCESS</h3>
+								<p># 하단 보기에서 원하시는 거울 모델을 선택 해 주세요.</p>
+							</div>
+							<div class="row">
+								<div class="col-lg-12 step-process-wrap">
+									<a class="active">1. 모델 선택</a>
+									<a>2. 프레임 여부 선택</a>
+									<a>3. 스타일 선택</a>
+									<a>4. 색상 선택</a>
+									<a>5. 사이즈 선택</a>
+									<a>6. LED 추가유무 선택</a>
+									<a>7. 입력사항 확인</a>
+									<a>8. 신청완료</a>
+								</div>
+								<div class="col-lg-3 animated zoomIn delay-fast">
+									<div class="item">
+										<input 
+											id="원형거울" 
+											type="radio" 
+											name="model" 
+											value="frame"
+											class="required">
+										<label for="원형거울"><img width="100%;" src="/front/order/images/mirror/circle.png"
+												alt=""><strong>원형 거울</strong></label>
+									</div>
+								</div>
+								<div class="col-lg-3 animated zoomIn delay-fast">
+									<div class="item">
+										<input 
+											id="윈도우거울" 
+											type="radio" 
+											name="model" 
+											value="frame"
+											class="required">
+										<label for="윈도우거울"><img width="100%;" src="/front/order/images/mirror/window.png"
+												alt=""><strong>윈도우 거울</strong></label>
+									</div>
+								</div>
+								<div class="col-lg-3 animated zoomIn delay-normal">
+									<div class="item">
+										<input 
+											id="트랙거울"  
+											type="radio" 
+											name="model" 
+											value="frame"
+											class="required">
+										<label for="트랙거울"><img width="100%;" src="/front/order/images/mirror/track.png"
+												alt=""><strong>트랙 거울</strong></label>
+									</div>
+								</div>
+								<div class="col-lg-3 animated zoomIn delay-medium">
+									<div class="item">
+										<input 
+											id="각면거울" 
+											type="radio"
+											name="model" 
+											value="frame"
+											class="required">
+										<label for="각면거울"><img width="100%;" src="/front/order/images/mirror/angle.png"
+												alt=""><strong>각면 거울</strong></label>
+									</div>
+								</div>
+								<div class="col-lg-3 animated zoomIn delay-fast">
+									<div class="item">
+										<input 
+											id="사각거울" 
+											type="radio" 
+											name="model" 
+											value="frame"
+											class="required">
+										<label for="사각거울"><img width="100%;" src="/front/order/images/mirror/four.png"
+												alt=""><strong>사각 거울</strong></label>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="branch" id="frame">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># 거울의 프레임 추가 여부를 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a class="active">2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a>4. 색상 선택</a>
+										<a>5. 사이즈 선택</a>
+										<a>6. LED 추가유무 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="프레임없음[NO]" 
+												type="radio" 
+												name="frame"
+												value="size" 
+												class="required">
+											<label for="프레임없음[NO]"><img src="/front/order/images/mirror/no-frame.png"
+													alt=""><strong>노 프레임[No Frame]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+												id="프레임있음[Yes]" 
+												type="radio" 
+												name="frame" 
+												value="style" 
+												class="required">
+											<label for="프레임있음[Yes]"><img src="/front/order/images/mirror/frame.png"
+													alt=""><strong>프레임[Frame]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="branch" id="style">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># 거울의 스타일을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a class="active">3. 스타일 선택</a>
+										<a>4. 색상 선택</a>
+										<a>5. 사이즈 선택</a>
+										<a>6. LED 추가유무 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-3 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="슬림[Slim]" 
+												type="radio" 
+												name="style"
+												value="color_slim" 
+												class="required">
+											<label for="슬림[Slim]"><img width="100%;" src="/front/order/images/mirror/slim.png"
+													alt=""><strong>슬림[Slim]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-3 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+												id="사이클[Cycle]" 
+												type="radio"
+												name="style" 
+												value="color_cycle" 
+												class="required">
+											<label for="사이클[Cycle]"><img width="100%;" src="/front/order/images/mirror/cy.png"
+													alt=""><strong>사이클[Cycle]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-3 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="럭셔리[Luxury]" 
+												type="radio" 
+												name="style"
+												value="color_luxury" 
+												class="required">
+											<label for="럭셔리[Luxury]"><img width="100%;" src="/front/order/images/mirror/lux.png"
+													alt=""><strong>럭셔리[Luxury]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-3 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+												id="누드[Nude]" 
+												type="radio"
+												name="style" 
+												value="color_nude" 
+												class="required">
+											<label for="누드[Nude]"><img width="100%;" src="/front/order/images/mirror/nude.png"
+													alt=""><strong>누드[Nude]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="branch" id="color_slim">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># 슬림[Slim] 거울의 프레임[Frame] 색상을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a class="active">4. 색상 선택</a>
+										<a>5. 사이즈 선택</a>
+										<a>6. LED 추가유무 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="슬림화이트[White]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="슬림화이트[White]"><img width="100%;" src="/front/order/images/mirror/color/HW.jpg"
+													alt=""><strong>화이트[White]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="슬림블랙[Black]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="슬림블랙[Black]"><img width="100%;" src="/front/order/images/mirror/color/HB.jpg"
+													alt=""><strong>블랙[Black]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="슬림다크블루[DarkBlue]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="슬림다크블루[DarkBlue]"><img src="/front/order/images/mirror/color/DB.jpg"
+													alt=""><strong>다크블루[DarkBlue]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="슬림그레이[Gray]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="슬림그레이[Gray]"><img src="/front/order/images/mirror/color/HG.jpg"
+													alt=""><strong>그레이[Gray]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="슬림크림[Cream]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="슬림크림[Cream]"><img src="/front/order/images/mirror/color/HC.jpg"
+													alt=""><strong>크림[Cream]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="슬림네츄럴[Natural]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="슬림네츄럴[Natural]"><img src="/front/order/images/mirror/color/HN.jpg"
+													alt=""><strong>네츄럴[Natural]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="슬림라이트우드[LightWood]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="슬림라이트우드[LightWood]"><img src="/front/order/images/mirror/color/lw.jpg"
+													alt=""><strong>라이트우드[LightWood]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="branch" id="color_cycle">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># 사이클[Cycle] 거울의 프레임[Frame] 색상을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a class="active">4. 색상 선택</a>
+										<a>5. 사이즈 선택</a>
+										<a>6. LED 추가유무 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="사이클화이트[White]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="사이클화이트[White]"><img src="/front/order/images/mirror/color/HW.jpg"
+													alt=""><strong>화이트[White]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="사이클블랙[Black]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="사이클블랙[Black]"><img src="/front/order/images/mirror/color/HB.jpg"
+													alt=""><strong>블랙[Black]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="사이클크림[Cream]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="사이클크림[Cream]"><img src="/front/order/images/mirror/color/HC.jpg"
+													alt=""><strong>크림[Cream]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="사이클골드[Gold]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="사이클골드[Gold]"><img src="/front/order/images/mirror/color/G.jpg"
+													alt=""><strong>골드[Gold]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="branch" id="color_luxury">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># 럭셔리[Luxury] 거울의 프레임[Frame] 색상을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a class="active">4. 색상 선택</a>
+										<a>5. 사이즈 선택</a>
+										<a>6. LED 추가유무 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="럭셔리실버[Silver]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="럭셔리실버[Silver]"><img src="/front/order/images/mirror/color/S.jpg"
+													alt=""><strong>실버[Silver]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="럭셔리골드[Gold]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="럭셔리골드[Gold]"><img src="/front/order/images/mirror/color/G.jpg"
+													alt=""><strong>골드[Gold]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="branch" id="color_nude">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># 누드[Nude] 거울의 프레임[Frame] 색상을 선택 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a class="active">4. 색상 선택</a>
+										<a>5. 사이즈 선택</a>
+										<a>6. LED 추가유무 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="누드실버[Sliver]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="누드실버[Sliver]"><img src="/front/order/images/mirror/color/S.jpg"
+													alt=""><strong>실버[Sliver]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-4 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+												id="누드블랙[Black]" 
+												type="radio" 
+												name="color"
+												value="size" 
+												class="required">
+											<label for="누드블랙[Black]"><img src="/front/order/images/mirror/color/HB.jpg"
+													alt=""><strong>블랙[Black]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="branch" id="size">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># 하단 보기에서 원하시는 거울 사이즈를 입력 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a>4. 색상 선택</a>
+										<a class="active">5. 사이즈 입력</a>
+										<a>6. LED 추가유무 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast"
+										style="margin:0 auto; margin-top:20px;">
+										<div class="box_general">
+											<h6 class="add_bottom_15">희망하시는 거울의 가로-세로 사이즈를 입력 해 주세요.</h6>
+											<input 
+											type="checkbox" 
+											name="size" 
+											value="led" 
+											style="width:0px; height:0px;"
+											checked>
+											<div class="row" style="margin-bottom:20px;">
+												<div class="item col-lg-12">
+													<input 
+													id="sizeWidth"
+													type="text" 
+													placeholder="가로 : 166cm" 
+													class="qty form-control">
+												</div>
+												<div class="item col-lg-12">
+													<input 
+													id="sizeHeight"
+													type="text" 
+													placeholder="세로 : 166cm" 
+													class="qty form-control">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="branch" id="led">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># LED 추가 여부를 결정 해 주세요.</p>
+								</div>
+								<div class="row justify-content-center">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a>4. 색상 선택</a>
+										<a>5. 사이즈 입력</a>
+										<a class="active">6. LED 추가유무 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+											id="LED추가함[YES]" 
+											type="radio" 
+											name="led"
+											value="method" 
+											class="required">
+											<label for="LED추가함[YES]"><img src="/front/order/images/led/1.png"
+													alt=""><strong>추가함[YES]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+											id="LED추가하지않음[NO]" 
+											name="led" 
+											type="radio"
+											value="check" 
+											class="required">
+											<label for="LED추가하지않음[NO]"><img src="/front/order/images/led/2.png"
+													alt=""><strong>추가 안함[NO]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="branch" id="method">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># LED의 작동 방식을 선택 해 주세요.</p>
+								</div>
+								<div class="row justify-content-center">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a>4. 색상 선택</a>
+										<a>5. 사이즈 입력</a>
+										<a>6. LED 추가유무 선택</a>
+										<a class="active">6-1. LED 작동방식 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+											id="터치식LED[Touchable]" 
+											type="radio" 
+											name="method"
+											value="form" 
+											class="required">
+											<label for="터치식LED[Touchable]"><img src="/front/order/images/led/touch.png"
+													alt=""><strong>터치식[Touchable]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+											id="직결식LED[Direct]" 
+											name="method" 
+											type="radio"
+											value="check" 
+											class="required">
+											<label for="직결식LED[Direct]"><img src="/front/order/images/led/direct.png"
+													alt=""><strong>직결식[Direct]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="branch" id="form">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># LED의 형태를 선택 해 주세요.</p>
+								</div>
+								<div class="row justify-content-center">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a>4. 색상 선택</a>
+										<a>5. 사이즈 입력</a>
+										<a>6. LED 추가유무 선택</a>
+										<a>6-1. LED 작동방식 선택</a>
+										<a class="active">6-2. 가로형 또는 세로형 선택</a>
+										<a>7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-fast">
+										<div class="item">
+											<input 
+											id="가로형LED[Horizontal]" 
+											type="radio" 
+											name="form"
+											value="check" 
+											class="required">
+											<label for="가로형LED[Horizontal]"><img src="/front/order/images/led/horizontal.png"
+													alt=""><strong>가로형[Horizontal]</strong></label>
+										</div>
+									</div>
+									<div class="col-lg-6 animated zoomIn delay-normal">
+										<div class="item">
+											<input 
+											id="세로형LED[Vertical]" 
+											name="form" 
+											type="radio"
+											value="check" 
+											class="required">
+											<label for="세로형LED[Vertical]"><img src="/front/order/images/led/vertical.png"
+													alt=""><strong>세로형[Vertical]</strong></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="branch" id="check">
+							<div class="step" data-state="branchtype">
+								<div class="question_title">
+									<h3>[거울] 비규격 주문 PROCESS</h3>
+									<p># 신청이 완료 되었습니다. 신청 사항을 확인 해 주세요.</p>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 step-process-wrap">
+										<a>1. 모델 선택</a>
+										<a>2. 프레임 여부 선택</a>
+										<a>3. 스타일 선택</a>
+										<a>4. 색상 선택</a>
+										<a>5. 사이즈 입력</a>
+										<a>6. LED 추가유무 선택</a>
+										<a class="active">7. 입력사항 확인</a>
+										<a>8. 신청완료</a>
+									</div>
+									<div class="row">
+										<input 
+											type="checkbox" 
+											name="check" 
+											value="end" 
+											style="width:0px; height:0px;"
+											checked>
+										<div class="col-lg-6 animated zoomIn delay-fast"style="margin:0 auto;margin-top:20px;">
+											
+											<div class="box_general">
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="mirrorShape"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="mirrorFrame"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="mirrorStyle"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="mirrorColor"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="mirrorWidth"
+													class="form-control"
+													>
+												</div>
+												
+											</div>
+										</div>
+										<div class="col-lg-6 animated zoomIn delay-fast"style="margin:0 auto;margin-top:20px;">
+											<div class="box_general">
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="mirrorHeight"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="mirrorLed"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="mirrorLedMethod"
+													class="form-control"
+													>
+												</div>
+												<div class="form-group">
+													<input 
+													type="text" 
+													disabled
+													id="mirrorLedForm"
+													class="form-control"
+													>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="submit step" id="end">
+							<div class="question_title">
+								<h3>[거울] 비규격 주문 PROCESS</h3>
+								<p># 신청이 완료 되었습니다. 개인정보를 입력 해 주세요.</p>
+							</div>
+							<div class="row justify-content-center">
+								<div class="col-lg-12 step-process-wrap">
+									<a>1. 모델 선택</a>
+									<a>2. 프레임 여부 선택</a>
+									<a>3. 스타일 선택</a>
+									<a>4. 색상 선택</a>
+									<a>5. 사이즈 입력</a>
+									<a>6. LED 추가유무 선택</a>
+									<a>7. 입력사항 확인</a>
+									<a class="active">8. 신청완료</a>
+								</div>
+								<div class="col-lg-6 animated zoomIn delay-fast"style="margin:0 auto;margin-top:20px;">
+									<div class="box_general">
+										<div class="form-group">
+											<input type="text" name="name" id="name" class="required form-control"
+												placeholder="고객님의 성함을 입력 해 주세요.">
+										</div>
+										<div class="form-group">
+											<input type="text" name="email" id="email" class="required form-control"
+												placeholder="이메일 주소를 입력 해 주세요.">
+										</div>
+										<div class="form-group">
+											<input type="text" name="phone" id="phone" class="form-control"
+												placeholder="연락처를 입력 해 주세요.">
+										</div>
+										<div class="form-group add_bottom_30">
+											<div class="styled-select">
+												<textarea class="form-control" style="height:100px; margin-bottom:0;"
+													placeholder="추가로 남기실 메시지를 입력 해 주세요."
+													id="addedMessage"
+													name="addedMessage"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="bottom-wizard">
+						<button type="button" name="backward" class="backward">뒤로가기 </button>
+						<button type="button" name="forward" class="forward">다음으로 </button>
+						<button type="button" name="process" id="submitBtn" class="submit">제출하기 </button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<th:block th:replace="fragments/front/order/common :: surveyFooter('mirror')"></th:block>
+	<script src="/front/order/js/mirrorOrder.js"></script>
+</body>
+
+</html>

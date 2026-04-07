@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">사이트관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">사이트관리</a></li>
+										<li class="breadcrumb-item active">자주묻는질문관리</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="live-preview">
+										<form>
+											<div class="row">
+												<!--<div class="col-lg-2 pr-0">
+													<select class="form-select mb-3"
+														aria-label="Default select example">
+														<option value="1">랜덤노출</option>
+														<option value="2">순차노출</option>
+													</select>
+												</div>-->
+												<div class="col-lg-4 pr-0">
+													<!--<button class="btn btn-primary" type="button">상태변경</button>-->
+													<button class="btn btn-danger" type="button">게시물삭제</button>
+													<button class="btn btn-success"
+														onclick="javascript:location.href = '/admin/instagramInsertForm'"
+														type="button">인스타그램 게시물등록</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="live-preview">
+										<div data-simplebar>
+											<ul class="list-group mb-1">
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+												<li class="list-group-item">
+													<div class="d-flex align-items-center">
+														<div class="flex-grow-1">
+															<div class="d-flex">
+																<div class="flex-shrink-0">
+																	<img src="/administration/assets/images/users/avatar-2.jpg" alt=""
+																		class="avatar-xs rounded" />
+																</div>
+																<div class="flex-shrink-0 ms-2">
+																	<h6 class="fs-14 mb-0">등록한 인스타그램 게시물 제목</h6>
+																	<small class="text-muted">등록한 인스타그램 게시물 링크</small>
+																</div>
+															</div>
+														</div>
+														<div class="flex-shrink-0">
+															<input class="form-check-input me-1" type="checkbox" value="">
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">사이트관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">사이트관리</a></li>
+										<li class="breadcrumb-item active">공지사항 카테고리관리</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="card">
+								<div class="card-header align-items-center d-flex">
+									<h4 class="card-title mb-0 flex-grow-1">공지사항 카테고리관리</h4>
+								</div><!-- end card header -->
+								<div class="card-body">
+									<div class="live-preview">
+										<div>
+											<p class="text-muted"># 원하는 카테고리 등록 후 
+												<code>Enter 키를 통해</code> 등록 후 [등록버튼]을 눌러 주세요.
+											</p>
+											<p class="text-muted"># 카테고리 삭제는 
+												<code>여러개를 선택하여</code> 동시에 삭제할 수 있습니다.
+											</p>
+											<div class="row g-3">
+												<div class="col-lg-6">
+													<input class="form-control"
+													id="noticeCategories" 
+													data-choices data-choices-limit="3" 
+													data-choices-removeItem 
+													type="text" 
+													/>
+													<button class="btn btn-primary ml-5"
+													id="noticeCategoryBtn"
+													type="button">공지사항 카테고리 등록하기</button>
+												</div>
+												<div class="col-lg-6">
+													<select style="margin-bottom:24px;" class="form-select" multiple aria-label="multiple select example">
+	                                                    <option selected>카테고리</option>
+	                                                    <option value="1">카테고리</option>
+	                                                    <option value="2">카테고리</option>
+	                                                    <option value="3">카테고리</option>
+	                                                </select>
+													<button class="btn btn-danger" type="button">공지사항 카테고리 삭제하기</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--end col-->
+					</div>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+	<script>
+		var btn = document.getElementById('noticeCategoryBtn');
+		var val = document.getElementById('noticeCategories');
+		btn.addEventListener('click', function(){
+			console.log(val.value);
+		})
+	</script>
+</body>
+
+</html>

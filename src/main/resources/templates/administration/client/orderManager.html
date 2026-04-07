@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="sm-hover-active"
+	data-sidebar-image="none" data-preloader="disable">
+
+<head th:replace="fragments/administration/common :: adminHead"></head>
+
+<body>
+
+	<!-- Begin page -->
+	<div id="layout-wrapper">
+
+		<header th:replace="fragments/administration/common :: adminHeader"></header>
+		<th:block th:replace="fragments/administration/common :: adminNav"></th:block>
+
+		<div class="main-content">
+
+			<div class="page-content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-12">
+							<div class="page-title-box d-sm-flex align-items-center justify-content-between">
+								<h4 class="mb-sm-0">고객관리</h4>
+
+								<div class="page-title-right">
+									<ol class="breadcrumb m-0">
+										<li class="breadcrumb-item"><a href="javascript: void(0);">고객관리</a></li>
+										<li class="breadcrumb-item active">비규격주문관리</li>
+									</ol>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-header align-items-center d-flex">
+									<h4 class="card-title mb-0 flex-grow-1">총 문의 : <span>11 회</span></h4>
+								</div>
+								<div class="card-body">
+									<p class="text-muted"># 엑셀 다운로드 버튼 클릭 시<code> 현재 검색조건에 맞는 데이터가</code> 다운로드 됩니다.</p>
+									<p class="text-muted"># <code>고객 이름을 클릭하여 상세페이지</code>로 이동할 수 있습니다.</p>
+									<div class="live-preview" style="margin-top:10px;">
+										<form>
+											<div class="row">
+												<div class="col-lg-2 pr-0">
+													<select class="form-select mb-3" aria-label="Default select example">
+														<option selected>== 10개씩 보기 ==</option>
+														<option value="1">== 30개씩 보기 ==</option>
+														<option value="2">== 50개씩 보기 ==</option>
+														<option value="3">== 100개씩 보기 ==</option>
+													</select>
+												</div>
+												<div class="col-lg-2 pr-0">
+													<select class="form-select mb-3" aria-label="Default select example">
+														<option selected>== 검색주제 ==</option>
+														<option value="1">연락처 검색</option>
+														<option value="2">고객명 검색</option>
+														<option value="3">주제별 검색</option>
+														<option value="4">문의 기간별 검색</option>
+													</select>
+												</div>
+												<div class="col-lg-2 pr-0">
+													<input type="text" class="form-control" id="placeholderInput" placeholder="검색어를 입력 해 주세요.">
+												</div>
+												<div class="col-lg-2 pr-0">
+    												<button class="btn btn-primary" type="button">검색하기</button>
+    												<button class="btn btn-success" type="button">엑셀다운로드</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="card-body">
+									
+
+									<div class="live-preview">
+										<div class="table-responsive">
+											<table class="table table-bordered align-middle table-nowrap mb-0">
+												<thead>
+													<tr>
+														<th scope="col">번호</th>
+														<th scope="col">고객이름</th>
+														<th scope="col">문의제품</th>
+														<th scope="col">고객연락처</th>
+														<th scope="col">고객체크상태</th>
+														<th scope="col">비고</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-success">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-primary">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="fw-medium">01</td>
+														<td><a href="/admin/orderDetail">고객명</a></td>
+														<td>슬라이드장</td>
+														<td><a href="TEL : 010-1234-1234">010-1234-1234</a></td>
+														<td><span
+																class="badge bg-primary-subtle text-success">체크완료</span>
+														</td>
+														<td>
+															<div class="hstack gap-3 fs-15">
+																<a href="javascript:void(0);" class="link-primary"><i
+																		class="ri-settings-4-line"></i></a>
+																<a href="javascript:void(0);" class="link-danger"><i
+																		class="ri-delete-bin-5-line"></i></a>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<nav aria-label="Page navigation example" style="margin-top:10px;">
+											<ul class="pagination justify-content-center">
+												<li class="page-item disabled">
+													<a class="page-link" href="#" tabindex="-1">First</a>
+												</li>
+												<li class="page-item disabled">
+													<a class="page-link" href="#" tabindex="-1">Previous</a>
+												</li>
+												<li class="page-item"><a class="page-link" href="#">1</a></li>
+												<li class="page-item"><a class="page-link" href="#">2</a></li>
+												<li class="page-item"><a class="page-link" href="#">3</a></li>
+												<li class="page-item">
+													<a class="page-link" href="#">Next</a>
+												</li>
+												<li class="page-item">
+													<a class="page-link" href="#">Last</a>
+												</li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer th:replace="fragments/administration/common :: adminFooter"></footer>
+		</div>
+	</div>
+
+
+	<th:block th:replace="fragments/administration/common :: adminButton"></th:block>
+	<div th:replace="fragments/administration/common :: adminTheme"></div>
+
+	<th:block th:replace="fragments/administration/common :: adminScript"></th:block>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/front/clean/common :: cleanHead"></head>
+
+<body class="home home-3 title-3">
+	<div id="page" class="hfeed page-wrapper">
+		<header id="site-header" class="site-header header-v3"
+			th:replace="~{fragments/front/clean/common :: cleanHeader(${menuList})}">
+		</header>
+
+		<div id="site-main" class="site-main">
+			<div id="main-content" class="main-content">
+				<div id="primary" class="content-area">
+					<div id="title" class="page-title" style="background:url('/front/clean/new/b03.png');">
+						<div class="section-container">
+							<div class="content-title-heading">
+								<h1 class="text-title-heading">
+									갤러리
+								</h1>
+							</div>
+							<div class="breadcrumbs">
+								<a href="/">HOME</a><span class="delimiter"></span>갤러리
+							</div>
+						</div>
+					</div>
+
+					<div id="content" class="site-content" role="main">
+						<div class="page-contact">
+							<section class="section section-padding p-t-50 m-b-0">
+								<div class="section-container">
+									<div class="block block-intro service-title-wrap">
+										<div class="block-widget-wrap">
+											<div class="timeline">
+												<div class="container">
+													<div class="row">
+														<div class="col-lg-12">
+															<div class="timeline-container">
+																<div class="timeline-end">
+																	<p>The Gallery of HIDDEN BATH</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="section section-small-padding" id="gallery">
+								<!-- Block Product Categories -->
+								<div class="block block-product-cats layout-6 x-small-space">
+									<div class="block-content" id="image-gallery">
+										<div class="row">
+											<div class="col-lg-4 col-md-6 md-b-10 image" th:each="g:${gal}">
+												<div class="cat-item">
+													<div class="cat-image img-overlay">
+														<a th:href="@{${g.road}}">
+															<img th:src="@{${g.road}}"
+																alt="#">
+														</a>
+													</div>
+													<div class="cat-title img-overlay">
+														<a>자세히보기</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="site-footer" class="site-footer background"
+			th:replace="fragments/front/clean/common :: cleanFooter">
+		</footer>
+	</div>
+	<th:block th:replace="fragments/front/clean/common :: cleanScript"></th:block>
+	<script>
+		// Lightbox
+		var $overlay = $('<div id="overlay"></div>');
+		var $image = $("<img>");
+		var $prevButton = $('<div id="prevButton"><i class="fa fa-chevron-left"></i></div>');
+		var $nextButton = $('<div id="nextButton"><i class="fa fa-chevron-right"></i></div>');
+		var $exitButton = $('<div id="exitButton"><i class="fa fa-times"></i></div>');
+
+		// Add overlay
+		$overlay.append($image).prepend($prevButton).append($nextButton).append($exitButton);
+		$("#gallery").append($overlay);
+
+		// Hide overlay on default
+		$overlay.hide();
+
+		// When an image is clicked
+		$(".img-overlay").click(function (event) {
+			// Prevents default behavior
+			event.preventDefault();
+			// Adds href attribute to variable
+			var imageLocation = $(this).prev().children().attr("href");
+			console.log(imageLocation);
+			// Add the image src to $image
+			$image.attr("src", imageLocation);
+			// Fade in the overlay
+			$overlay.fadeIn("slow");
+		});
+
+		// When the overlay is clicked
+		$overlay.click(function () {
+			// Fade out the overlay
+			$(this).fadeOut("slow");
+		});
+
+		// When next button is clicked
+		$nextButton.click(function (event) {
+			// Hide the current image
+			$("#overlay img").hide();
+			// Overlay image location
+			var $currentImgSrc = $("#overlay img").attr("src");
+			// Image with matching location of the overlay image
+			var $currentImg = $('#image-gallery img[src="' + $currentImgSrc + '"]');
+			// Finds the next image
+			var $nextImg = $($currentImg.closest(".image").next().find("img"));
+			// All of the images in the gallery
+			var $images = $("#image-gallery img");
+			// If there is a next image
+			if ($nextImg.length > 0) {
+				// Fade in the next image
+				$("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
+			} else {
+				// Otherwise fade in the first image
+				$("#overlay img").attr("src", $($images[0]).attr("src")).fadeIn(800);
+			}
+			// Prevents overlay from being hidden
+			event.stopPropagation();
+		});
+
+		// When previous button is clicked
+		$prevButton.click(function (event) {
+			// Hide the current image
+			$("#overlay img").hide();
+			// Overlay image location
+			var $currentImgSrc = $("#overlay img").attr("src");
+			// Image with matching location of the overlay image
+			var $currentImg = $('#image-gallery img[src="' + $currentImgSrc + '"]');
+			// Finds the next image
+			var $nextImg = $($currentImg.closest(".image").prev().find("img"));
+			// Fade in the next image
+			$("#overlay img").attr("src", $nextImg.attr("src")).fadeIn(800);
+			// Prevents overlay from being hidden
+			event.stopPropagation();
+		});
+
+		// When the exit button is clicked
+		$exitButton.click(function () {
+			// Fade out the overlay
+			$("#overlay").fadeOut("slow");
+		});
+	</script>
+</body>
+
+</html>
