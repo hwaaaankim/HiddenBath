@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      data-layout="vertical"
+      data-topbar="light"
+      data-sidebar="dark"
+      data-sidebar-size="sm-hover-active"
+      data-sidebar-image="none"
+      data-preloader="disable">
+
+<head>
+    <th:block th:replace="~{fragments/administration/common :: adminHead}"></th:block>
+    <link rel="stylesheet" href="/administration/assets/css/accessManager.css">
+</head>
+
+<body>
+
+<div id="layout-wrapper">
+    <header th:replace="~{fragments/administration/common :: adminHeader}"></header>
+    <th:block th:replace="~{fragments/administration/common :: adminNav}"></th:block>
+
+    <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0">사이트관리</h4>
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">접속자관리</a></li>
+                                    <li class="breadcrumb-item active">접속자관리</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 검색 영역 -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card access-manager-card access-manager-search-card access-manager-animate-up">
+                            <div class="card-body">
+                                <form id="access-manager-search-form" class="access-manager-search-form" novalidate>
+                                    <div class="row g-3 align-items-end">
+                                        <div class="col-lg-3 col-md-6 col-12">
+                                            <label for="access-manager-from-date" class="form-label access-manager-label">시작일</label>
+                                            <input type="date"
+                                                   id="access-manager-from-date"
+                                                   class="form-control access-manager-form-control"
+                                                   th:value="${accessManagerFromDate}">
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-12">
+                                            <label for="access-manager-to-date" class="form-label access-manager-label">종료일</label>
+                                            <input type="date"
+                                                   id="access-manager-to-date"
+                                                   class="form-control access-manager-form-control"
+                                                   th:value="${accessManagerToDate}">
+                                        </div>
+                                        <div class="col-lg-2 col-md-4 col-12">
+                                            <button type="submit"
+                                                    id="access-manager-search-btn"
+                                                    class="btn btn-primary w-100 access-manager-btn">
+                                                <span class="access-manager-btn-text">검색</span>
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-2 col-md-4 col-12">
+                                            <button type="button"
+                                                    id="access-manager-reset-btn"
+                                                    class="btn btn-light w-100 access-manager-btn access-manager-btn-light">
+                                                최근 7일
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-2 col-md-4 col-12">
+                                            <button type="button"
+                                                    id="access-manager-excel-btn"
+                                                    class="btn btn-success w-100 access-manager-btn access-manager-btn-success">
+                                                엑셀 다운로드
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 요약 카드 -->
+                <div class="row g-3 access-manager-summary-row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="card access-manager-card access-manager-summary-card access-manager-animate-up">
+                            <div class="card-body">
+                                <div class="access-manager-summary-label">총 접속자</div>
+                                <div class="access-manager-summary-value" id="access-manager-total-visitors">0</div>
+                                <div class="access-manager-summary-sub">선택 기간 내 일별 UV 합계</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="card access-manager-card access-manager-summary-card access-manager-animate-up">
+                            <div class="card-body">
+                                <div class="access-manager-summary-label">총 페이지뷰</div>
+                                <div class="access-manager-summary-value" id="access-manager-total-pageviews">0</div>
+                                <div class="access-manager-summary-sub">선택 기간 내 PV 합계</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="card access-manager-card access-manager-summary-card access-manager-animate-up">
+                            <div class="card-body">
+                                <div class="access-manager-summary-label">평균 PV / 접속자</div>
+                                <div class="access-manager-summary-value" id="access-manager-avg-pageviews">0.00</div>
+                                <div class="access-manager-summary-sub">페이지 소비 정도</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="card access-manager-card access-manager-summary-card access-manager-animate-up">
+                            <div class="card-body">
+                                <div class="access-manager-summary-label">조회 일수</div>
+                                <div class="access-manager-summary-value" id="access-manager-period-days">0</div>
+                                <div class="access-manager-summary-sub">검색 범위 기준</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 중간 통계 -->
+                <div class="row g-3">
+                    <div class="col-lg-7 col-12">
+                        <div class="card access-manager-card access-manager-animate-up">
+                            <div class="card-header access-manager-card-header">
+                                <h5 class="card-title mb-0">일별 추이</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="access-manager-daily-chart" class="access-manager-daily-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-12">
+                        <div class="card access-manager-card access-manager-animate-up">
+                            <div class="card-header access-manager-card-header">
+                                <h5 class="card-title mb-0">많이 본 페이지</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="access-manager-top-pages" class="access-manager-top-pages"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 하단 일별 테이블 -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card access-manager-card access-manager-animate-up">
+                            <div class="card-header access-manager-card-header">
+                                <h5 class="card-title mb-0">일별 접속 통계</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive access-manager-table-wrap">
+                                    <table class="table align-middle mb-0 access-manager-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center">날짜</th>
+                                            <th class="text-center">접속자</th>
+                                            <th class="text-center">페이지뷰</th>
+                                            <th class="text-center">PV / 접속자</th>
+                                            <th class="text-center">상세</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="access-manager-daily-table-body">
+                                        <tr>
+                                            <td colspan="5" class="text-center access-manager-empty-cell">데이터를 불러오는 중입니다.</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer th:replace="~{fragments/administration/common :: adminFooter}"></footer>
+    </div>
+</div>
+
+<!-- 날짜별 페이지 상세 모달 -->
+<div class="modal fade" id="access-manager-daily-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content access-manager-modal-content">
+            <div class="modal-header access-manager-modal-header">
+                <h5 class="modal-title" id="access-manager-daily-modal-title">날짜별 페이지 상세</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive access-manager-modal-table-wrap">
+                    <table class="table align-middle mb-0 access-manager-modal-table">
+                        <thead>
+                        <tr>
+                            <th class="text-center">페이지 URI</th>
+                            <th class="text-center">페이지뷰</th>
+                            <th class="text-center">접속자수</th>
+                        </tr>
+                        </thead>
+                        <tbody id="access-manager-daily-modal-body">
+                        <tr>
+                            <td colspan="3" class="text-center access-manager-empty-cell">조회할 날짜를 선택해주세요.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 페이지 실제 접속 로그 모달 -->
+<div class="modal fade" id="access-manager-page-log-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content access-manager-modal-content">
+            <div class="modal-header access-manager-modal-header">
+                <h5 class="modal-title" id="access-manager-page-log-modal-title">페이지 접속 로그</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive access-manager-modal-table-wrap">
+                    <table class="table align-middle mb-0 access-manager-modal-table">
+                        <thead>
+                        <tr>
+                            <th class="text-center">접속시간</th>
+                            <th class="text-center">Referrer</th>
+                            <th class="text-center">IP</th>
+                            <th class="text-center">User-Agent</th>
+                        </tr>
+                        </thead>
+                        <tbody id="access-manager-page-log-modal-body">
+                        <tr>
+                            <td colspan="4" class="text-center access-manager-empty-cell">조회할 페이지를 선택해주세요.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="~{fragments/administration/common :: adminButton}"></th:block>
+<th:block th:replace="~{fragments/administration/common :: adminScript}"></th:block>
+
+<script src="/administration/assets/js/accessManager.js"></script>
+</body>
+</html>

@@ -9,25 +9,49 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.dev.HiddenBath.interceptor.LogInterceptor;
+import com.dev.HiddenBath.interceptor.SiteAnalyticsInterceptor;
+
+import lombok.RequiredArgsConstructor;
 
 @Configuration
+@RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer {
 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new LogInterceptor());
-	}
-	
-	@Value("${spring.upload.env}")
-	private String env;
+    private final LogInterceptor logInterceptor;
+    private final SiteAnalyticsInterceptor siteAnalyticsInterceptor;
 
-	@Value("${spring.upload.path}")
-	private String commonPath;
-	
-	@Override
+    @Value("${spring.upload.env}")
+    private String env;
+
+    @Value("${spring.upload.path}")
+    private String commonPath;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(logInterceptor)
+                .addPathPatterns("/**");
+
+        registry.addInterceptor(siteAnalyticsInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns(
+                        "/api/**",
+                        "/administration/upload/**",
+                        "/upload/**",
+                        "/css/**",
+                        "/js/**",
+                        "/images/**",
+                        "/img/**",
+                        "/fonts/**",
+                        "/webjars/**",
+                        "/favicon.ico",
+                        "/error"
+                );
+    }
+
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		String path = Paths.get(commonPath).toUri().toString();
+        String path = Paths.get(commonPath).toUri().toString();
         registry.addResourceHandler("/administration/upload/**")
-                .addResourceLocations(path); 
+                .addResourceLocations(path);
     }
 }

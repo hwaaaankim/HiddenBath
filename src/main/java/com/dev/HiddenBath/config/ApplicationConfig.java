@@ -1,6 +1,5 @@
 package com.dev.HiddenBath.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -18,15 +17,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ApplicationConfig {
 
-	@Autowired
-	PrincipalDetailsService principalDetailsService;
-	
+	private final PrincipalDetailsService principalDetailsService;
+
 	@Bean
-	AuthenticationProvider authenticationProvider() {
+	AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder) {
 		log.info("DaoAuthenticationProvider");
-		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-		authProvider.setUserDetailsService(principalDetailsService);
-		authProvider.setPasswordEncoder(passwordEncoder());
+		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider(principalDetailsService);
+		authProvider.setPasswordEncoder(passwordEncoder);
 		authProvider.setHideUserNotFoundExceptions(false);
 		return authProvider;
 	}

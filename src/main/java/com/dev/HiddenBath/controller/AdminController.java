@@ -65,10 +65,28 @@ public class AdminController {
     private final ConstructionRepository constructionRepository;
 
     
-    /* =========================
-     *       화면(뷰) 라우팅
-     * ========================= */
+    @GetMapping("/accessManager")
+    public String accessManager(
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fromDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate toDate,
+            Model model) {
 
+        LocalDate today = LocalDate.now();
+        LocalDate finalToDate = (toDate != null) ? toDate : today;
+        LocalDate finalFromDate = (fromDate != null) ? fromDate : finalToDate.minusDays(6);
+
+        if (finalFromDate.isAfter(finalToDate)) {
+            LocalDate temp = finalFromDate;
+            finalFromDate = finalToDate;
+            finalToDate = temp;
+        }
+
+        model.addAttribute("accessManagerFromDate", finalFromDate);
+        model.addAttribute("accessManagerToDate", finalToDate);
+
+        return "administration/site/accessManager";
+    }
+    
     @GetMapping({"/","", "/inquiryManager"})
     public String adminIndex(){
         return "administration/index";

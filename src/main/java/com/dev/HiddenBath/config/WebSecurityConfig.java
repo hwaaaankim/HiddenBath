@@ -3,6 +3,7 @@ package com.dev.HiddenBath.config;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -54,38 +55,39 @@ public class WebSecurityConfig {
 	}
 	
 	@Bean
-	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		
-		http.csrf((csrfConfig) ->  
-				csrfConfig.disable())
-			.headers((headerConfig) -> 
-				headerConfig
-					.frameOptions(frameOptionsConfig -> frameOptionsConfig.disable()))
-			.authorizeHttpRequests((authorizeRequests) -> 
-				authorizeRequests
-					.requestMatchers(adminsUrls).hasAuthority("ROLE_ADMIN")
-					.requestMatchers(visitorsUrls).permitAll()
-					.anyRequest().permitAll())
-			.formLogin((formLogin) -> 
-				formLogin
-					.loginPage("/loginForm")
-					.usernameParameter("username")
-					.passwordParameter("password")
-					.loginProcessingUrl("/signinProcess")
-					.defaultSuccessUrl("/admin/productManager", false))
-			.rememberMe((remember) -> 
-				remember
-					.rememberMeParameter("remember")
-					.userDetailsService(principalDetailsService)
-					.tokenValiditySeconds(60*60*24*30)
-					.alwaysRemember(false))
-			.logout((logoutConfig) -> 
-				logoutConfig
-					.logoutUrl("/logout")
-					.deleteCookies("JSESSIONID")
-					.invalidateHttpSession(true)
-					.logoutSuccessUrl("/"));
-			return http.build();
+	SecurityFilterChain filterChain(HttpSecurity http,
+	                                AuthenticationProvider authenticationProvider) throws Exception {
+
+	    http.authenticationProvider(authenticationProvider)
+	        .csrf(csrfConfig -> csrfConfig.disable())
+	        .headers(headerConfig ->
+	            headerConfig.frameOptions(frameOptionsConfig -> frameOptionsConfig.disable()))
+	        .authorizeHttpRequests(authorizeRequests ->
+	            authorizeRequests
+	                .requestMatchers(adminsUrls).hasAuthority("ROLE_ADMIN")
+	                .requestMatchers(visitorsUrls).permitAll()
+	                .anyRequest().permitAll())
+	        .formLogin(formLogin ->
+	            formLogin
+	                .loginPage("/loginForm")
+	                .usernameParameter("username")
+	                .passwordParameter("password")
+	                .loginProcessingUrl("/signinProcess")
+	                .defaultSuccessUrl("/admin/productManager", false))
+	        .rememberMe(remember ->
+	            remember
+	                .rememberMeParameter("remember")
+	                .userDetailsService(principalDetailsService)
+	                .tokenValiditySeconds(60 * 60 * 24 * 30)
+	                .alwaysRemember(false))
+	        .logout(logoutConfig ->
+	            logoutConfig
+	                .logoutUrl("/logout")
+	                .deleteCookies("JSESSIONID")
+	                .invalidateHttpSession(true)
+	                .logoutSuccessUrl("/"));
+
+	    return http.build();
 	}
 }
 
